@@ -14,7 +14,7 @@
 ```
 
 #  Deployment
-## Apache Pulsar  Cluster
+## 1. Apache Pulsar  Cluster
 1. The steps below show the process for Single Node Apache Pulsar Cluster
 2. Download the package and extract
 ```shell
@@ -30,7 +30,7 @@ cd apache-pulsar-2.9.1
 ```shell
 nohup bin/pulsar standalone &
 ```
-## DataStax Agent Deployment on each Cassandra Node
+## 2. DataStax Agent Deployment on each Cassandra Node
 ### Cassandra 3
 1. The instructions below work for Cassandra cluster installed from Datastax Cassandra Marketplace configuration. 
 2. Run the steps below on each of the Cassandra node. 
@@ -94,7 +94,7 @@ grep -i agent /var/log/cassandra/system.log
 ```
 
 ### Cassandra 4
-## Apache Pulsar Source Connector
+## 3. Apache Pulsar Source Connector
 1. Download Source Connector on Apache Pulsar node (or any other EC2 node).
 ```shell
 mkdir cassandra-source-connector
@@ -131,7 +131,7 @@ bin/pulsar-admin source create \
 bin/pulsar-admin source status --name cassandra-customers
 
 ```
-## Elastic Search 
+## 4.  Elastic Search 
 1. Single node cluster using docker. 
 2. SSH to the Amazon Linux 2 EC2 node where you want to deploy and install docker
 ```shell
@@ -147,7 +147,7 @@ docker run -d -p 9200:9200 -p 9300:9300     -e "discovery.type=single-node"     
 
 curl -s http://localhost:9200 
 ```
-## Apache Pulsar Elastic Search Sink Connector
+## 5.  Apache Pulsar Elastic Search Sink Connector
 1. Download Sink Connector on Apache Pulsar node (or any other EC2 node).
 ```shell
 
