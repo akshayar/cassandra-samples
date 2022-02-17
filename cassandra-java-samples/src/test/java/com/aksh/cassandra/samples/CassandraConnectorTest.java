@@ -4,8 +4,6 @@ import com.datastax.driver.core.ResultSet;
 import com.datastax.driver.core.Session;
 import org.junit.Assert;
 
-import static org.junit.Assert.*;
-
 public class CassandraConnectorTest {
 
     @org.junit.Test

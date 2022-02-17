@@ -1,0 +1,8 @@
+ docker run -p 9200:9200 -p 9300:9300     -e "discovery.type=single-node"     docker.elastic.co/elasticsearch/elasticsearch:7.13.3
+
+ curl -s http://localhost:9200/pocdb.customers/_search
+
+ npm install elasticdump -g
+ elasticdump --input=http://localhost:9200/pocdb.customers --output=es_index.json --type=data
+
+curl http://localhost:9200/pocdb.customers/_search?q=gmail.updated

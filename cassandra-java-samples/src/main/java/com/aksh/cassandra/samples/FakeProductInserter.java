@@ -1,16 +1,13 @@
 package com.aksh.cassandra.samples;
 
-import com.datastax.driver.core.BoundStatement;
 import com.datastax.driver.core.PreparedStatement;
 import com.datastax.driver.core.Session;
 import com.github.javafaker.Faker;
 import com.github.javafaker.Name;
 
-import java.sql.Time;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Queue;
-import java.util.concurrent.BlockingDeque;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.TimeUnit;
@@ -59,14 +56,16 @@ public class FakeProductInserter {
             map.put(PRDUCT_IN_HAND_UPDATE,session.prepare(PRDUCT_IN_HAND_UPDATE));
         }
         Long id=prodIdQueue.poll(5,TimeUnit.SECONDS);
+
         if(id!=null){
+
             session.execute(map.get(PRODUCT_UPDATE_CQL).bind(faker.regexify("[a-z1-9]{10} "),id));
             session.execute(map.get(PRDUCT_IN_HAND_UPDATE).bind(faker.number().numberBetween(1l,10000l),id));
         }
     }
 
-    private static final String CUSTOMER_INSERT_CQL="INSERT INTO pocdb.customers(id,first_name,last_name,email)\n" +
-            "  VALUES (?,?,?,?);";
+    private static final String CUSTOMER_INSERT_CQL="INSERT INTO pocdb.customers(id,first_name,last_name,email,insertdate)\n" +
+            "  VALUES (?,?,?,?,?);";
 
 
     public void insertCustomer(Session session) throws  InterruptedException{
@@ -76,10 +75,12 @@ public class FakeProductInserter {
         PreparedStatement preparedStatement=map.get(CUSTOMER_INSERT_CQL);
         Name name=faker.name();
         String email = faker.bothify("????##@gmail.com");
+        String date=new Date()+"";
         long id=faker.number().numberBetween(1l,10000l);
         boolean success=custIdQueue.offer(id,5, TimeUnit.SECONDS);
         if(success){
-            session.execute(preparedStatement.bind(id,name.firstName(),name.lastName(),email));
+            System.out.println(date);
+            session.execute(preparedStatement.bind(id,name.firstName(),name.lastName(),email,date));
         }
 
 
@@ -96,7 +97,9 @@ public class FakeProductInserter {
 
         Long id=custIdQueue.poll(5, TimeUnit.SECONDS);
         if(id!=null){
-            session.execute(map.get(CUSTOMER_UPDATE_CQL).bind(faker.bothify("????##@gmail.com"),id));
+            String email=faker.bothify("????##@gmail.updated");
+            System.out.println("id="+id+",email="+email);
+            session.execute(map.get(CUSTOMER_UPDATE_CQL).bind(email,id));
         }
 
     }

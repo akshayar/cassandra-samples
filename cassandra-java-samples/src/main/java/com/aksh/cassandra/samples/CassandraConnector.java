@@ -1,12 +1,10 @@
 package com.aksh.cassandra.samples;
 
 import com.datastax.driver.core.Cluster;
-import com.datastax.driver.core.ResultSet;
 import com.datastax.driver.core.Session;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.util.List;
 
 public class CassandraConnector {
 

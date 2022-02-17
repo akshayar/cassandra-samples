@@ -5,8 +5,6 @@ import com.datastax.driver.core.Session;
 import java.util.Random;
 import java.util.stream.IntStream;
 
-import static org.junit.Assert.*;
-
 public class FakeProductInserterTest {
     @org.junit.Test
     public void insertFakeProduct() throws Exception{
