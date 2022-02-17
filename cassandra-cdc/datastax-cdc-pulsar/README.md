@@ -7,10 +7,16 @@
 # Pre-requisite
 1. Apache Cassandra cluster is deployed and CDC is enabled on each node. 
 2. schema.sql is run which creates the test scheme where CDC is enables for required tables. 
-3. For Cassandra 3 ensure that CommitLogs are flushed frequently. Add a cron job to each Cassandra node. 
+3. For Cassandra 3 ensure that CommitLogs are flushed frequently.
+3.a  Add a cron job to each Cassandra node. The cron runs every 1 min in below example which is not a recommended config for production load. 
 ```shell
 ## SSH to each cassandra node and add following cron or similar. The cron below is for each min. 
 */1* * * * * /usr/share/oss/bin/nodetool flush >> /home/ubuntu/cronlog 2>&1
+```
+3.b Modify /usr/share/oss/conf/cassandra.yaml and set values of commitlog_segment_size_in_mb and commitlog_total_space_in_mb artificially low. This is not a recommended config for production load. 
+```shell
+commitlog_segment_size_in_mb: 1
+commitlog_total_space_in_mb: 256
 ```
 
 #  Deployment
