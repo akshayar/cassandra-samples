@@ -1,0 +1,5 @@
+sert Record key:
+{"id":4},
+value:{"id":400,"email":"annek@noanswerd.org","first_name":"Annea","insertdate":null,"last_name":"Kretchmar"}
+
+INSERT INTO pocdb.customers JSON '{"id":400,"email":"annek@noanswerd.org","first_name":"Annea","insertdate":null,"last_name":"Kretchmar"}'

@@ -17,13 +17,13 @@ bin/pulsar-admin source create \
 --archive /home/ec2-user/cassandra-source-connectors/cassandra-source-connectors-1.0.1/pulsar-cassandra-source-1.0.1.nar \
 --tenant public \
 --namespace default \
---destination-topic-name public/default/data-pocdb.customers \
+--destination-topic-name public/default/data-ecommerce.customers \
 --parallelism 1 \
 --source-config '{
-"events.topic": "persistent://public/default/events-pocdb.customers",
-"keyspace": "pocdb",
+"events.topic": "persistent://public/default/events-ecommerce.customers",
+"keyspace": "ecommerce",
 "table": "customers",
-"contactPoints": "10.0.131.46",
+"contactPoints": "10.0.131.64",
 "port": 9042,
 "loadBalancing.localDc": "OSS-dc0",
 "auth.provider": "PLAIN",

@@ -1,0 +1,1529 @@
+{
+  "sourceRecord": {},
+  "value": {
+    "nativeObject": {
+      "key": {
+        "schema": {
+          "fields": [
+            {
+              "name": "id",
+              "position": 0,
+              "schema": {
+                "type": "LONG",
+                "hashCode": -2147483648,
+                "props": {},
+                "reserved": [
+                  "aliases",
+                  "size",
+                  "values",
+                  "name",
+                  "namespace",
+                  "doc",
+                  "fields",
+                  "type",
+                  "items",
+                  "symbols"
+                ]
+              },
+              "order": "ASCENDING",
+              "props": {},
+              "reserved": [
+                "default",
+                "aliases",
+                "name",
+                "doc",
+                "type",
+                "order"
+              ]
+            }
+          ],
+          "fieldMap": {
+            "id": {
+              "name": "id",
+              "position": 0,
+              "schema": {
+                "type": "LONG",
+                "hashCode": -2147483648,
+                "props": {},
+                "reserved": [
+                  "aliases",
+                  "size",
+                  "values",
+                  "name",
+                  "namespace",
+                  "doc",
+                  "fields",
+                  "type",
+                  "items",
+                  "symbols"
+                ]
+              },
+              "order": "ASCENDING",
+              "props": {},
+              "reserved": [
+                "default",
+                "aliases",
+                "name",
+                "doc",
+                "type",
+                "order"
+              ]
+            }
+          },
+          "isError": false,
+          "name": {
+            "name": "customers",
+            "space": "pocdb",
+            "full": "pocdb.customers"
+          },
+          "doc": "Table pocdb.customers",
+          "type": "RECORD",
+          "hashCode": -2147483648,
+          "props": {
+            "__AVRO_READ_OFFSET__": {
+              "_value": "0"
+            }
+          },
+          "reserved": [
+            "aliases",
+            "size",
+            "values",
+            "name",
+            "namespace",
+            "doc",
+            "fields",
+            "type",
+            "items",
+            "symbols"
+          ]
+        },
+        "record": {
+          "schema": {
+            "fields": [
+              {
+                "name": "id",
+                "position": 0,
+                "schema": {
+                  "type": "LONG",
+                  "hashCode": -2147483648,
+                  "props": {},
+                  "reserved": [
+                    "aliases",
+                    "size",
+                    "values",
+                    "name",
+                    "namespace",
+                    "doc",
+                    "fields",
+                    "type",
+                    "items",
+                    "symbols"
+                  ]
+                },
+                "order": "ASCENDING",
+                "props": {},
+                "reserved": [
+                  "default",
+                  "aliases",
+                  "name",
+                  "doc",
+                  "type",
+                  "order"
+                ]
+              }
+            ],
+            "fieldMap": {
+              "id": {
+                "name": "id",
+                "position": 0,
+                "schema": {
+                  "type": "LONG",
+                  "hashCode": -2147483648,
+                  "props": {},
+                  "reserved": [
+                    "aliases",
+                    "size",
+                    "values",
+                    "name",
+                    "namespace",
+                    "doc",
+                    "fields",
+                    "type",
+                    "items",
+                    "symbols"
+                  ]
+                },
+                "order": "ASCENDING",
+                "props": {},
+                "reserved": [
+                  "default",
+                  "aliases",
+                  "name",
+                  "doc",
+                  "type",
+                  "order"
+                ]
+              }
+            },
+            "isError": false,
+            "name": {
+              "name": "customers",
+              "space": "pocdb",
+              "full": "pocdb.customers"
+            },
+            "doc": "Table pocdb.customers",
+            "type": "RECORD",
+            "hashCode": -2147483648,
+            "props": {
+              "__AVRO_READ_OFFSET__": {
+                "_value": "0"
+              }
+            },
+            "reserved": [
+              "aliases",
+              "size",
+              "values",
+              "name",
+              "namespace",
+              "doc",
+              "fields",
+              "type",
+              "items",
+              "symbols"
+            ]
+          },
+          "values": [
+            4
+          ]
+        },
+        "schemaVersion": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "fields": [
+          {
+            "name": "id",
+            "index": 0
+          }
+        ]
+      },
+      "value": {
+        "schema": {
+          "fields": [
+            {
+              "name": "email",
+              "position": 0,
+              "schema": {
+                "types": [
+                  {
+                    "type": "NULL",
+                    "hashCode": -2147483648,
+                    "props": {},
+                    "reserved": [
+                      "aliases",
+                      "size",
+                      "values",
+                      "name",
+                      "namespace",
+                      "doc",
+                      "fields",
+                      "type",
+                      "items",
+                      "symbols"
+                    ]
+                  },
+                  {
+                    "type": "STRING",
+                    "hashCode": -2147483648,
+                    "props": {},
+                    "reserved": [
+                      "aliases",
+                      "size",
+                      "values",
+                      "name",
+                      "namespace",
+                      "doc",
+                      "fields",
+                      "type",
+                      "items",
+                      "symbols"
+                    ]
+                  }
+                ],
+                "indexByName": {
+                  "null": 0,
+                  "string": 1
+                },
+                "type": "UNION",
+                "hashCode": -2147483648,
+                "props": {},
+                "reserved": [
+                  "aliases",
+                  "size",
+                  "values",
+                  "name",
+                  "namespace",
+                  "doc",
+                  "fields",
+                  "type",
+                  "items",
+                  "symbols"
+                ]
+              },
+              "defaultValue": {},
+              "order": "ASCENDING",
+              "props": {},
+              "reserved": [
+                "default",
+                "aliases",
+                "name",
+                "doc",
+                "type",
+                "order"
+              ]
+            },
+            {
+              "name": "first_name",
+              "position": 1,
+              "schema": {
+                "types": [
+                  {
+                    "type": "NULL",
+                    "hashCode": -2147483648,
+                    "props": {},
+                    "reserved": [
+                      "aliases",
+                      "size",
+                      "values",
+                      "name",
+                      "namespace",
+                      "doc",
+                      "fields",
+                      "type",
+                      "items",
+                      "symbols"
+                    ]
+                  },
+                  {
+                    "type": "STRING",
+                    "hashCode": -2147483648,
+                    "props": {},
+                    "reserved": [
+                      "aliases",
+                      "size",
+                      "values",
+                      "name",
+                      "namespace",
+                      "doc",
+                      "fields",
+                      "type",
+                      "items",
+                      "symbols"
+                    ]
+                  }
+                ],
+                "indexByName": {
+                  "null": 0,
+                  "string": 1
+                },
+                "type": "UNION",
+                "hashCode": -2147483648,
+                "props": {},
+                "reserved": [
+                  "aliases",
+                  "size",
+                  "values",
+                  "name",
+                  "namespace",
+                  "doc",
+                  "fields",
+                  "type",
+                  "items",
+                  "symbols"
+                ]
+              },
+              "defaultValue": {},
+              "order": "ASCENDING",
+              "props": {},
+              "reserved": [
+                "default",
+                "aliases",
+                "name",
+                "doc",
+                "type",
+                "order"
+              ]
+            },
+            {
+              "name": "insertdate",
+              "position": 2,
+              "schema": {
+                "types": [
+                  {
+                    "type": "NULL",
+                    "hashCode": -2147483648,
+                    "props": {},
+                    "reserved": [
+                      "aliases",
+                      "size",
+                      "values",
+                      "name",
+                      "namespace",
+                      "doc",
+                      "fields",
+                      "type",
+                      "items",
+                      "symbols"
+                    ]
+                  },
+                  {
+                    "type": "STRING",
+                    "hashCode": -2147483648,
+                    "props": {},
+                    "reserved": [
+                      "aliases",
+                      "size",
+                      "values",
+                      "name",
+                      "namespace",
+                      "doc",
+                      "fields",
+                      "type",
+                      "items",
+                      "symbols"
+                    ]
+                  }
+                ],
+                "indexByName": {
+                  "null": 0,
+                  "string": 1
+                },
+                "type": "UNION",
+                "hashCode": -2147483648,
+                "props": {},
+                "reserved": [
+                  "aliases",
+                  "size",
+                  "values",
+                  "name",
+                  "namespace",
+                  "doc",
+                  "fields",
+                  "type",
+                  "items",
+                  "symbols"
+                ]
+              },
+              "defaultValue": {},
+              "order": "ASCENDING",
+              "props": {},
+              "reserved": [
+                "default",
+                "aliases",
+                "name",
+                "doc",
+                "type",
+                "order"
+              ]
+            },
+            {
+              "name": "last_name",
+              "position": 3,
+              "schema": {
+                "types": [
+                  {
+                    "type": "NULL",
+                    "hashCode": -2147483648,
+                    "props": {},
+                    "reserved": [
+                      "aliases",
+                      "size",
+                      "values",
+                      "name",
+                      "namespace",
+                      "doc",
+                      "fields",
+                      "type",
+                      "items",
+                      "symbols"
+                    ]
+                  },
+                  {
+                    "type": "STRING",
+                    "hashCode": -2147483648,
+                    "props": {},
+                    "reserved": [
+                      "aliases",
+                      "size",
+                      "values",
+                      "name",
+                      "namespace",
+                      "doc",
+                      "fields",
+                      "type",
+                      "items",
+                      "symbols"
+                    ]
+                  }
+                ],
+                "indexByName": {
+                  "null": 0,
+                  "string": 1
+                },
+                "type": "UNION",
+                "hashCode": -2147483648,
+                "props": {},
+                "reserved": [
+                  "aliases",
+                  "size",
+                  "values",
+                  "name",
+                  "namespace",
+                  "doc",
+                  "fields",
+                  "type",
+                  "items",
+                  "symbols"
+                ]
+              },
+              "defaultValue": {},
+              "order": "ASCENDING",
+              "props": {},
+              "reserved": [
+                "default",
+                "aliases",
+                "name",
+                "doc",
+                "type",
+                "order"
+              ]
+            }
+          ],
+          "fieldMap": {
+            "last_name": {
+              "name": "last_name",
+              "position": 3,
+              "schema": {
+                "types": [
+                  {
+                    "type": "NULL",
+                    "hashCode": -2147483648,
+                    "props": {},
+                    "reserved": [
+                      "aliases",
+                      "size",
+                      "values",
+                      "name",
+                      "namespace",
+                      "doc",
+                      "fields",
+                      "type",
+                      "items",
+                      "symbols"
+                    ]
+                  },
+                  {
+                    "type": "STRING",
+                    "hashCode": -2147483648,
+                    "props": {},
+                    "reserved": [
+                      "aliases",
+                      "size",
+                      "values",
+                      "name",
+                      "namespace",
+                      "doc",
+                      "fields",
+                      "type",
+                      "items",
+                      "symbols"
+                    ]
+                  }
+                ],
+                "indexByName": {
+                  "null": 0,
+                  "string": 1
+                },
+                "type": "UNION",
+                "hashCode": -2147483648,
+                "props": {},
+                "reserved": [
+                  "aliases",
+                  "size",
+                  "values",
+                  "name",
+                  "namespace",
+                  "doc",
+                  "fields",
+                  "type",
+                  "items",
+                  "symbols"
+                ]
+              },
+              "defaultValue": {},
+              "order": "ASCENDING",
+              "props": {},
+              "reserved": [
+                "default",
+                "aliases",
+                "name",
+                "doc",
+                "type",
+                "order"
+              ]
+            },
+            "insertdate": {
+              "name": "insertdate",
+              "position": 2,
+              "schema": {
+                "types": [
+                  {
+                    "type": "NULL",
+                    "hashCode": -2147483648,
+                    "props": {},
+                    "reserved": [
+                      "aliases",
+                      "size",
+                      "values",
+                      "name",
+                      "namespace",
+                      "doc",
+                      "fields",
+                      "type",
+                      "items",
+                      "symbols"
+                    ]
+                  },
+                  {
+                    "type": "STRING",
+                    "hashCode": -2147483648,
+                    "props": {},
+                    "reserved": [
+                      "aliases",
+                      "size",
+                      "values",
+                      "name",
+                      "namespace",
+                      "doc",
+                      "fields",
+                      "type",
+                      "items",
+                      "symbols"
+                    ]
+                  }
+                ],
+                "indexByName": {
+                  "null": 0,
+                  "string": 1
+                },
+                "type": "UNION",
+                "hashCode": -2147483648,
+                "props": {},
+                "reserved": [
+                  "aliases",
+                  "size",
+                  "values",
+                  "name",
+                  "namespace",
+                  "doc",
+                  "fields",
+                  "type",
+                  "items",
+                  "symbols"
+                ]
+              },
+              "defaultValue": {},
+              "order": "ASCENDING",
+              "props": {},
+              "reserved": [
+                "default",
+                "aliases",
+                "name",
+                "doc",
+                "type",
+                "order"
+              ]
+            },
+            "first_name": {
+              "name": "first_name",
+              "position": 1,
+              "schema": {
+                "types": [
+                  {
+                    "type": "NULL",
+                    "hashCode": -2147483648,
+                    "props": {},
+                    "reserved": [
+                      "aliases",
+                      "size",
+                      "values",
+                      "name",
+                      "namespace",
+                      "doc",
+                      "fields",
+                      "type",
+                      "items",
+                      "symbols"
+                    ]
+                  },
+                  {
+                    "type": "STRING",
+                    "hashCode": -2147483648,
+                    "props": {},
+                    "reserved": [
+                      "aliases",
+                      "size",
+                      "values",
+                      "name",
+                      "namespace",
+                      "doc",
+                      "fields",
+                      "type",
+                      "items",
+                      "symbols"
+                    ]
+                  }
+                ],
+                "indexByName": {
+                  "null": 0,
+                  "string": 1
+                },
+                "type": "UNION",
+                "hashCode": -2147483648,
+                "props": {},
+                "reserved": [
+                  "aliases",
+                  "size",
+                  "values",
+                  "name",
+                  "namespace",
+                  "doc",
+                  "fields",
+                  "type",
+                  "items",
+                  "symbols"
+                ]
+              },
+              "defaultValue": {},
+              "order": "ASCENDING",
+              "props": {},
+              "reserved": [
+                "default",
+                "aliases",
+                "name",
+                "doc",
+                "type",
+                "order"
+              ]
+            },
+            "email": {
+              "name": "email",
+              "position": 0,
+              "schema": {
+                "types": [
+                  {
+                    "type": "NULL",
+                    "hashCode": -2147483648,
+                    "props": {},
+                    "reserved": [
+                      "aliases",
+                      "size",
+                      "values",
+                      "name",
+                      "namespace",
+                      "doc",
+                      "fields",
+                      "type",
+                      "items",
+                      "symbols"
+                    ]
+                  },
+                  {
+                    "type": "STRING",
+                    "hashCode": -2147483648,
+                    "props": {},
+                    "reserved": [
+                      "aliases",
+                      "size",
+                      "values",
+                      "name",
+                      "namespace",
+                      "doc",
+                      "fields",
+                      "type",
+                      "items",
+                      "symbols"
+                    ]
+                  }
+                ],
+                "indexByName": {
+                  "null": 0,
+                  "string": 1
+                },
+                "type": "UNION",
+                "hashCode": -2147483648,
+                "props": {},
+                "reserved": [
+                  "aliases",
+                  "size",
+                  "values",
+                  "name",
+                  "namespace",
+                  "doc",
+                  "fields",
+                  "type",
+                  "items",
+                  "symbols"
+                ]
+              },
+              "defaultValue": {},
+              "order": "ASCENDING",
+              "props": {},
+              "reserved": [
+                "default",
+                "aliases",
+                "name",
+                "doc",
+                "type",
+                "order"
+              ]
+            }
+          },
+          "isError": false,
+          "name": {
+            "name": "customers",
+            "space": "pocdb",
+            "full": "pocdb.customers"
+          },
+          "doc": "Table pocdb.customers",
+          "type": "RECORD",
+          "hashCode": -2147483648,
+          "props": {
+            "__AVRO_READ_OFFSET__": {
+              "_value": "0"
+            }
+          },
+          "reserved": [
+            "aliases",
+            "size",
+            "values",
+            "name",
+            "namespace",
+            "doc",
+            "fields",
+            "type",
+            "items",
+            "symbols"
+          ]
+        },
+        "record": {
+          "schema": {
+            "fields": [
+              {
+                "name": "email",
+                "position": 0,
+                "schema": {
+                  "types": [
+                    {
+                      "type": "NULL",
+                      "hashCode": -2147483648,
+                      "props": {},
+                      "reserved": [
+                        "aliases",
+                        "size",
+                        "values",
+                        "name",
+                        "namespace",
+                        "doc",
+                        "fields",
+                        "type",
+                        "items",
+                        "symbols"
+                      ]
+                    },
+                    {
+                      "type": "STRING",
+                      "hashCode": -2147483648,
+                      "props": {},
+                      "reserved": [
+                        "aliases",
+                        "size",
+                        "values",
+                        "name",
+                        "namespace",
+                        "doc",
+                        "fields",
+                        "type",
+                        "items",
+                        "symbols"
+                      ]
+                    }
+                  ],
+                  "indexByName": {
+                    "null": 0,
+                    "string": 1
+                  },
+                  "type": "UNION",
+                  "hashCode": -2147483648,
+                  "props": {},
+                  "reserved": [
+                    "aliases",
+                    "size",
+                    "values",
+                    "name",
+                    "namespace",
+                    "doc",
+                    "fields",
+                    "type",
+                    "items",
+                    "symbols"
+                  ]
+                },
+                "defaultValue": {},
+                "order": "ASCENDING",
+                "props": {},
+                "reserved": [
+                  "default",
+                  "aliases",
+                  "name",
+                  "doc",
+                  "type",
+                  "order"
+                ]
+              },
+              {
+                "name": "first_name",
+                "position": 1,
+                "schema": {
+                  "types": [
+                    {
+                      "type": "NULL",
+                      "hashCode": -2147483648,
+                      "props": {},
+                      "reserved": [
+                        "aliases",
+                        "size",
+                        "values",
+                        "name",
+                        "namespace",
+                        "doc",
+                        "fields",
+                        "type",
+                        "items",
+                        "symbols"
+                      ]
+                    },
+                    {
+                      "type": "STRING",
+                      "hashCode": -2147483648,
+                      "props": {},
+                      "reserved": [
+                        "aliases",
+                        "size",
+                        "values",
+                        "name",
+                        "namespace",
+                        "doc",
+                        "fields",
+                        "type",
+                        "items",
+                        "symbols"
+                      ]
+                    }
+                  ],
+                  "indexByName": {
+                    "null": 0,
+                    "string": 1
+                  },
+                  "type": "UNION",
+                  "hashCode": -2147483648,
+                  "props": {},
+                  "reserved": [
+                    "aliases",
+                    "size",
+                    "values",
+                    "name",
+                    "namespace",
+                    "doc",
+                    "fields",
+                    "type",
+                    "items",
+                    "symbols"
+                  ]
+                },
+                "defaultValue": {},
+                "order": "ASCENDING",
+                "props": {},
+                "reserved": [
+                  "default",
+                  "aliases",
+                  "name",
+                  "doc",
+                  "type",
+                  "order"
+                ]
+              },
+              {
+                "name": "insertdate",
+                "position": 2,
+                "schema": {
+                  "types": [
+                    {
+                      "type": "NULL",
+                      "hashCode": -2147483648,
+                      "props": {},
+                      "reserved": [
+                        "aliases",
+                        "size",
+                        "values",
+                        "name",
+                        "namespace",
+                        "doc",
+                        "fields",
+                        "type",
+                        "items",
+                        "symbols"
+                      ]
+                    },
+                    {
+                      "type": "STRING",
+                      "hashCode": -2147483648,
+                      "props": {},
+                      "reserved": [
+                        "aliases",
+                        "size",
+                        "values",
+                        "name",
+                        "namespace",
+                        "doc",
+                        "fields",
+                        "type",
+                        "items",
+                        "symbols"
+                      ]
+                    }
+                  ],
+                  "indexByName": {
+                    "null": 0,
+                    "string": 1
+                  },
+                  "type": "UNION",
+                  "hashCode": -2147483648,
+                  "props": {},
+                  "reserved": [
+                    "aliases",
+                    "size",
+                    "values",
+                    "name",
+                    "namespace",
+                    "doc",
+                    "fields",
+                    "type",
+                    "items",
+                    "symbols"
+                  ]
+                },
+                "defaultValue": {},
+                "order": "ASCENDING",
+                "props": {},
+                "reserved": [
+                  "default",
+                  "aliases",
+                  "name",
+                  "doc",
+                  "type",
+                  "order"
+                ]
+              },
+              {
+                "name": "last_name",
+                "position": 3,
+                "schema": {
+                  "types": [
+                    {
+                      "type": "NULL",
+                      "hashCode": -2147483648,
+                      "props": {},
+                      "reserved": [
+                        "aliases",
+                        "size",
+                        "values",
+                        "name",
+                        "namespace",
+                        "doc",
+                        "fields",
+                        "type",
+                        "items",
+                        "symbols"
+                      ]
+                    },
+                    {
+                      "type": "STRING",
+                      "hashCode": -2147483648,
+                      "props": {},
+                      "reserved": [
+                        "aliases",
+                        "size",
+                        "values",
+                        "name",
+                        "namespace",
+                        "doc",
+                        "fields",
+                        "type",
+                        "items",
+                        "symbols"
+                      ]
+                    }
+                  ],
+                  "indexByName": {
+                    "null": 0,
+                    "string": 1
+                  },
+                  "type": "UNION",
+                  "hashCode": -2147483648,
+                  "props": {},
+                  "reserved": [
+                    "aliases",
+                    "size",
+                    "values",
+                    "name",
+                    "namespace",
+                    "doc",
+                    "fields",
+                    "type",
+                    "items",
+                    "symbols"
+                  ]
+                },
+                "defaultValue": {},
+                "order": "ASCENDING",
+                "props": {},
+                "reserved": [
+                  "default",
+                  "aliases",
+                  "name",
+                  "doc",
+                  "type",
+                  "order"
+                ]
+              }
+            ],
+            "fieldMap": {
+              "last_name": {
+                "name": "last_name",
+                "position": 3,
+                "schema": {
+                  "types": [
+                    {
+                      "type": "NULL",
+                      "hashCode": -2147483648,
+                      "props": {},
+                      "reserved": [
+                        "aliases",
+                        "size",
+                        "values",
+                        "name",
+                        "namespace",
+                        "doc",
+                        "fields",
+                        "type",
+                        "items",
+                        "symbols"
+                      ]
+                    },
+                    {
+                      "type": "STRING",
+                      "hashCode": -2147483648,
+                      "props": {},
+                      "reserved": [
+                        "aliases",
+                        "size",
+                        "values",
+                        "name",
+                        "namespace",
+                        "doc",
+                        "fields",
+                        "type",
+                        "items",
+                        "symbols"
+                      ]
+                    }
+                  ],
+                  "indexByName": {
+                    "null": 0,
+                    "string": 1
+                  },
+                  "type": "UNION",
+                  "hashCode": -2147483648,
+                  "props": {},
+                  "reserved": [
+                    "aliases",
+                    "size",
+                    "values",
+                    "name",
+                    "namespace",
+                    "doc",
+                    "fields",
+                    "type",
+                    "items",
+                    "symbols"
+                  ]
+                },
+                "defaultValue": {},
+                "order": "ASCENDING",
+                "props": {},
+                "reserved": [
+                  "default",
+                  "aliases",
+                  "name",
+                  "doc",
+                  "type",
+                  "order"
+                ]
+              },
+              "insertdate": {
+                "name": "insertdate",
+                "position": 2,
+                "schema": {
+                  "types": [
+                    {
+                      "type": "NULL",
+                      "hashCode": -2147483648,
+                      "props": {},
+                      "reserved": [
+                        "aliases",
+                        "size",
+                        "values",
+                        "name",
+                        "namespace",
+                        "doc",
+                        "fields",
+                        "type",
+                        "items",
+                        "symbols"
+                      ]
+                    },
+                    {
+                      "type": "STRING",
+                      "hashCode": -2147483648,
+                      "props": {},
+                      "reserved": [
+                        "aliases",
+                        "size",
+                        "values",
+                        "name",
+                        "namespace",
+                        "doc",
+                        "fields",
+                        "type",
+                        "items",
+                        "symbols"
+                      ]
+                    }
+                  ],
+                  "indexByName": {
+                    "null": 0,
+                    "string": 1
+                  },
+                  "type": "UNION",
+                  "hashCode": -2147483648,
+                  "props": {},
+                  "reserved": [
+                    "aliases",
+                    "size",
+                    "values",
+                    "name",
+                    "namespace",
+                    "doc",
+                    "fields",
+                    "type",
+                    "items",
+                    "symbols"
+                  ]
+                },
+                "defaultValue": {},
+                "order": "ASCENDING",
+                "props": {},
+                "reserved": [
+                  "default",
+                  "aliases",
+                  "name",
+                  "doc",
+                  "type",
+                  "order"
+                ]
+              },
+              "first_name": {
+                "name": "first_name",
+                "position": 1,
+                "schema": {
+                  "types": [
+                    {
+                      "type": "NULL",
+                      "hashCode": -2147483648,
+                      "props": {},
+                      "reserved": [
+                        "aliases",
+                        "size",
+                        "values",
+                        "name",
+                        "namespace",
+                        "doc",
+                        "fields",
+                        "type",
+                        "items",
+                        "symbols"
+                      ]
+                    },
+                    {
+                      "type": "STRING",
+                      "hashCode": -2147483648,
+                      "props": {},
+                      "reserved": [
+                        "aliases",
+                        "size",
+                        "values",
+                        "name",
+                        "namespace",
+                        "doc",
+                        "fields",
+                        "type",
+                        "items",
+                        "symbols"
+                      ]
+                    }
+                  ],
+                  "indexByName": {
+                    "null": 0,
+                    "string": 1
+                  },
+                  "type": "UNION",
+                  "hashCode": -2147483648,
+                  "props": {},
+                  "reserved": [
+                    "aliases",
+                    "size",
+                    "values",
+                    "name",
+                    "namespace",
+                    "doc",
+                    "fields",
+                    "type",
+                    "items",
+                    "symbols"
+                  ]
+                },
+                "defaultValue": {},
+                "order": "ASCENDING",
+                "props": {},
+                "reserved": [
+                  "default",
+                  "aliases",
+                  "name",
+                  "doc",
+                  "type",
+                  "order"
+                ]
+              },
+              "email": {
+                "name": "email",
+                "position": 0,
+                "schema": {
+                  "types": [
+                    {
+                      "type": "NULL",
+                      "hashCode": -2147483648,
+                      "props": {},
+                      "reserved": [
+                        "aliases",
+                        "size",
+                        "values",
+                        "name",
+                        "namespace",
+                        "doc",
+                        "fields",
+                        "type",
+                        "items",
+                        "symbols"
+                      ]
+                    },
+                    {
+                      "type": "STRING",
+                      "hashCode": -2147483648,
+                      "props": {},
+                      "reserved": [
+                        "aliases",
+                        "size",
+                        "values",
+                        "name",
+                        "namespace",
+                        "doc",
+                        "fields",
+                        "type",
+                        "items",
+                        "symbols"
+                      ]
+                    }
+                  ],
+                  "indexByName": {
+                    "null": 0,
+                    "string": 1
+                  },
+                  "type": "UNION",
+                  "hashCode": -2147483648,
+                  "props": {},
+                  "reserved": [
+                    "aliases",
+                    "size",
+                    "values",
+                    "name",
+                    "namespace",
+                    "doc",
+                    "fields",
+                    "type",
+                    "items",
+                    "symbols"
+                  ]
+                },
+                "defaultValue": {},
+                "order": "ASCENDING",
+                "props": {},
+                "reserved": [
+                  "default",
+                  "aliases",
+                  "name",
+                  "doc",
+                  "type",
+                  "order"
+                ]
+              }
+            },
+            "isError": false,
+            "name": {
+              "name": "customers",
+              "space": "pocdb",
+              "full": "pocdb.customers"
+            },
+            "doc": "Table pocdb.customers",
+            "type": "RECORD",
+            "hashCode": -2147483648,
+            "props": {
+              "__AVRO_READ_OFFSET__": {
+                "_value": "0"
+              }
+            },
+            "reserved": [
+              "aliases",
+              "size",
+              "values",
+              "name",
+              "namespace",
+              "doc",
+              "fields",
+              "type",
+              "items",
+              "symbols"
+            ]
+          },
+          "values": [
+            {
+              "bytes": [
+                97,
+                110,
+                110,
+                101,
+                107,
+                64,
+                110,
+                111,
+                97,
+                110,
+                115,
+                119,
+                101,
+                114,
+                46,
+                111,
+                114,
+                103
+              ],
+              "hash": 0,
+              "length": 18
+            },
+            {
+              "bytes": [
+                65,
+                110,
+                110,
+                101
+              ],
+              "hash": 0,
+              "length": 4
+            },
+            null,
+            {
+              "bytes": [
+                75,
+                114,
+                101,
+                116,
+                99,
+                104,
+                109,
+                97,
+                114
+              ],
+              "hash": 0,
+              "length": 9
+            }
+          ]
+        },
+        "schemaVersion": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "fields": [
+          {
+            "name": "email",
+            "index": 0
+          },
+          {
+            "name": "first_name",
+            "index": 1
+          },
+          {
+            "name": "insertdate",
+            "index": 2
+          },
+          {
+            "name": "last_name",
+            "index": 3
+          }
+        ]
+      }
+    },
+    "schemaType": "KEY_VALUE",
+    "schemaVersion": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

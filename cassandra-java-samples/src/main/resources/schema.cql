@@ -50,7 +50,10 @@ CREATE TABLE customers (
   first_name varchar,
   last_name varchar,
   email varchar,
+  insertdate text,
 ) WITH cdc=true;
+
+
 
 INSERT INTO customers(id,first_name,last_name,email)
   VALUES (1,'Sally','Thomas','sally.thomas@acme.com');

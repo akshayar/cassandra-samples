@@ -1,0 +1,233 @@
+<!-- Licensed to the Apache Software Foundation (ASF) under one or more contributor 
+	license agreements. See the NOTICE file distributed with this work for additional 
+	information regarding copyright ownership. The ASF licenses this file to 
+	you under the Apache License, Version 2.0 (the "License"); you may not use 
+	this file except in compliance with the License. You may obtain a copy of 
+	the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required 
+	by applicable law or agreed to in writing, software distributed under the 
+	License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS 
+	OF ANY KIND, either express or implied. See the License for the specific 
+	language governing permissions and limitations under the License. -->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<parent>
+		<groupId>org.apache</groupId>
+		<artifactId>apache</artifactId>
+		<version>18</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.aksh</groupId>
+	<artifactId>pulsar-io-cassandra-sink</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<name>Pulsar IO :: Cassandra</name>
+	<properties>
+		<!-- Java Version -->
+		<java.version>1.8</java.version>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+
+
+		<!-- build plugin dependencies -->
+		<maven-checkstyle-plugin.version>3.0.0</maven-checkstyle-plugin.version>
+		<maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
+		<maven-surefire-plugin.version>2.21.0</maven-surefire-plugin.version>
+		<nifi.nar.plugin.version>1.2.0</nifi.nar.plugin.version>
+		<spotbugs-maven-plugin.version>3.1.8</spotbugs-maven-plugin.version>
+
+
+		<!-- Plugin dependencies -->
+		<maven-assembly-plugin.version>3.3.0</maven-assembly-plugin.version>
+		<maven-dependency-plugin.version>3.1.2</maven-dependency-plugin.version>
+		<maven-shade-plugin>3.2.4</maven-shade-plugin>
+		<maven-antrun-plugin.version>3.0.0</maven-antrun-plugin.version>
+		<properties-maven-plugin.version>1.0.0</properties-maven-plugin.version>
+		<nifi-nar-maven-plugin.version>1.2.0</nifi-nar-maven-plugin.version>
+		<maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
+
+		<!-- Used to configure rename.netty.native. Libs -->
+		<rename.netty.native.libs>rename-netty-native-libs.sh</rename.netty.native.libs>
+		<!-- Other dependency verion -->
+		<pulsar.io.version>2.9.1</pulsar.io.version>
+		<cassandra-driver-version>4.4.0</cassandra-driver-version>
+		<avro.version>1.10.2</avro.version>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.apache.pulsar</groupId>
+				<artifactId>pulsar</artifactId>
+				<version>2.9.1</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+
+		<!-- Pulsar Dependency -->
+		<dependency>
+			<groupId>org.apache.pulsar</groupId>
+			<artifactId>pulsar-io-core</artifactId>
+			<version>${pulsar.io.version}</version>
+		</dependency>
+
+		<!-- Cassandra -->
+		<dependency>
+			<groupId>com.datastax.oss</groupId>
+			<artifactId>java-driver-query-builder</artifactId>
+			<version>${cassandra-driver-version}</version>
+		</dependency>
+		<dependency>
+            <groupId>software.aws.mcs</groupId>
+            <artifactId>aws-sigv4-auth-cassandra-java-driver-plugin</artifactId>
+            <version>4.0.3</version>
+        </dependency>
+		<!-- Common Dependencies -->
+		<dependency>
+			<groupId>org.apache.avro</groupId>
+			<artifactId>avro</artifactId>
+			<version>${avro.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.netty</groupId>
+			<artifactId>netty-handler</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.dataformat</groupId>
+			<artifactId>jackson-dataformat-yaml</artifactId>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+		</dependency>
+	</dependencies>
+
+
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+		<pluginManagement>
+			<plugins>
+				<!-- compile -->
+				<plugin>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>${maven-compiler-plugin.version}</version>
+					<configuration>
+						<source>${java.version}</source>
+						<target>${java.version}</target>
+						<compilerArgs>
+							<!-- <compilerArg>-Werror</compilerArg> -->
+							<compilerArg>-Xlint:deprecation</compilerArg>
+							<compilerArg>-Xlint:unchecked</compilerArg>
+							<!-- https://issues.apache.org/jira/browse/MCOMPILER-205 -->
+							<compilerArg>-Xpkginfo:always</compilerArg>
+						</compilerArgs>
+					</configuration>
+				</plugin>
+				<!-- test -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>${maven-surefire-plugin.version}</version>
+					<configuration>
+						<!-- <redirectTestOutputToFile>${redirectTestOutputToFile}</redirectTestOutputToFile> -->
+						<reuseForks>false</reuseForks>
+						<forkedProcessTimeoutInSeconds>1800</forkedProcessTimeoutInSeconds>
+						<rerunFailingTestsCount>${testRetryCount}</rerunFailingTestsCount>
+					</configuration>
+				</plugin>
+				<!-- package -->
+				<plugin>
+					<groupId>org.apache.nifi</groupId>
+					<artifactId>nifi-nar-maven-plugin</artifactId>
+					<version>${nifi.nar.plugin.version}</version>
+					<extensions>true</extensions>
+					<configuration>
+						<finalName>${project.artifactId}-${project.version}</finalName>
+					</configuration>
+					<executions>
+						<execution>
+							<id>default-nar</id>
+							<phase>package</phase>
+							<goals>
+								<goal>nar</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				<!-- spotbugs -->
+				<plugin>
+					<groupId>com.github.spotbugs</groupId>
+					<artifactId>spotbugs-maven-plugin</artifactId>
+					<version>${spotbugs-maven-plugin.version}</version>
+					<configuration>
+						<excludeFilterFile>${session.executionRootDirectory}/src/spotbugs/findbugsExclude.xml</excludeFilterFile>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+
+		<plugins>
+			<!-- compile -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+			</plugin>
+
+			<!-- test -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+			</plugin>
+
+			<!-- package -->
+			<plugin>
+				<groupId>org.apache.nifi</groupId>
+				<artifactId>nifi-nar-maven-plugin</artifactId>
+			</plugin>
+
+			<!-- license -->
+			<plugin>
+				<groupId>com.mycila</groupId>
+				<artifactId>license-maven-plugin</artifactId>
+			</plugin>
+
+			<!-- checkstyle -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+			</plugin>
+
+			<!-- spotbugs -->
+			<plugin>
+				<groupId>com.github.spotbugs</groupId>
+				<artifactId>spotbugs-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+</project>
