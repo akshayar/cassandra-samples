@@ -3,6 +3,7 @@ package org.apache.pulsar.io.cassandra;
 import static org.apache.pulsar.io.cassandra.JsonHelper.extractJsonNode;
 
 import java.nio.charset.StandardCharsets;
+import java.util.Map;
 
 import org.apache.commons.lang3.tuple.Pair;
 import org.apache.pulsar.client.api.Message;
@@ -14,15 +15,28 @@ import org.apache.pulsar.common.schema.KeyValue;
 import org.apache.pulsar.common.schema.SchemaType;
 import org.apache.pulsar.functions.api.Record;
 import org.apache.pulsar.io.cassandra.dao.AbstractCassandraDao;
+import org.apache.pulsar.io.cassandra.dao.CassandraDao;
 import org.apache.pulsar.io.core.Sink;
+import org.apache.pulsar.io.core.SinkContext;
+import org.apache.pulsar.io.core.annotations.Connector;
+import org.apache.pulsar.io.core.annotations.IOType;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.NullNode;
 
 import lombok.extern.slf4j.Slf4j;
+/**
+ * Cassandra sink that treats incoming messages on the input topic as Strings
+ * and write identical key/value pairs.
+ */
+@Connector(
+	    name = "cassandra",
+	    type = IOType.SINK,
+	    help = "The CassandraStringSink is used for moving messages from Pulsar to Cassandra.",
+	    configClass = CassandraSinkConfig.class)
 @Slf4j
-public abstract class CassandraAbstractSink implements Sink<GenericObject>{
+public abstract class CassandraRecordSink implements Sink<GenericObject>{
 
 	protected CassandraSinkConfig cassandraSinkConfig;
 	protected AbstractCassandraDao cassandraDao;
@@ -30,6 +44,13 @@ public abstract class CassandraAbstractSink implements Sink<GenericObject>{
 	@Override
 	public void close() {
 		cassandraDao.close();
+	}
+
+	@Override
+	public void open(Map<String, Object> config, SinkContext sinkContext) throws Exception {
+		cassandraSinkConfig = CassandraSinkConfig.load(config);
+		log.info("Initializing with Cassandra Sink Config:" + cassandraSinkConfig);
+		cassandraDao = new CassandraDao(cassandraSinkConfig);
 	}
 
 	@Override
@@ -53,6 +74,7 @@ public abstract class CassandraAbstractSink implements Sink<GenericObject>{
 	                case FAIL:
 	                	PulsarClientException.InvalidMessageException e=new PulsarClientException.InvalidMessageException("Unexpected null message value");
 	                	log.error("Exception",e);
+	                	throw e;
 	
 	            }
 	        } else {
@@ -91,7 +113,7 @@ public abstract class CassandraAbstractSink implements Sink<GenericObject>{
 	            jsonProcessingException);
 	}
 
-	public CassandraAbstractSink() {
+	public CassandraRecordSink() {
 		super();
 	}
 

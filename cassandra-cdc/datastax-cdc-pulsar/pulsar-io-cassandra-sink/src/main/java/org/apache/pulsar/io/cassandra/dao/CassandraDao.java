@@ -73,9 +73,17 @@ public class CassandraDao implements AbstractCassandraDao {
 
     @Override
 	public void upsertRecord(Record<GenericObject> record, Pair<JsonNode, JsonNode> idAndDoc) {
-        log.info("Upsert Record key:{},value:{}",idAndDoc.getLeft(),idAndDoc.getRight());
-        JsonNode finalJson=JsonConverter.createSingle(idAndDoc.getLeft(),idAndDoc.getRight());
-        session.execute(insertUpdate.bind().setString("payload",   finalJson.toString()));
+        try {
+			log.info("Upsert Record key:{},value:{}",idAndDoc.getLeft(),idAndDoc.getRight());
+			JsonNode finalJson=JsonConverter.createSingle(idAndDoc.getLeft(),idAndDoc.getRight());
+			session.execute(insertUpdate.bind().setString("payload",   finalJson.toString()));
+			record.ack();
+		} catch (Exception e) {
+			log.error("Failed while inserting id:{}",idAndDoc.getLeft(),e);
+			record.fail();
+			throw e;
+		}
+        
     }
 
     @Override
@@ -88,27 +96,33 @@ public class CassandraDao implements AbstractCassandraDao {
         log.info("Bulk Upsert Record key:{},value:{}",idAndDoc.getLeft(),idAndDoc.getRight());
     }
 
-    @Override
+	@Override
 	public void deleteRecord(Record<GenericObject> record, JsonNode left) {
-        log.info("Delete Record key:{}",left);
-        Set<String> idFieldNames=new HashSet<>();
-        left.fieldNames().forEachRemaining(idFieldNames::add);
-        
-        if(!delete.containsKey(idFieldNames)){
-        	PreparedStatement deleteP = createPreparedStatementForDelete(idFieldNames);
-            delete.put(idFieldNames,deleteP);
-        }
+		try {
+			log.info("Delete Record key:{}", left);
+			Set<String> idFieldNames = new HashSet<>();
+			left.fieldNames().forEachRemaining(idFieldNames::add);
 
-        PreparedStatement preparedStatement=delete.get(idFieldNames);
+			if (!delete.containsKey(idFieldNames)) {
+				PreparedStatement deleteP = createPreparedStatementForDelete(idFieldNames);
+				delete.put(idFieldNames, deleteP);
+			}
 
-        BoundStatement boundStatement=preparedStatement.bind();
-        for(String fn:idFieldNames){
-            boundStatement=setValue(boundStatement,left.get(fn),fn+"col");
-        }
+			PreparedStatement preparedStatement = delete.get(idFieldNames);
 
+			BoundStatement boundStatement = preparedStatement.bind();
+			for (String fn : idFieldNames) {
+				boundStatement = setValue(boundStatement, left.get(fn), fn + "col");
+			}
 
-        session.execute(boundStatement);
-    }
+			session.execute(boundStatement);
+			record.ack();
+		} catch (Exception e) {
+			log.error("Failed while inserting id:{}", left, e);
+			record.fail();
+			throw e;
+		}
+	}
 
 	private PreparedStatement createPreparedStatementForDelete(Set<String> idFieldNames) {
 		List<Relation> list=new ArrayList<>();

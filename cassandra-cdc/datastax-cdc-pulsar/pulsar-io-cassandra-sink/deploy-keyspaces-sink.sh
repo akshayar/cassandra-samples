@@ -1,28 +1,23 @@
 #!/bin/bash
-CONNECTOR_NAME=pulsar-io-cassandra-sink-connector
-BUILD_BUCKET=akshaya-lambda-codes
-CASSANDRA_URL=cassandra.us-east-1.amazonaws.com:9142
-JAR_FILE_NAME=pulsar-io-cassandra-sink-1.0.0-SNAPSHOT.nar
-PULSAR_HOME=$HOME/apache-pulsar-2.9.1/
-PULSAR_DATA_TOPIC_NAME="persistent://public/default/data-pocdb1.customers"
-CASSANDRA_KEY_SAPCE="tutorialkeyspace"
-CASSANDRA_TABLE="customers"
-#CASSANDRA_DC_NAME="OSS-dc0"
-REGION="us-east-1"
+./deploy-setup.sh
 SINK_CONNECTOR_NAME=pulsar-cassandra-sink-${CASSANDRA_KEY_SAPCE}-${CASSANDRA_TABLE}
+CONNECTOR_HOME=${PULSAR_HOME}/pulsar-io-cassandra-sink-connector
 
-echo $CASSANDRA_URL
+echo Creating ${SINK_CONNECTOR_NAME} $CASSANDRA_URL ${CONNECTOR_HOME}
+echo "Copying s3://${BUILD_BUCKET}/${NAR_FILE_NAME}"
+mkdir -p ${CONNECTOR_HOME}
+cd ${CONNECTOR_HOME} ; rm -rf *.nar; aws s3 cp  s3://${BUILD_BUCKET}/${NAR_FILE_NAME} . ;
+CASSANDRA_SINK_NAR_PATH=`pwd`/${NAR_FILE_NAME}
 
-mkdir -p $HOME/${CONNECTOR_NAME}
-echo "Copying s3://${BUILD_BUCKET}/${JAR_FILE_NAME}"
-cd $HOME/${CONNECTOR_NAME} ; rm -rf *.nar; aws s3 cp  s3://${BUILD_BUCKET}/${JAR_FILE_NAME} . ;
-CASSANDRA_SINK_NAR_PATH=`pwd`/${JAR_FILE_NAME}
+
+echo "Delecting connector ${SINK_CONNECTOR_NAME}"
 cd ${PULSAR_HOME}
 pwd
-echo "Delecting connector ${SINK_CONNECTOR_NAME}"
 bin/pulsar-admin sink delete --name ${SINK_CONNECTOR_NAME}
 
 echo "Creating connector ${SINK_CONNECTOR_NAME}"
+cd ${PULSAR_HOME}
+pwd
 bin/pulsar-admin sink create \
 --archive ${CASSANDRA_SINK_NAR_PATH} \
 --tenant public \
@@ -40,6 +35,7 @@ bin/pulsar-admin sink create \
 }"
 echo "Checking Status ${SINK_CONNECTOR_NAME}"
 bin/pulsar-admin sink status --name ${SINK_CONNECTOR_NAME}
+
 
 echo "Checkikng logs ${SINK_CONNECTOR_NAME}"
 cd logs/functions/public/default/${SINK_CONNECTOR_NAME}/
