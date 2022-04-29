@@ -36,7 +36,7 @@ import lombok.extern.slf4j.Slf4j;
 	    help = "The CassandraStringSink is used for moving messages from Pulsar to Cassandra.",
 	    configClass = CassandraSinkConfig.class)
 @Slf4j
-public abstract class CassandraRecordSink implements Sink<GenericObject>{
+public class CassandraRecordSink implements Sink<GenericObject>{
 
 	protected CassandraSinkConfig cassandraSinkConfig;
 	protected AbstractCassandraDao cassandraDao;

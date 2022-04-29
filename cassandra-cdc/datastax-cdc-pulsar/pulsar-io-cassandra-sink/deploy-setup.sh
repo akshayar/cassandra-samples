@@ -1,4 +1,4 @@
-export BUILD_BUCKET=akshaya-lambda-codes/pulsar-sink-nar
+export BUILD_BUCKET=akshaya-lambda-codes/pulsar-sink
 export CASSANDRA_URL=10.0.131.64:9042 ##cassandra.us-east-1.amazonaws.com:9142
 export NAR_FILE_NAME=pulsar-io-cassandra-sink-1.0.0-SNAPSHOT.nar
 export PULSAR_HOME=$HOME/apache-pulsar-2.9.1

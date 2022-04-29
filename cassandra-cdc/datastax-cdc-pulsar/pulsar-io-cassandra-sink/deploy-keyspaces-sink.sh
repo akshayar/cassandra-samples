@@ -1,7 +1,7 @@
 #!/bin/bash
-./deploy-setup.sh
+. ./deploy-setup.sh
 SINK_CONNECTOR_NAME=pulsar-cassandra-sink-${CASSANDRA_KEY_SAPCE}-${CASSANDRA_TABLE}
-CONNECTOR_HOME=${PULSAR_HOME}/pulsar-io-cassandra-sink-connector
+CONNECTOR_HOME=${HOME}/pulsar-io-cassandra-sink-connector
 
 echo Creating ${SINK_CONNECTOR_NAME} $CASSANDRA_URL ${CONNECTOR_HOME}
 echo "Copying s3://${BUILD_BUCKET}/${NAR_FILE_NAME}"
@@ -14,6 +14,7 @@ echo "Delecting connector ${SINK_CONNECTOR_NAME}"
 cd ${PULSAR_HOME}
 pwd
 bin/pulsar-admin sink delete --name ${SINK_CONNECTOR_NAME}
+sleep 10
 
 echo "Creating connector ${SINK_CONNECTOR_NAME}"
 cd ${PULSAR_HOME}
@@ -33,10 +34,12 @@ bin/pulsar-admin sink create \
 \"keyspacedb\":\"true\",
 \"nullValueAction\":\"DELETE\"
 }"
+
+sleep 10
 echo "Checking Status ${SINK_CONNECTOR_NAME}"
 bin/pulsar-admin sink status --name ${SINK_CONNECTOR_NAME}
 
-
+sleep 10
 echo "Checkikng logs ${SINK_CONNECTOR_NAME}"
 cd logs/functions/public/default/${SINK_CONNECTOR_NAME}/
 tail -f  ${SINK_CONNECTOR_NAME}-0.log

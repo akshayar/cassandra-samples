@@ -58,17 +58,18 @@ cd <project-root>
 ```shell
 mkdir -p ${HOME}/pulsar-io-cassandra-sink-connector
 cd ${HOME}/pulsar-io-cassandra-sink-connector
-aws s3 cp  s3://${S3_BUCKET_PATH}/*.sh .
+export S3_BUCKET_PATH=<bucket name>/<path>
+aws s3 cp --recursive --include "*.sh" s3://${S3_BUCKET_PATH}/ .
 ```
 3. Update deployment properties
 ```shell
 cat << EOF > deploy-setup.sh
-export BUILD_BUCKET=akshaya-lambda-codes/pulsar-sink-nar
-export CASSANDRA_URL=10.0.131.64:9042 ##cassandra.us-east-1.amazonaws.com:9142
+export BUILD_BUCKET=${S3_BUCKET_PATH}
+export CASSANDRA_URL=cassandra.us-east-1.amazonaws.com:9142
 export NAR_FILE_NAME=pulsar-io-cassandra-sink-1.0.0-SNAPSHOT.nar
 export PULSAR_HOME=$HOME/apache-pulsar-2.9.1
 export PULSAR_DATA_TOPIC_NAME="persistent://public/default/data-pocdb1.customers"
-export CASSANDRA_KEY_SAPCE="target"
+export CASSANDRA_KEY_SAPCE="tutorialkeyspace"
 export CASSANDRA_TABLE="customers"
 export CASSANDRA_DC_NAME="OSS-dc0"
 export REGION="us-east-1"

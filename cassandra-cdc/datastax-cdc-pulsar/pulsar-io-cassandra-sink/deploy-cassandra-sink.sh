@@ -15,6 +15,8 @@ cd ${PULSAR_HOME}
 pwd
 bin/pulsar-admin sink delete --name ${SINK_CONNECTOR_NAME}
 
+sleep 10
+
 echo "Creating connector ${SINK_CONNECTOR_NAME}"
 cd ${PULSAR_HOME}
 pwd
@@ -32,9 +34,11 @@ bin/pulsar-admin sink create \
 \"dcName\":\"${CASSANDRA_DC_NAME}\",
 \"nullValueAction\":\"DELETE\"
 }"
+
+sleep 10
 echo "Checking Status ${SINK_CONNECTOR_NAME}"
 bin/pulsar-admin sink status --name ${SINK_CONNECTOR_NAME}
-
+sleep 10
 echo "Checkikng logs ${SINK_CONNECTOR_NAME}"
 cd logs/functions/public/default/${SINK_CONNECTOR_NAME}/
 tail -f  ${SINK_CONNECTOR_NAME}-0.log
