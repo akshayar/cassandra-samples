@@ -18,9 +18,9 @@ public class FakeProductInserter {
     private BlockingQueue<Long> prodIdQueue=new LinkedBlockingDeque<>();
     private BlockingQueue<Long> custIdQueue=new LinkedBlockingDeque<>();
 
-    private static final String PRODUCT_INSERT_CQL="INSERT INTO pocdb.products(id,name,description,weight)" +
+    private static final String PRODUCT_INSERT_CQL="INSERT INTO pocdb1.products(id,name,description,weight)" +
             " VALUES (?,?,?,?);";
-    private static final String PRDUCT_IN_HAND_INSERT="INSERT INTO pocdb.products_on_hand(product_id, quantity) VALUES (?,?);";
+    private static final String PRDUCT_IN_HAND_INSERT="INSERT INTO pocdb1.products_on_hand(product_id, quantity) VALUES (?,?);";
     public void insertProduct(Session session) throws Exception{
         if(map.get(PRODUCT_INSERT_CQL) ==null){
             map.put(PRODUCT_INSERT_CQL,session.prepare(PRODUCT_INSERT_CQL));
@@ -42,9 +42,9 @@ public class FakeProductInserter {
         }
 
     }
-    private static final String PRODUCT_UPDATE_CQL="UPDATE  pocdb.products SET description =?" +
+    private static final String PRODUCT_UPDATE_CQL="UPDATE  pocdb1.products SET description =?" +
             " WHERE id =?;";
-    private static final String PRDUCT_IN_HAND_UPDATE="UPDATE  pocdb.products_on_hand SET quantity =?" +
+    private static final String PRDUCT_IN_HAND_UPDATE="UPDATE  pocdb1.products_on_hand SET quantity =?" +
             " WHERE product_id =?;";
 
     public void updateProduct(Session session ) throws InterruptedException{
@@ -64,7 +64,7 @@ public class FakeProductInserter {
         }
     }
 
-    private static final String CUSTOMER_INSERT_CQL="INSERT INTO pocdb.customers(id,first_name,last_name,email,insertdate)\n" +
+    private static final String CUSTOMER_INSERT_CQL="INSERT INTO pocdb1.customers(id,first_name,last_name,email,insertdate)\n" +
             "  VALUES (?,?,?,?,?);";
 
 
@@ -82,11 +82,12 @@ public class FakeProductInserter {
             System.out.println(date);
             session.execute(preparedStatement.bind(id,name.firstName(),name.lastName(),email,date));
         }
+        System.out.println("id:"+id);
 
 
     }
 
-    private static final String CUSTOMER_UPDATE_CQL="UPDATE  pocdb.customers set email =? " +
+    private static final String CUSTOMER_UPDATE_CQL="UPDATE  pocdb1.customers set email =? " +
             "  WHERE id=?;";
 
     public void updateCustomer(Session session ) throws  InterruptedException{

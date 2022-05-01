@@ -164,8 +164,8 @@ grep -i agent /var/log/cassandra/system.log
 ## 3. Apache Pulsar Source Connector
 1. Download Source Connector on Apache Pulsar node (or any other EC2 node).
 ```shell
-mkdir cassandra-source-connector
-cd cassandra-source-connector
+mkdir -p $HOME/cassandra-source-connector
+cd $HOME/cassandra-source-connector
 wget https://downloads.datastax.com/cdc-apache-cassandra/cassandra-source-connectors-1.0.1.tar
 tar -xvf cassandra-source-connectors-1.0.1.tar
 
@@ -178,7 +178,7 @@ export KEYSPACE=pocdb1
 bin/pulsar-admin source delete --name cassandra-customers-pocdb1  
 bin/pulsar-admin source create \
 --name cassandra-customers-pocdb1 \
---archive /home/ec2-user/cassandra-source-connectors/cassandra-source-connectors-1.0.1/pulsar-cassandra-source-1.0.1.nar \
+--archive $HOME//cassandra-source-connectors/cassandra-source-connectors-1.0.1/pulsar-cassandra-source-1.0.1.nar \
 --tenant public \
 --namespace default \
 --destination-topic-name public/default/data-pocdb1.customers \
@@ -196,7 +196,7 @@ bin/pulsar-admin source create \
 }'
 
 bin/pulsar-admin source status --name cassandra-customers-pocdb1
-
+tail -f $HOME/apache-pulsar-2.9.1/logs/functions/public/default/cassandra-customers-pocdb1/cassandra-customers-pocdb1-0.log
 ```
 ### End to end Solution with ElasticSearch Sink
 [link](elasticsearch-sink.md)
