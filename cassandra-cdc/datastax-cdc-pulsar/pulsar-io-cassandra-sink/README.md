@@ -178,9 +178,39 @@ cd ${CONNECTOR_HOME}/deploy
 ## Validate Data in target connector
 
 ## To Do
-1. User Id/Password is provided at the build time. DONE
-2. Provison to provide id/password at runtime using secret manager or other method. DONE
-3. Deployment steps for Pulsar connector on a machine separate from Apache Pulsar connector. 
-4. Test for performance. 
-5. Test for resilience. 
+1. User Id/Password is provided at the build time. *DONE*
+2. Provide for id/password at runtime using secret manager or other method. *DONE*
+3. Functionality
+   - Test with sinks to multiple targets. 10
+   - Find metrics above source and sink connector. 1 
+   - Alert on Source connector dying. 3
+   - Alert on Sink connector dying. 3
+   - Alert on Sink/Source Connector failing. 3
+   - A day's /hour's report on work done - records received/ingested etc. 1
+   - Password in secret of source cassandra. 5
+   - Find source connector for a cassandra DB and table. 1
+   - Find sink connector for a cassandra DB and table. 1
+   - Find sink connector which are writing to a keyspace DB / table. 1
+   - Find all source and sink connectors. 1
+   - CI/CD Integration with Code Pipeline and Code Build. 1
+4. Resilience
+   - Test on multi node Apache Pulsar Cluster. 2
+   - Deployment steps for Pulsar connector on a machine separate from Apache Pulsar connector. 2
+   - Test for resilience 2
+     - Source cassandra dies, 
+     - An Apache pulsar node dies, 
+     - Source connector dies, 
+     - Sink connector dies, 
+     - Apache Pulsar cluster dies , 
+     - Target Keyspace not available. 
+5. Monitoring and Metrics 3
+   - How many records were received
+   - How many were ingested
+   - End to end latency
+   - Source Connector capacity CPU/Memory/Latency
+   - Sink Connector capacity CPU/Memory/Latenct
+6. Performance Testing 4
+   Test for performance.
+6. Add support for monitoring and metrics. Add documentation around monitoring and metrics. 
+
 
