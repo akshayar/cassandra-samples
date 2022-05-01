@@ -74,6 +74,12 @@ public class CassandraSinkConfig implements Serializable {
             help = "If keyspace DB")
     private boolean keyspacedb;
     
+    @FieldDoc(
+            required = false,
+            defaultValue = "",
+            help = "Cassandra Config file full path")
+    private String configFilePath;
+    
 
     @FieldDoc(
             required = false,

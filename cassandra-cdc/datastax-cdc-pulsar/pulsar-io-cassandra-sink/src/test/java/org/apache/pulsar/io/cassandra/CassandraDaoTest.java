@@ -20,7 +20,10 @@ package org.apache.pulsar.io.cassandra;
 
 import java.io.IOException;
 
+import org.apache.pulsar.client.api.schema.GenericObject;
+import org.apache.pulsar.functions.api.Record;
 import org.apache.pulsar.io.cassandra.dao.CassandraDao;
+import org.mockito.Mockito;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
@@ -35,6 +38,8 @@ public class CassandraDaoTest {
 
 	@org.junit.Test
 	public void deleteRecordCassandra() throws IOException {
+		Record<GenericObject> rec=Mockito.mock(Record.class);
+		Mockito.doNothing().when(rec).ack();
 		CassandraSinkConfig config = new CassandraSinkConfig();
 		config.setKeyspace("target");
 		config.setTableName("customers");
@@ -43,11 +48,13 @@ public class CassandraDaoTest {
 		CassandraDao dao = new CassandraDao(config);
 		ObjectNode node = mapper.createObjectNode();
 		node.put("id", new Long(121));
-		dao.deleteRecord(null, node);
+		dao.deleteRecord(rec, node);
 	}
 
 	@org.junit.Test
 	public void deleteRecordKeySpace() throws IOException {
+		Record<GenericObject> rec=Mockito.mock(Record.class);
+		Mockito.doNothing().when(rec).ack();
 		CassandraSinkConfig config = new CassandraSinkConfig();
 		config.setKeyspace("tutorialkeyspace");
 		config.setTableName("customers");
@@ -57,6 +64,36 @@ public class CassandraDaoTest {
 		CassandraDao dao = new CassandraDao(config);
 		ObjectNode node = mapper.createObjectNode();
 		node.put("id", new Long(121));
-		dao.deleteRecord(null, node);
+		dao.deleteRecord(rec, node);
+	}
+	
+	@org.junit.Test
+	public void deleteRecordKeySpaceWithConfigPath() throws IOException {
+		Record<GenericObject> rec=Mockito.mock(Record.class);
+		Mockito.doNothing().when(rec).ack();
+		CassandraSinkConfig config = new CassandraSinkConfig();
+		config.setConfigFilePath("config/cassandra-loader/application-keyspace-iamuser.conf");
+		config.setKeyspace("tutorialkeyspace");
+		config.setTableName("customers");
+		config.setKeyspacedb(true);
+		CassandraDao dao = new CassandraDao(config);
+		ObjectNode node = mapper.createObjectNode();
+		node.put("id", new Long(121));
+		dao.deleteRecord(rec, node);
+	}
+	
+	@org.junit.Test
+	public void deleteRecordKeySpaceWithConfigPath2() throws IOException {
+		Record<GenericObject> rec=Mockito.mock(Record.class);
+		Mockito.doNothing().when(rec).ack();
+		CassandraSinkConfig config = new CassandraSinkConfig();
+		config.setConfigFilePath("config/cassandra-loader/application-keyspace-secret-manager.conf");
+		config.setKeyspace("tutorialkeyspace");
+		config.setTableName("customers");
+		config.setKeyspacedb(true);
+		CassandraDao dao = new CassandraDao(config);
+		ObjectNode node = mapper.createObjectNode();
+		node.put("id", new Long(121));
+		dao.deleteRecord(rec, node);
 	}
 }

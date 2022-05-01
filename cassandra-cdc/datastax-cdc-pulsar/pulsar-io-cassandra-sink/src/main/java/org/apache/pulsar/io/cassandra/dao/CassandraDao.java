@@ -18,13 +18,17 @@
  */
 package org.apache.pulsar.io.cassandra.dao;
 
+import java.io.File;
 import java.net.InetSocketAddress;
 import java.text.MessageFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 
 import org.apache.commons.lang3.tuple.Pair;
@@ -33,14 +37,17 @@ import org.apache.pulsar.functions.api.Record;
 import org.apache.pulsar.io.cassandra.CassandraSinkConfig;
 import org.apache.pulsar.io.cassandra.JsonConverter;
 
+import com.amazonaws.util.StringUtils;
 import com.datastax.oss.driver.api.core.CqlSession;
 import com.datastax.oss.driver.api.core.CqlSessionBuilder;
 import com.datastax.oss.driver.api.core.config.DriverConfigLoader;
+import com.datastax.oss.driver.api.core.config.DriverExecutionProfile;
 import com.datastax.oss.driver.api.core.cql.BoundStatement;
 import com.datastax.oss.driver.api.core.cql.PreparedStatement;
 import com.datastax.oss.driver.api.core.cql.SimpleStatement;
 import com.datastax.oss.driver.api.querybuilder.QueryBuilder;
 import com.datastax.oss.driver.api.querybuilder.relation.Relation;
+import com.datastax.oss.driver.internal.core.auth.SecretsManagerAuthProvider;
 import com.fasterxml.jackson.databind.JsonNode;
 
 import lombok.extern.slf4j.Slf4j;
@@ -118,6 +125,7 @@ public class CassandraDao implements AbstractCassandraDao {
 			session.execute(boundStatement);
 			record.ack();
 		} catch (Exception e) {
+			e.printStackTrace();
 			log.error("Failed while inserting id:{}", left, e);
 			record.fail();
 			throw e;
@@ -167,33 +175,44 @@ public class CassandraDao implements AbstractCassandraDao {
     }
     private void createClient() {
 
-		log.info("Starting Initializing for roots:{},datacenter:{},keyspace:{},table:{}", cassandraSinkConfig.getRoots(), cassandraSinkConfig.getDcName(),
-				cassandraSinkConfig.getKeyspace(), cassandraSinkConfig.getTableName());
+		log.info("Starting Initializing for roots:{},datacenter:{},keyspace:{},table:{},region:{},configPath:{}", cassandraSinkConfig.getRoots(), cassandraSinkConfig.getDcName(),
+				cassandraSinkConfig.getKeyspace(), cassandraSinkConfig.getTableName(),cassandraSinkConfig.getRegion(),cassandraSinkConfig.getConfigFilePath());
 
-        String[] hosts = cassandraSinkConfig.getRoots().split(",");
-        if (hosts.length <= 0) {
-            throw new RuntimeException("Invalid cassandra roots");
-        }
-        CqlSessionBuilder sessionBuilder = CqlSession.builder();
+        String[] hosts = Optional.ofNullable(cassandraSinkConfig.getRoots()).map(s->s.split(",")).orElse(new String[0]);
+		CqlSessionBuilder sessionBuilder = Arrays.stream(hosts).reduce(CqlSession.builder(), (sessionb, host) -> {
+			String[] hostPort = host.split(":");
+			log.info("Host name:{}, port:{}",hostPort[0],hostPort[1]);
+			return sessionb.addContactPoint(new InetSocketAddress(hostPort[0], Integer.valueOf(hostPort[1])));
+		}, (b1, b2) -> {
+			return Optional.ofNullable(b1).orElse(b2);
+		});
 
-        for (int i = 0; i < hosts.length; ++i) {
-            String[] hostPort = hosts[i].split(":");
-            sessionBuilder=sessionBuilder.addContactPoint(new InetSocketAddress(hostPort[0], Integer.valueOf(hostPort[1])));
-        }
-        
-        if(cassandraSinkConfig.isKeyspacedb()) {
-        	session = sessionBuilder.withKeyspace(cassandraSinkConfig.getKeyspace())
-        			.withConfigLoader(DriverConfigLoader.fromClasspath("application-keyspace.conf"))
-        			.withLocalDatacenter(cassandraSinkConfig.getRegion())
-        			.build();
-            	
-        }else {
-        	session = sessionBuilder.withKeyspace(cassandraSinkConfig.getKeyspace())
-        			.withConfigLoader(DriverConfigLoader.fromClasspath("application-cassandra.conf"))
-        			.withLocalDatacenter(cassandraSinkConfig.getDcName())
-        			.build();
-            
-        }
+		session = Optional.ofNullable(cassandraSinkConfig.getConfigFilePath())
+				.filter(file -> !StringUtils.isNullOrEmpty(file))
+				.map(file -> {
+					log.info("Building session from config file :{}",file);
+					Optional<JsonNode> credentials=Optional.empty();//Commenting to short circuit//getSecretFromConfig(file);
+					if(credentials.isPresent()) {
+						CqlSession sessionIn= sessionBuilder.withKeyspace(cassandraSinkConfig.getKeyspace())
+								.withConfigLoader(
+										DriverConfigLoader.fromFile(new File(file)))
+								.withAuthCredentials(credentials.get().get("username").asText(), credentials.get().get("password").asText())
+								.build();
+						return sessionIn;	
+					}else {
+						CqlSession sessionIn= sessionBuilder.withKeyspace(cassandraSinkConfig.getKeyspace())
+								.withConfigLoader(
+										DriverConfigLoader.fromFile(new File(file)))
+								.build();
+						return sessionIn;
+					}
+					
+					
+				}).filter(Objects::nonNull)
+				.orElseGet(()->{
+					return buildSessionFromDefaultConfig(sessionBuilder,hosts);
+				});
+		
 
         
 		insertUpdate = session.prepare(MessageFormat.format(CASSANDRA_UPDATE_QUERY, cassandraSinkConfig.getKeyspace(),
@@ -202,4 +221,36 @@ public class CassandraDao implements AbstractCassandraDao {
 				cassandraSinkConfig.getKeyspace(), cassandraSinkConfig.getTableName());
 
     }
+    
+	private CqlSession buildSessionFromDefaultConfig(CqlSessionBuilder sessionBuilder, String[] hosts) {
+		log.info("Loader config not provided , building session config in classpath isKeyspace:{}",cassandraSinkConfig.isKeyspacedb());
+		if (hosts.length <= 0) {
+			throw new RuntimeException("Invalid cassandra roots");
+		}
+		if (cassandraSinkConfig.isKeyspacedb()) {
+			return sessionBuilder.withKeyspace(cassandraSinkConfig.getKeyspace())
+					.withConfigLoader(DriverConfigLoader.fromClasspath("application-keyspace.conf"))
+					.withLocalDatacenter(cassandraSinkConfig.getRegion()).build();
+
+		} else {
+			return sessionBuilder.withKeyspace(cassandraSinkConfig.getKeyspace())
+					.withConfigLoader(DriverConfigLoader.fromClasspath("application-cassandra.conf"))
+					.withLocalDatacenter(cassandraSinkConfig.getDcName()).build();
+
+		}
+	}
+	
+	private Optional<JsonNode> getSecretFromConfig(String file) {
+		DriverExecutionProfile profile=DriverConfigLoader.fromFile(new File(file)).getInitialConfig().getDefaultProfile();
+		JsonNode node=null;
+		if(profile.isDefined(SecretsManagerAuthProvider.SECRET_MANAGER_ID_OPTION)) {
+			String secret=profile.getString(SecretsManagerAuthProvider.SECRET_MANAGER_ID_OPTION);
+			String region=profile.getString(SecretsManagerAuthProvider.SECRET_MANAGER_REGION_OPTION);
+			log.info("region:{},secret:{}",region,secret);
+			node=SecretsManagerAuthProvider.getSecret(secret, region);	
+		}
+		
+		return Optional.ofNullable(node);
+	}
+    
 }

@@ -1,0 +1,13 @@
+archive: ${CASSANDRA_SINK_NAR_PATH}
+tenant: public
+namespace: default
+name: ${SINK_CONNECTOR_NAME}
+inputs:
+  - ${PULSAR_DATA_TOPIC_NAME}
+subs-position: Earliest
+configs:
+  roots : "${CASSANDRA_URL}"
+  keyspace : "${CASSANDRA_KEY_SAPCE}"
+  tableName : "${CASSANDRA_TABLE}"
+  dcName: "${CASSANDRA_DC_NAME}"
+  nullValueAction: "DELETE"

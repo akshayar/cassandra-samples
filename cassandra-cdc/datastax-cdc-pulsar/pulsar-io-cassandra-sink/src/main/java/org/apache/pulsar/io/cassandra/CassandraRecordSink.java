@@ -168,7 +168,7 @@ public class CassandraRecordSink implements Sink<GenericObject>{
 	}
 
 	private void logDubugIfEnabled(Record<GenericObject> record, JsonNode id, JsonNode doc) {
-	    if (log.isInfoEnabled()) {
+	    if (log.isDebugEnabled()) {
 	        SchemaType schemaType = null;
 	        if (record.getSchema() != null && record.getSchema().getSchemaInfo() != null) {
 	            schemaType = record.getSchema().getSchemaInfo().getType();

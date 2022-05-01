@@ -85,6 +85,12 @@
             <artifactId>aws-sigv4-auth-cassandra-java-driver-plugin</artifactId>
             <version>4.0.3</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-secretsmanager -->
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-secretsmanager</artifactId>
+		</dependency>
+        
 		<!-- Common Dependencies -->
 		<dependency>
 			<groupId>org.apache.avro</groupId>
@@ -99,6 +105,14 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.mockito/mockito-all -->
+		<dependency>
+		    <groupId>org.mockito</groupId>
+		    <artifactId>mockito-all</artifactId>
+		    <version>1.10.19</version>
+		    <scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>io.netty</groupId>

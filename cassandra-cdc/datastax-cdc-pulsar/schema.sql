@@ -1,8 +1,8 @@
-CREATE KEYSPACE pocdb
+CREATE KEYSPACE target
 WITH replication = {'class': 'SimpleStrategy', 'replication_factor' : 3}
 AND durable_writes = true;
 
-USE pocdb ;
+USE pocdb1 ;
 
 CREATE TABLE products(
   id bigint PRIMARY KEY,
