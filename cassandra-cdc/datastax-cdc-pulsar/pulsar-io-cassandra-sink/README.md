@@ -177,6 +177,8 @@ cd ${CONNECTOR_HOME}/deploy
 
 ## Validate Data in target connector
 
+
+
 ## To Do
 1. User Id/Password is provided at the build time. *DONE*
 2. Provide for id/password at runtime using secret manager or other method. *DONE*
@@ -213,4 +215,6 @@ cd ${CONNECTOR_HOME}/deploy
    Test for performance.
 6. Add support for monitoring and metrics. Add documentation around monitoring and metrics. 
 
+## Additonal Information
+1. Dashboard | https://github.com/streamnative/apache-pulsar-grafana-dashboard/blob/master/gettingStarted.md
 
