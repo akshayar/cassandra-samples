@@ -2,6 +2,11 @@ bin/pulsar-client --url pulsar://10.0.134.80:6650 produce my-topic --messages "h
 
     bin/pulsar-client --url pulsar://10.0.134.80:6650 consume my-topic -s "first-subscription"
 
+bin/pulsar-client produce my-topic --messages "hello-pulsar-2"
+
+bin/pulsar-client  consume my-topic -s "first-subscription"
+
+
 bin/pulsar-admin topics list public/default
 
 mkdir cassandra-source-connectors

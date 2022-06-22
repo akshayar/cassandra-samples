@@ -45,7 +45,7 @@ INSERT INTO products_on_hand(product_id, quantity) VALUES (107,44);
 INSERT INTO products_on_hand(product_id, quantity) VALUES (108,2);
 INSERT INTO products_on_hand(product_id, quantity) VALUES (109,5);
 
-CREATE TABLE customers (
+CREATE TABLE customers1 (
   id bigint PRIMARY KEY,
   first_name varchar,
   last_name varchar,

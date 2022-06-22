@@ -10,11 +10,11 @@ public class FakeProductInserterTest {
     public void insertFakeProduct() throws Exception{
         FakeProductInserter inserter=new FakeProductInserter();
         CassandraConnector client = new CassandraConnector();
-        client.connect("3.84.250.3", 9042);
+        client.connect("52.202.210.103", 9042);
         Session session = client.getSession();
         Random random=new Random();
 
-        IntStream.range(1,100).parallel().forEach(i->{
+        IntStream.range(1,1000).parallel().forEach(i->{
             try{
                 if(random.nextBoolean()){
                     System.out.println("inserting "+i);

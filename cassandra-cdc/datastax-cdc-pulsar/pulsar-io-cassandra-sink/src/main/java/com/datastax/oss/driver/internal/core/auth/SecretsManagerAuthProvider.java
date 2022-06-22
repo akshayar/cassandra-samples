@@ -60,8 +60,8 @@ public class SecretsManagerAuthProvider extends PlainTextAuthProvider{
 			    JsonNode node=getSecret(secretName,region );
 			    log.info("Got credentials from secrets manager successfully, region:{},secretName:{}",region,secretName);
 			    return new Credentials(
-			        node.get("username").asText().toCharArray(),
-			        node.get("password").asText().toCharArray(),
+			        node.get("ServiceUserName").asText().toCharArray(),
+			        node.get("ServicePassword").asText().toCharArray(),
 			        authorizationId.toCharArray());
 	}
 	

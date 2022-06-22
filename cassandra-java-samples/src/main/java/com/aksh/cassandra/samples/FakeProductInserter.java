@@ -64,7 +64,7 @@ public class FakeProductInserter {
         }
     }
 
-    private static final String CUSTOMER_INSERT_CQL="INSERT INTO pocdb1.customers(id,first_name,last_name,email,insertdate)\n" +
+    private static final String CUSTOMER_INSERT_CQL="INSERT INTO pocdb1.customers1(id,first_name,last_name,email,insertdate)\n" +
             "  VALUES (?,?,?,?,?);";
 
 
@@ -87,7 +87,7 @@ public class FakeProductInserter {
 
     }
 
-    private static final String CUSTOMER_UPDATE_CQL="UPDATE  pocdb1.customers set email =? " +
+    private static final String CUSTOMER_UPDATE_CQL="UPDATE  pocdb1.customers1 set email =? " +
             "  WHERE id=?;";
 
     public void updateCustomer(Session session ) throws  InterruptedException{
