@@ -10,7 +10,7 @@ public class FakeProductInserterTest {
     public void insertFakeProduct() throws Exception{
         FakeProductInserter inserter=new FakeProductInserter();
         CassandraConnector client = new CassandraConnector();
-        client.connect("52.202.210.103", 9042);
+        client.connect("44.203.122.78", 9042);
         Session session = client.getSession();
         Random random=new Random();
 
@@ -20,12 +20,12 @@ public class FakeProductInserterTest {
                     System.out.println("inserting "+i);
                    // inserter.insertProduct(session);
 
-                    inserter.insertCustomer(session);
+                    inserter.insertCustomer(session,"pocdb1");
                 }else{
                     System.out.println("updating " +i);
-                    //inserter.updateProduct(session);
+                    inserter.updateProduct(session,"pocdb1");
 
-                  //  inserter.updateCustomer(session);
+                    inserter.updateCustomer(session,"pocdb1");
                 }
 
             }catch (Exception e){

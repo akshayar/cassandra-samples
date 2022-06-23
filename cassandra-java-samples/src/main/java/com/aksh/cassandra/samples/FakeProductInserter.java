@@ -18,61 +18,65 @@ public class FakeProductInserter {
     private BlockingQueue<Long> prodIdQueue=new LinkedBlockingDeque<>();
     private BlockingQueue<Long> custIdQueue=new LinkedBlockingDeque<>();
 
-    private static final String PRODUCT_INSERT_CQL="INSERT INTO pocdb1.products(id,name,description,weight)" +
+    private static final String PRODUCT_INSERT_CQL="INSERT INTO #KEYSPACE#.#TABLE#(id,name,description,weight)" +
             " VALUES (?,?,?,?);";
-    private static final String PRDUCT_IN_HAND_INSERT="INSERT INTO pocdb1.products_on_hand(product_id, quantity) VALUES (?,?);";
-    public void insertProduct(Session session) throws Exception{
-        if(map.get(PRODUCT_INSERT_CQL) ==null){
-            map.put(PRODUCT_INSERT_CQL,session.prepare(PRODUCT_INSERT_CQL));
+    private static final String PRDUCT_IN_HAND_INSERT="INSERT INTO #KEYSPACE#.#TABLE#(product_id, quantity) VALUES (?,?);";
+    public void insertProduct(Session session, String keyspace, String table) throws Exception{
+        String queryUpdate=PRODUCT_INSERT_CQL.replaceAll("#KEYSPACE#",keyspace).replaceAll("#TABLE#","products");
+        if(map.get(queryUpdate) ==null){
+            map.put(queryUpdate,session.prepare(queryUpdate));
         }
 
-        if(map.get(PRDUCT_IN_HAND_INSERT) ==null){
-            map.put(PRDUCT_IN_HAND_INSERT,session.prepare(PRDUCT_IN_HAND_INSERT));
+        String queryUpdateInHand=PRDUCT_IN_HAND_INSERT.replaceAll("#KEYSPACE#",keyspace).replaceAll("#TABLE#","products_on_hand");
+        if(map.get(queryUpdateInHand) ==null){
+            map.put(queryUpdateInHand,session.prepare(queryUpdateInHand));
         }
 
         String name=faker.name().name();
         long id=faker.number().numberBetween(1l,10000l);
         boolean success=prodIdQueue.offer(id,5, TimeUnit.SECONDS);
         if(success){
-            PreparedStatement preparedStatement=map.get(PRODUCT_INSERT_CQL);
+            PreparedStatement preparedStatement=map.get(queryUpdate);
             session.execute(preparedStatement.bind(id,name,faker.regexify("[a-z1-9]{10} "+name),Float.parseFloat(faker.numerify("##"))));
 
-            PreparedStatement preparedStatement2=map.get(PRDUCT_IN_HAND_INSERT);
+            PreparedStatement preparedStatement2=map.get(queryUpdateInHand);
             session.execute(preparedStatement2.bind(id,faker.number().numberBetween(1l,10000l)));
         }
 
     }
-    private static final String PRODUCT_UPDATE_CQL="UPDATE  pocdb1.products SET description =?" +
+    private static final String PRODUCT_UPDATE_CQL="UPDATE  #KEYSPACE#.#TABLE# SET description =?" +
             " WHERE id =?;";
-    private static final String PRDUCT_IN_HAND_UPDATE="UPDATE  pocdb1.products_on_hand SET quantity =?" +
+    private static final String PRDUCT_IN_HAND_UPDATE="UPDATE  #KEYSPACE#.#TABLE# SET quantity =?" +
             " WHERE product_id =?;";
 
-    public void updateProduct(Session session ) throws InterruptedException{
-        if(map.get(PRODUCT_UPDATE_CQL) ==null){
-            map.put(PRODUCT_UPDATE_CQL,session.prepare(PRODUCT_UPDATE_CQL));
+    public void updateProduct(Session session , String keyspace) throws InterruptedException{
+        String queryUpdate=PRODUCT_UPDATE_CQL.replaceAll("#KEYSPACE#",keyspace).replaceAll("#TABLE#","products");
+        if(map.get(queryUpdate) ==null){
+            map.put(queryUpdate,session.prepare(queryUpdate));
         }
-
-        if(map.get(PRDUCT_IN_HAND_UPDATE) ==null){
-            map.put(PRDUCT_IN_HAND_UPDATE,session.prepare(PRDUCT_IN_HAND_UPDATE));
+        String queryUpdateInHand=PRDUCT_IN_HAND_UPDATE.replaceAll("#KEYSPACE#",keyspace).replaceAll("#TABLE#","products_on_hand");
+        if(map.get(queryUpdateInHand) ==null){
+            map.put(queryUpdateInHand,session.prepare(queryUpdateInHand));
         }
         Long id=prodIdQueue.poll(5,TimeUnit.SECONDS);
 
         if(id!=null){
 
-            session.execute(map.get(PRODUCT_UPDATE_CQL).bind(faker.regexify("[a-z1-9]{10} "),id));
-            session.execute(map.get(PRDUCT_IN_HAND_UPDATE).bind(faker.number().numberBetween(1l,10000l),id));
+            session.execute(map.get(queryUpdate).bind(faker.regexify("[a-z1-9]{10} "),id));
+            session.execute(map.get(queryUpdateInHand).bind(faker.number().numberBetween(1l,10000l),id));
         }
     }
 
-    private static final String CUSTOMER_INSERT_CQL="INSERT INTO pocdb1.customers1(id,first_name,last_name,email,insertdate)\n" +
+    private static final String CUSTOMER_INSERT_CQL="INSERT INTO #KEYSPACE#.#TABLE#(id,first_name,last_name,email,insertdate)\n" +
             "  VALUES (?,?,?,?,?);";
 
 
-    public void insertCustomer(Session session) throws  InterruptedException{
-        if(map.get(CUSTOMER_INSERT_CQL) ==null){
-            map.put(CUSTOMER_INSERT_CQL,session.prepare(CUSTOMER_INSERT_CQL));
+    public void insertCustomer(Session session, String keyspace) throws  InterruptedException{
+        String query=CUSTOMER_INSERT_CQL.replaceAll("#KEYSPACE#",keyspace).replaceAll("#TABLE#","customers");
+        if(map.get(query) ==null){
+            map.put(query,session.prepare(query));
         }
-        PreparedStatement preparedStatement=map.get(CUSTOMER_INSERT_CQL);
+        PreparedStatement preparedStatement=map.get(query);
         Name name=faker.name();
         String email = faker.bothify("????##@gmail.com");
         String date=new Date()+"";
@@ -87,12 +91,13 @@ public class FakeProductInserter {
 
     }
 
-    private static final String CUSTOMER_UPDATE_CQL="UPDATE  pocdb1.customers1 set email =? " +
+    private static final String CUSTOMER_UPDATE_CQL="UPDATE  #KEYSPACE#.#TABLE# set email =? " +
             "  WHERE id=?;";
 
-    public void updateCustomer(Session session ) throws  InterruptedException{
-        if(map.get(CUSTOMER_UPDATE_CQL) ==null){
-            map.put(CUSTOMER_UPDATE_CQL,session.prepare(CUSTOMER_UPDATE_CQL));
+    public void updateCustomer(Session session , String keyspace ) throws  InterruptedException{
+        String query=CUSTOMER_UPDATE_CQL.replaceAll("#KEYSPACE#",keyspace).replaceAll("#TABLE#","customers");
+        if(map.get(query) ==null){
+            map.put(query,session.prepare(query));
         }
 
 
@@ -100,7 +105,7 @@ public class FakeProductInserter {
         if(id!=null){
             String email=faker.bothify("????##@gmail.updated");
             System.out.println("id="+id+",email="+email);
-            session.execute(map.get(CUSTOMER_UPDATE_CQL).bind(email,id));
+            session.execute(map.get(query).bind(email,id));
         }
 
     }
