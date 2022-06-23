@@ -31,6 +31,6 @@
     - name: Deploy truststore
       shell: |
         chmod +x {{ pulsar_home }}/pulsar-io-cassandra-sink-connector/*.sh
-        {{ pulsar_home }}/pulsar-io-cassandra-sink-connector/keyspaces-sink-deploy.sh  {{ target_keyspace }} {{ target_table_name }} persistent://public/default/data-{{ source_keyspace }}.{{ source_table_name }} {{ starting_position }}
+        {{ pulsar_home }}/pulsar-io-cassandra-sink-connector/keyspaces-sink-create.sh  {{ target_keyspace }} {{ target_table_name }} persistent://public/default/data-{{ source_keyspace }}.{{ source_table_name }} {{ starting_position }}
       register: ps
     - debug: var=ps.stdout_lines

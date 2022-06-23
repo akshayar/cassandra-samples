@@ -38,12 +38,16 @@
         dest: "{{ pulsar_home }}/pulsar-io-cassandra-sink-connector/keyspaces-sink-deploy-config.sh"
     - name: Copy scripts
       template:
+        src: "../templates/cdc-connector/keyspaces-sink-check-status.sh"
+        dest: "{{ pulsar_home }}/pulsar-io-cassandra-sink-connector/keyspaces-sink-check-status.sh"
+    - name: Copy scripts
+      template:
         src: "../templates/cdc-connector//keyspaces-sink-secret-manager-conf.conf"
         dest: "{{ pulsar_home }}/pulsar-io-cassandra-sink-connector/keyspaces-sink-secret-manager-conf.conf"
     - name: Copy scripts
       template:
-        src: "../templates/cdc-connector/keyspaces-sink-deploy.sh"
-        dest: "{{ pulsar_home }}/pulsar-io-cassandra-sink-connector/keyspaces-sink-deploy.sh"
+        src: "../templates/cdc-connector/keyspaces-sink-create.sh"
+        dest: "{{ pulsar_home }}/pulsar-io-cassandra-sink-connector/keyspaces-sink-create.sh"
     - name: Copy scripts
       template:
         src: "../templates/cdc-connector/keyspaces-sink-config.yaml"

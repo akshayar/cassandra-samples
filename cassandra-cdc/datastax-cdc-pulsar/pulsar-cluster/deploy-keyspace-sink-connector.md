@@ -23,14 +23,28 @@
         --description "Keyspace Secret for Keyspace Sink Connector." \
         --secret-string "{\"ServiceUserName\":\"$SERVICE_USER_NAME\",\"ServicePassword\":\"${SERVICE_USER_PASSWORD}\"}"
     ```
-3. Create IAM permissions to write to keyspace table.
-4. Deploy Keyspace Sink Connector. 
+   4. Update IAM permissions of the use created above to write to Amazon Keyspaces table. 
+
+2. Deploy Keyspace Sink Connector. 
    1. Create truststore. 
    ```shell
    mkdir ../keystore ; cd ../keystore
    chmod +x ../templates/cdc-connector/*.sh
    ../templates/cdc-connector/keyspaces-sink-setup-truststore.sh 
+   
    ```
-   2. 
-
+   2. Update parameters files terraform-ansible/parameters/cassandra-config.json. 
+   3. Run following commands to deploy Keyspace Sink Connector.
+   ```shell
+    TF_STATE=./ TF_KEY_NAME=private_ip  ansible-playbook   --user='ec2-user' --inventory=~/environment/terraform-inventory --extra-vars="@../parameters/cassandra-config.json"  ../keyspace-sink-connector-deploy.yaml
+   ```
+   4. Run following command to start  Keyspace Sink Connector.
+   ```shell
+    TF_STATE=./ TF_KEY_NAME=private_ip  ansible-playbook   --user='ec2-user' --inventory=~/environment/terraform-inventory --extra-vars="@../parameters/cassandra-config.json"  ../keyspace-sink-connector-create.yaml
+   ```
+   5. Run following command to check status of Keyspace Sink Connector. 
+   ```shell
+   TF_STATE=./ TF_KEY_NAME=private_ip  ansible-playbook   --user='ec2-user' --inventory=~/environment/terraform-inventory --extra-vars="@../parameters/cassandra-config.json"  ../keyspace-sink-connector-check-status.yaml
+   ```
+   
 

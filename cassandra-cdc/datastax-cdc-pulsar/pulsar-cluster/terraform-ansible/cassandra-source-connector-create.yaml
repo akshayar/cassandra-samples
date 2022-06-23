@@ -30,8 +30,8 @@
         password: "{{ cassandra_password }}"
     - name: Deploy truststore
       shell: |
-        chmod +x /opt/pulsar/start-cassandra-source-connector.sh
-        /opt/pulsar/start-cassandra-source-connector.sh {{ server }} {{ port }} {{ source_keyspace }} {{ source_table_name }} {{ user }} {{ password }}
+        chmod +x /opt/pulsar/cassandra-source-connector-start.sh
+        /opt/pulsar/cassandra-source-connector-start.sh {{ server }} {{ port }} {{ source_keyspace }} {{ source_table_name }} {{ user }} {{ password }}
       register: ps
     - debug: var=ps.stdout_lines
 
