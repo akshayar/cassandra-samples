@@ -13,7 +13,7 @@ In this document we narrate end to end process to do live migration of Cassandra
 
 ## Deploy Apache Cassandra 
 If you don't have Cassandra deployment and want to do POC on this approach , use the instructions below to deploy Apache Cassandra. 
-* [Deploy Apache Cassandra](apache-pulsar-deployment.md)
+* [Deploy Apache Cassandra](cassandra4-deployment.md)
 
 ## Deploy Apache Pulsar cluster
 Use these steps to deploy Apache Pulsar cluster on EC2 nodes. The instructions below refer code and instructions from [Deploying a Pulsar cluster on AWS using Terraform and Ansible]
