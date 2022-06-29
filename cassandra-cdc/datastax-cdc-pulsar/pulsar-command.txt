@@ -7,7 +7,11 @@ bin/pulsar-client produce my-topic --messages "hello-pulsar-2"
 bin/pulsar-client  consume my-topic -s "first-subscription"
 
 
-bin/pulsar-admin topics list public/default
+$PULSAR_HOME/bin/pulsar-admin topics list public/default
+$PULSAR_HOME/bin/pulsar-client  consume persistent://public/default/events-demo.customers -s "events-consumer"
+
+$PULSAR_HOME/bin/pulsar-client  consume persistent://public/default/data-demo.customers -s "events-consumer"  -p Earliest
+
 
 mkdir cassandra-source-connectors
 cd cassandra-source-connectors
@@ -19,16 +23,16 @@ bin/pulsar-admin source delete --name cassandra-customers
 
 bin/pulsar-admin source create \
 --name cassandra-customers \
---archive /home/ec2-user/cassandra-source-connectors/cassandra-source-connectors-1.0.1/pulsar-cassandra-source-1.0.1.nar \
+--archive /home/ec2-user/cassandra-source-connector/cassandra-source-connectors-1.0.1/pulsar-cassandra-source-1.0.1.nar  \
 --tenant public \
 --namespace default \
---destination-topic-name public/default/data-pocdb.customers \
+--destination-topic-name public/default/data-demo.customers \
 --parallelism 1 \
 --source-config '{
-        "events.topic": "persistent://public/default/events-pocdb.customers",
-        "keyspace": "pocdb",
+        "events.topic": "persistent://public/default/events-demo.customers",
+        "keyspace": "demo",
         "table": "customers",
-        "contactPoints": "10.0.131.46",
+        "contactPoints": "10.0.168.88",
         "port": 9042,
         "loadBalancing.localDc": "OSS-dc0",
         "auth.provider": "PLAIN",

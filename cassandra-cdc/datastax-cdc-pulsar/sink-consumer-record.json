@@ -1,0 +1,3952 @@
+{
+  "sourceRecord": {},
+  "value": {
+    "nativeObject": {
+      "key": {
+        "schema": {
+          "fields": [
+            {
+              "name": "id",
+              "position": 0,
+              "schema": {
+                "type": "LONG",
+                "hashCode": -2147483648,
+                "props": {},
+                "reserved": [
+                  "aliases",
+                  "size",
+                  "values",
+                  "name",
+                  "namespace",
+                  "doc",
+                  "fields",
+                  "type",
+                  "items",
+                  "symbols"
+                ]
+              },
+              "order": "ASCENDING",
+              "props": {},
+              "reserved": [
+                "default",
+                "aliases",
+                "name",
+                "doc",
+                "type",
+                "order"
+              ]
+            }
+          ],
+          "fieldMap": {
+            "id": {
+              "name": "id",
+              "position": 0,
+              "schema": {
+                "type": "LONG",
+                "hashCode": -2147483648,
+                "props": {},
+                "reserved": [
+                  "aliases",
+                  "size",
+                  "values",
+                  "name",
+                  "namespace",
+                  "doc",
+                  "fields",
+                  "type",
+                  "items",
+                  "symbols"
+                ]
+              },
+              "order": "ASCENDING",
+              "props": {},
+              "reserved": [
+                "default",
+                "aliases",
+                "name",
+                "doc",
+                "type",
+                "order"
+              ]
+            }
+          },
+          "isError": false,
+          "name": {
+            "name": "cyclist_stats",
+            "space": "demo",
+            "full": "demo.cyclist_stats"
+          },
+          "doc": "Table demo.cyclist_stats",
+          "type": "RECORD",
+          "hashCode": -2147483648,
+          "props": {
+            "__AVRO_READ_OFFSET__": {
+              "_value": "0"
+            }
+          },
+          "reserved": [
+            "aliases",
+            "size",
+            "values",
+            "name",
+            "namespace",
+            "doc",
+            "fields",
+            "type",
+            "items",
+            "symbols"
+          ]
+        },
+        "record": {
+          "schema": {
+            "fields": [
+              {
+                "name": "id",
+                "position": 0,
+                "schema": {
+                  "type": "LONG",
+                  "hashCode": -2147483648,
+                  "props": {},
+                  "reserved": [
+                    "aliases",
+                    "size",
+                    "values",
+                    "name",
+                    "namespace",
+                    "doc",
+                    "fields",
+                    "type",
+                    "items",
+                    "symbols"
+                  ]
+                },
+                "order": "ASCENDING",
+                "props": {},
+                "reserved": [
+                  "default",
+                  "aliases",
+                  "name",
+                  "doc",
+                  "type",
+                  "order"
+                ]
+              }
+            ],
+            "fieldMap": {
+              "id": {
+                "name": "id",
+                "position": 0,
+                "schema": {
+                  "type": "LONG",
+                  "hashCode": -2147483648,
+                  "props": {},
+                  "reserved": [
+                    "aliases",
+                    "size",
+                    "values",
+                    "name",
+                    "namespace",
+                    "doc",
+                    "fields",
+                    "type",
+                    "items",
+                    "symbols"
+                  ]
+                },
+                "order": "ASCENDING",
+                "props": {},
+                "reserved": [
+                  "default",
+                  "aliases",
+                  "name",
+                  "doc",
+                  "type",
+                  "order"
+                ]
+              }
+            },
+            "isError": false,
+            "name": {
+              "name": "cyclist_stats",
+              "space": "demo",
+              "full": "demo.cyclist_stats"
+            },
+            "doc": "Table demo.cyclist_stats",
+            "type": "RECORD",
+            "hashCode": -2147483648,
+            "props": {
+              "__AVRO_READ_OFFSET__": {
+                "_value": "0"
+              }
+            },
+            "reserved": [
+              "aliases",
+              "size",
+              "values",
+              "name",
+              "namespace",
+              "doc",
+              "fields",
+              "type",
+              "items",
+              "symbols"
+            ]
+          },
+          "values": [
+            1234
+          ]
+        },
+        "schemaVersion": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "fields": [
+          {
+            "name": "id",
+            "index": 0
+          }
+        ]
+      },
+      "value": {
+        "schema": {
+          "fields": [
+            {
+              "name": "basics",
+              "position": 0,
+              "schema": {
+                "types": [
+                  {
+                    "type": "NULL",
+                    "hashCode": -2147483648,
+                    "props": {},
+                    "reserved": [
+                      "aliases",
+                      "size",
+                      "values",
+                      "name",
+                      "namespace",
+                      "doc",
+                      "fields",
+                      "type",
+                      "items",
+                      "symbols"
+                    ]
+                  },
+                  {
+                    "fields": [
+                      {
+                        "name": "birthday",
+                        "position": 0,
+                        "schema": {
+                          "types": [
+                            {
+                              "type": "NULL",
+                              "hashCode": -2147483648,
+                              "props": {},
+                              "reserved": [
+                                "aliases",
+                                "size",
+                                "values",
+                                "name",
+                                "namespace",
+                                "doc",
+                                "fields",
+                                "type",
+                                "items",
+                                "symbols"
+                              ]
+                            },
+                            {
+                              "type": "LONG",
+                              "logicalType": {
+                                "name": "timestamp-millis"
+                              },
+                              "hashCode": -2147483648,
+                              "props": {
+                                "logicalType": {
+                                  "_value": "timestamp-millis"
+                                }
+                              },
+                              "reserved": [
+                                "aliases",
+                                "size",
+                                "values",
+                                "name",
+                                "namespace",
+                                "doc",
+                                "fields",
+                                "type",
+                                "items",
+                                "symbols"
+                              ]
+                            }
+                          ],
+                          "indexByName": {
+                            "null": 0,
+                            "long": 1
+                          },
+                          "type": "UNION",
+                          "hashCode": -2147483648,
+                          "props": {},
+                          "reserved": [
+                            "aliases",
+                            "size",
+                            "values",
+                            "name",
+                            "namespace",
+                            "doc",
+                            "fields",
+                            "type",
+                            "items",
+                            "symbols"
+                          ]
+                        },
+                        "defaultValue": {},
+                        "order": "ASCENDING",
+                        "props": {},
+                        "reserved": [
+                          "default",
+                          "aliases",
+                          "name",
+                          "doc",
+                          "type",
+                          "order"
+                        ]
+                      },
+                      {
+                        "name": "nationality",
+                        "position": 1,
+                        "schema": {
+                          "types": [
+                            {
+                              "type": "NULL",
+                              "hashCode": -2147483648,
+                              "props": {},
+                              "reserved": [
+                                "aliases",
+                                "size",
+                                "values",
+                                "name",
+                                "namespace",
+                                "doc",
+                                "fields",
+                                "type",
+                                "items",
+                                "symbols"
+                              ]
+                            },
+                            {
+                              "type": "STRING",
+                              "hashCode": -2147483648,
+                              "props": {},
+                              "reserved": [
+                                "aliases",
+                                "size",
+                                "values",
+                                "name",
+                                "namespace",
+                                "doc",
+                                "fields",
+                                "type",
+                                "items",
+                                "symbols"
+                              ]
+                            }
+                          ],
+                          "indexByName": {
+                            "null": 0,
+                            "string": 1
+                          },
+                          "type": "UNION",
+                          "hashCode": -2147483648,
+                          "props": {},
+                          "reserved": [
+                            "aliases",
+                            "size",
+                            "values",
+                            "name",
+                            "namespace",
+                            "doc",
+                            "fields",
+                            "type",
+                            "items",
+                            "symbols"
+                          ]
+                        },
+                        "defaultValue": {},
+                        "order": "ASCENDING",
+                        "props": {},
+                        "reserved": [
+                          "default",
+                          "aliases",
+                          "name",
+                          "doc",
+                          "type",
+                          "order"
+                        ]
+                      },
+                      {
+                        "name": "weight",
+                        "position": 2,
+                        "schema": {
+                          "types": [
+                            {
+                              "type": "NULL",
+                              "hashCode": -2147483648,
+                              "props": {},
+                              "reserved": [
+                                "aliases",
+                                "size",
+                                "values",
+                                "name",
+                                "namespace",
+                                "doc",
+                                "fields",
+                                "type",
+                                "items",
+                                "symbols"
+                              ]
+                            },
+                            {
+                              "type": "STRING",
+                              "hashCode": -2147483648,
+                              "props": {},
+                              "reserved": [
+                                "aliases",
+                                "size",
+                                "values",
+                                "name",
+                                "namespace",
+                                "doc",
+                                "fields",
+                                "type",
+                                "items",
+                                "symbols"
+                              ]
+                            }
+                          ],
+                          "indexByName": {
+                            "null": 0,
+                            "string": 1
+                          },
+                          "type": "UNION",
+                          "hashCode": -2147483648,
+                          "props": {},
+                          "reserved": [
+                            "aliases",
+                            "size",
+                            "values",
+                            "name",
+                            "namespace",
+                            "doc",
+                            "fields",
+                            "type",
+                            "items",
+                            "symbols"
+                          ]
+                        },
+                        "defaultValue": {},
+                        "order": "ASCENDING",
+                        "props": {},
+                        "reserved": [
+                          "default",
+                          "aliases",
+                          "name",
+                          "doc",
+                          "type",
+                          "order"
+                        ]
+                      },
+                      {
+                        "name": "height",
+                        "position": 3,
+                        "schema": {
+                          "types": [
+                            {
+                              "type": "NULL",
+                              "hashCode": -2147483648,
+                              "props": {},
+                              "reserved": [
+                                "aliases",
+                                "size",
+                                "values",
+                                "name",
+                                "namespace",
+                                "doc",
+                                "fields",
+                                "type",
+                                "items",
+                                "symbols"
+                              ]
+                            },
+                            {
+                              "type": "STRING",
+                              "hashCode": -2147483648,
+                              "props": {},
+                              "reserved": [
+                                "aliases",
+                                "size",
+                                "values",
+                                "name",
+                                "namespace",
+                                "doc",
+                                "fields",
+                                "type",
+                                "items",
+                                "symbols"
+                              ]
+                            }
+                          ],
+                          "indexByName": {
+                            "null": 0,
+                            "string": 1
+                          },
+                          "type": "UNION",
+                          "hashCode": -2147483648,
+                          "props": {},
+                          "reserved": [
+                            "aliases",
+                            "size",
+                            "values",
+                            "name",
+                            "namespace",
+                            "doc",
+                            "fields",
+                            "type",
+                            "items",
+                            "symbols"
+                          ]
+                        },
+                        "defaultValue": {},
+                        "order": "ASCENDING",
+                        "props": {},
+                        "reserved": [
+                          "default",
+                          "aliases",
+                          "name",
+                          "doc",
+                          "type",
+                          "order"
+                        ]
+                      }
+                    ],
+                    "fieldMap": {
+                      "birthday": {
+                        "name": "birthday",
+                        "position": 0,
+                        "schema": {
+                          "types": [
+                            {
+                              "type": "NULL",
+                              "hashCode": -2147483648,
+                              "props": {},
+                              "reserved": [
+                                "aliases",
+                                "size",
+                                "values",
+                                "name",
+                                "namespace",
+                                "doc",
+                                "fields",
+                                "type",
+                                "items",
+                                "symbols"
+                              ]
+                            },
+                            {
+                              "type": "LONG",
+                              "logicalType": {
+                                "name": "timestamp-millis"
+                              },
+                              "hashCode": -2147483648,
+                              "props": {
+                                "logicalType": {
+                                  "_value": "timestamp-millis"
+                                }
+                              },
+                              "reserved": [
+                                "aliases",
+                                "size",
+                                "values",
+                                "name",
+                                "namespace",
+                                "doc",
+                                "fields",
+                                "type",
+                                "items",
+                                "symbols"
+                              ]
+                            }
+                          ],
+                          "indexByName": {
+                            "null": 0,
+                            "long": 1
+                          },
+                          "type": "UNION",
+                          "hashCode": -2147483648,
+                          "props": {},
+                          "reserved": [
+                            "aliases",
+                            "size",
+                            "values",
+                            "name",
+                            "namespace",
+                            "doc",
+                            "fields",
+                            "type",
+                            "items",
+                            "symbols"
+                          ]
+                        },
+                        "defaultValue": {},
+                        "order": "ASCENDING",
+                        "props": {},
+                        "reserved": [
+                          "default",
+                          "aliases",
+                          "name",
+                          "doc",
+                          "type",
+                          "order"
+                        ]
+                      },
+                      "weight": {
+                        "name": "weight",
+                        "position": 2,
+                        "schema": {
+                          "types": [
+                            {
+                              "type": "NULL",
+                              "hashCode": -2147483648,
+                              "props": {},
+                              "reserved": [
+                                "aliases",
+                                "size",
+                                "values",
+                                "name",
+                                "namespace",
+                                "doc",
+                                "fields",
+                                "type",
+                                "items",
+                                "symbols"
+                              ]
+                            },
+                            {
+                              "type": "STRING",
+                              "hashCode": -2147483648,
+                              "props": {},
+                              "reserved": [
+                                "aliases",
+                                "size",
+                                "values",
+                                "name",
+                                "namespace",
+                                "doc",
+                                "fields",
+                                "type",
+                                "items",
+                                "symbols"
+                              ]
+                            }
+                          ],
+                          "indexByName": {
+                            "null": 0,
+                            "string": 1
+                          },
+                          "type": "UNION",
+                          "hashCode": -2147483648,
+                          "props": {},
+                          "reserved": [
+                            "aliases",
+                            "size",
+                            "values",
+                            "name",
+                            "namespace",
+                            "doc",
+                            "fields",
+                            "type",
+                            "items",
+                            "symbols"
+                          ]
+                        },
+                        "defaultValue": {},
+                        "order": "ASCENDING",
+                        "props": {},
+                        "reserved": [
+                          "default",
+                          "aliases",
+                          "name",
+                          "doc",
+                          "type",
+                          "order"
+                        ]
+                      },
+                      "nationality": {
+                        "name": "nationality",
+                        "position": 1,
+                        "schema": {
+                          "types": [
+                            {
+                              "type": "NULL",
+                              "hashCode": -2147483648,
+                              "props": {},
+                              "reserved": [
+                                "aliases",
+                                "size",
+                                "values",
+                                "name",
+                                "namespace",
+                                "doc",
+                                "fields",
+                                "type",
+                                "items",
+                                "symbols"
+                              ]
+                            },
+                            {
+                              "type": "STRING",
+                              "hashCode": -2147483648,
+                              "props": {},
+                              "reserved": [
+                                "aliases",
+                                "size",
+                                "values",
+                                "name",
+                                "namespace",
+                                "doc",
+                                "fields",
+                                "type",
+                                "items",
+                                "symbols"
+                              ]
+                            }
+                          ],
+                          "indexByName": {
+                            "null": 0,
+                            "string": 1
+                          },
+                          "type": "UNION",
+                          "hashCode": -2147483648,
+                          "props": {},
+                          "reserved": [
+                            "aliases",
+                            "size",
+                            "values",
+                            "name",
+                            "namespace",
+                            "doc",
+                            "fields",
+                            "type",
+                            "items",
+                            "symbols"
+                          ]
+                        },
+                        "defaultValue": {},
+                        "order": "ASCENDING",
+                        "props": {},
+                        "reserved": [
+                          "default",
+                          "aliases",
+                          "name",
+                          "doc",
+                          "type",
+                          "order"
+                        ]
+                      },
+                      "height": {
+                        "name": "height",
+                        "position": 3,
+                        "schema": {
+                          "types": [
+                            {
+                              "type": "NULL",
+                              "hashCode": -2147483648,
+                              "props": {},
+                              "reserved": [
+                                "aliases",
+                                "size",
+                                "values",
+                                "name",
+                                "namespace",
+                                "doc",
+                                "fields",
+                                "type",
+                                "items",
+                                "symbols"
+                              ]
+                            },
+                            {
+                              "type": "STRING",
+                              "hashCode": -2147483648,
+                              "props": {},
+                              "reserved": [
+                                "aliases",
+                                "size",
+                                "values",
+                                "name",
+                                "namespace",
+                                "doc",
+                                "fields",
+                                "type",
+                                "items",
+                                "symbols"
+                              ]
+                            }
+                          ],
+                          "indexByName": {
+                            "null": 0,
+                            "string": 1
+                          },
+                          "type": "UNION",
+                          "hashCode": -2147483648,
+                          "props": {},
+                          "reserved": [
+                            "aliases",
+                            "size",
+                            "values",
+                            "name",
+                            "namespace",
+                            "doc",
+                            "fields",
+                            "type",
+                            "items",
+                            "symbols"
+                          ]
+                        },
+                        "defaultValue": {},
+                        "order": "ASCENDING",
+                        "props": {},
+                        "reserved": [
+                          "default",
+                          "aliases",
+                          "name",
+                          "doc",
+                          "type",
+                          "order"
+                        ]
+                      }
+                    },
+                    "isError": false,
+                    "name": {
+                      "name": "basic_info",
+                      "space": "demo",
+                      "full": "demo.basic_info"
+                    },
+                    "doc": "CQL type demo.basic_info",
+                    "type": "RECORD",
+                    "hashCode": 774485428,
+                    "props": {},
+                    "reserved": [
+                      "aliases",
+                      "size",
+                      "values",
+                      "name",
+                      "namespace",
+                      "doc",
+                      "fields",
+                      "type",
+                      "items",
+                      "symbols"
+                    ]
+                  }
+                ],
+                "indexByName": {
+                  "null": 0,
+                  "demo.basic_info": 1
+                },
+                "type": "UNION",
+                "hashCode": -2147483648,
+                "props": {},
+                "reserved": [
+                  "aliases",
+                  "size",
+                  "values",
+                  "name",
+                  "namespace",
+                  "doc",
+                  "fields",
+                  "type",
+                  "items",
+                  "symbols"
+                ]
+              },
+              "defaultValue": {},
+              "order": "ASCENDING",
+              "props": {},
+              "reserved": [
+                "default",
+                "aliases",
+                "name",
+                "doc",
+                "type",
+                "order"
+              ]
+            },
+            {
+              "name": "lastname",
+              "position": 1,
+              "schema": {
+                "types": [
+                  {
+                    "type": "NULL",
+                    "hashCode": -2147483648,
+                    "props": {},
+                    "reserved": [
+                      "aliases",
+                      "size",
+                      "values",
+                      "name",
+                      "namespace",
+                      "doc",
+                      "fields",
+                      "type",
+                      "items",
+                      "symbols"
+                    ]
+                  },
+                  {
+                    "type": "STRING",
+                    "hashCode": -2147483648,
+                    "props": {},
+                    "reserved": [
+                      "aliases",
+                      "size",
+                      "values",
+                      "name",
+                      "namespace",
+                      "doc",
+                      "fields",
+                      "type",
+                      "items",
+                      "symbols"
+                    ]
+                  }
+                ],
+                "indexByName": {
+                  "null": 0,
+                  "string": 1
+                },
+                "type": "UNION",
+                "hashCode": -2147483648,
+                "props": {},
+                "reserved": [
+                  "aliases",
+                  "size",
+                  "values",
+                  "name",
+                  "namespace",
+                  "doc",
+                  "fields",
+                  "type",
+                  "items",
+                  "symbols"
+                ]
+              },
+              "defaultValue": {},
+              "order": "ASCENDING",
+              "props": {},
+              "reserved": [
+                "default",
+                "aliases",
+                "name",
+                "doc",
+                "type",
+                "order"
+              ]
+            }
+          ],
+          "fieldMap": {
+            "basics": {
+              "name": "basics",
+              "position": 0,
+              "schema": {
+                "types": [
+                  {
+                    "type": "NULL",
+                    "hashCode": -2147483648,
+                    "props": {},
+                    "reserved": [
+                      "aliases",
+                      "size",
+                      "values",
+                      "name",
+                      "namespace",
+                      "doc",
+                      "fields",
+                      "type",
+                      "items",
+                      "symbols"
+                    ]
+                  },
+                  {
+                    "fields": [
+                      {
+                        "name": "birthday",
+                        "position": 0,
+                        "schema": {
+                          "types": [
+                            {
+                              "type": "NULL",
+                              "hashCode": -2147483648,
+                              "props": {},
+                              "reserved": [
+                                "aliases",
+                                "size",
+                                "values",
+                                "name",
+                                "namespace",
+                                "doc",
+                                "fields",
+                                "type",
+                                "items",
+                                "symbols"
+                              ]
+                            },
+                            {
+                              "type": "LONG",
+                              "logicalType": {
+                                "name": "timestamp-millis"
+                              },
+                              "hashCode": -2147483648,
+                              "props": {
+                                "logicalType": {
+                                  "_value": "timestamp-millis"
+                                }
+                              },
+                              "reserved": [
+                                "aliases",
+                                "size",
+                                "values",
+                                "name",
+                                "namespace",
+                                "doc",
+                                "fields",
+                                "type",
+                                "items",
+                                "symbols"
+                              ]
+                            }
+                          ],
+                          "indexByName": {
+                            "null": 0,
+                            "long": 1
+                          },
+                          "type": "UNION",
+                          "hashCode": -2147483648,
+                          "props": {},
+                          "reserved": [
+                            "aliases",
+                            "size",
+                            "values",
+                            "name",
+                            "namespace",
+                            "doc",
+                            "fields",
+                            "type",
+                            "items",
+                            "symbols"
+                          ]
+                        },
+                        "defaultValue": {},
+                        "order": "ASCENDING",
+                        "props": {},
+                        "reserved": [
+                          "default",
+                          "aliases",
+                          "name",
+                          "doc",
+                          "type",
+                          "order"
+                        ]
+                      },
+                      {
+                        "name": "nationality",
+                        "position": 1,
+                        "schema": {
+                          "types": [
+                            {
+                              "type": "NULL",
+                              "hashCode": -2147483648,
+                              "props": {},
+                              "reserved": [
+                                "aliases",
+                                "size",
+                                "values",
+                                "name",
+                                "namespace",
+                                "doc",
+                                "fields",
+                                "type",
+                                "items",
+                                "symbols"
+                              ]
+                            },
+                            {
+                              "type": "STRING",
+                              "hashCode": -2147483648,
+                              "props": {},
+                              "reserved": [
+                                "aliases",
+                                "size",
+                                "values",
+                                "name",
+                                "namespace",
+                                "doc",
+                                "fields",
+                                "type",
+                                "items",
+                                "symbols"
+                              ]
+                            }
+                          ],
+                          "indexByName": {
+                            "null": 0,
+                            "string": 1
+                          },
+                          "type": "UNION",
+                          "hashCode": -2147483648,
+                          "props": {},
+                          "reserved": [
+                            "aliases",
+                            "size",
+                            "values",
+                            "name",
+                            "namespace",
+                            "doc",
+                            "fields",
+                            "type",
+                            "items",
+                            "symbols"
+                          ]
+                        },
+                        "defaultValue": {},
+                        "order": "ASCENDING",
+                        "props": {},
+                        "reserved": [
+                          "default",
+                          "aliases",
+                          "name",
+                          "doc",
+                          "type",
+                          "order"
+                        ]
+                      },
+                      {
+                        "name": "weight",
+                        "position": 2,
+                        "schema": {
+                          "types": [
+                            {
+                              "type": "NULL",
+                              "hashCode": -2147483648,
+                              "props": {},
+                              "reserved": [
+                                "aliases",
+                                "size",
+                                "values",
+                                "name",
+                                "namespace",
+                                "doc",
+                                "fields",
+                                "type",
+                                "items",
+                                "symbols"
+                              ]
+                            },
+                            {
+                              "type": "STRING",
+                              "hashCode": -2147483648,
+                              "props": {},
+                              "reserved": [
+                                "aliases",
+                                "size",
+                                "values",
+                                "name",
+                                "namespace",
+                                "doc",
+                                "fields",
+                                "type",
+                                "items",
+                                "symbols"
+                              ]
+                            }
+                          ],
+                          "indexByName": {
+                            "null": 0,
+                            "string": 1
+                          },
+                          "type": "UNION",
+                          "hashCode": -2147483648,
+                          "props": {},
+                          "reserved": [
+                            "aliases",
+                            "size",
+                            "values",
+                            "name",
+                            "namespace",
+                            "doc",
+                            "fields",
+                            "type",
+                            "items",
+                            "symbols"
+                          ]
+                        },
+                        "defaultValue": {},
+                        "order": "ASCENDING",
+                        "props": {},
+                        "reserved": [
+                          "default",
+                          "aliases",
+                          "name",
+                          "doc",
+                          "type",
+                          "order"
+                        ]
+                      },
+                      {
+                        "name": "height",
+                        "position": 3,
+                        "schema": {
+                          "types": [
+                            {
+                              "type": "NULL",
+                              "hashCode": -2147483648,
+                              "props": {},
+                              "reserved": [
+                                "aliases",
+                                "size",
+                                "values",
+                                "name",
+                                "namespace",
+                                "doc",
+                                "fields",
+                                "type",
+                                "items",
+                                "symbols"
+                              ]
+                            },
+                            {
+                              "type": "STRING",
+                              "hashCode": -2147483648,
+                              "props": {},
+                              "reserved": [
+                                "aliases",
+                                "size",
+                                "values",
+                                "name",
+                                "namespace",
+                                "doc",
+                                "fields",
+                                "type",
+                                "items",
+                                "symbols"
+                              ]
+                            }
+                          ],
+                          "indexByName": {
+                            "null": 0,
+                            "string": 1
+                          },
+                          "type": "UNION",
+                          "hashCode": -2147483648,
+                          "props": {},
+                          "reserved": [
+                            "aliases",
+                            "size",
+                            "values",
+                            "name",
+                            "namespace",
+                            "doc",
+                            "fields",
+                            "type",
+                            "items",
+                            "symbols"
+                          ]
+                        },
+                        "defaultValue": {},
+                        "order": "ASCENDING",
+                        "props": {},
+                        "reserved": [
+                          "default",
+                          "aliases",
+                          "name",
+                          "doc",
+                          "type",
+                          "order"
+                        ]
+                      }
+                    ],
+                    "fieldMap": {
+                      "birthday": {
+                        "name": "birthday",
+                        "position": 0,
+                        "schema": {
+                          "types": [
+                            {
+                              "type": "NULL",
+                              "hashCode": -2147483648,
+                              "props": {},
+                              "reserved": [
+                                "aliases",
+                                "size",
+                                "values",
+                                "name",
+                                "namespace",
+                                "doc",
+                                "fields",
+                                "type",
+                                "items",
+                                "symbols"
+                              ]
+                            },
+                            {
+                              "type": "LONG",
+                              "logicalType": {
+                                "name": "timestamp-millis"
+                              },
+                              "hashCode": -2147483648,
+                              "props": {
+                                "logicalType": {
+                                  "_value": "timestamp-millis"
+                                }
+                              },
+                              "reserved": [
+                                "aliases",
+                                "size",
+                                "values",
+                                "name",
+                                "namespace",
+                                "doc",
+                                "fields",
+                                "type",
+                                "items",
+                                "symbols"
+                              ]
+                            }
+                          ],
+                          "indexByName": {
+                            "null": 0,
+                            "long": 1
+                          },
+                          "type": "UNION",
+                          "hashCode": -2147483648,
+                          "props": {},
+                          "reserved": [
+                            "aliases",
+                            "size",
+                            "values",
+                            "name",
+                            "namespace",
+                            "doc",
+                            "fields",
+                            "type",
+                            "items",
+                            "symbols"
+                          ]
+                        },
+                        "defaultValue": {},
+                        "order": "ASCENDING",
+                        "props": {},
+                        "reserved": [
+                          "default",
+                          "aliases",
+                          "name",
+                          "doc",
+                          "type",
+                          "order"
+                        ]
+                      },
+                      "weight": {
+                        "name": "weight",
+                        "position": 2,
+                        "schema": {
+                          "types": [
+                            {
+                              "type": "NULL",
+                              "hashCode": -2147483648,
+                              "props": {},
+                              "reserved": [
+                                "aliases",
+                                "size",
+                                "values",
+                                "name",
+                                "namespace",
+                                "doc",
+                                "fields",
+                                "type",
+                                "items",
+                                "symbols"
+                              ]
+                            },
+                            {
+                              "type": "STRING",
+                              "hashCode": -2147483648,
+                              "props": {},
+                              "reserved": [
+                                "aliases",
+                                "size",
+                                "values",
+                                "name",
+                                "namespace",
+                                "doc",
+                                "fields",
+                                "type",
+                                "items",
+                                "symbols"
+                              ]
+                            }
+                          ],
+                          "indexByName": {
+                            "null": 0,
+                            "string": 1
+                          },
+                          "type": "UNION",
+                          "hashCode": -2147483648,
+                          "props": {},
+                          "reserved": [
+                            "aliases",
+                            "size",
+                            "values",
+                            "name",
+                            "namespace",
+                            "doc",
+                            "fields",
+                            "type",
+                            "items",
+                            "symbols"
+                          ]
+                        },
+                        "defaultValue": {},
+                        "order": "ASCENDING",
+                        "props": {},
+                        "reserved": [
+                          "default",
+                          "aliases",
+                          "name",
+                          "doc",
+                          "type",
+                          "order"
+                        ]
+                      },
+                      "nationality": {
+                        "name": "nationality",
+                        "position": 1,
+                        "schema": {
+                          "types": [
+                            {
+                              "type": "NULL",
+                              "hashCode": -2147483648,
+                              "props": {},
+                              "reserved": [
+                                "aliases",
+                                "size",
+                                "values",
+                                "name",
+                                "namespace",
+                                "doc",
+                                "fields",
+                                "type",
+                                "items",
+                                "symbols"
+                              ]
+                            },
+                            {
+                              "type": "STRING",
+                              "hashCode": -2147483648,
+                              "props": {},
+                              "reserved": [
+                                "aliases",
+                                "size",
+                                "values",
+                                "name",
+                                "namespace",
+                                "doc",
+                                "fields",
+                                "type",
+                                "items",
+                                "symbols"
+                              ]
+                            }
+                          ],
+                          "indexByName": {
+                            "null": 0,
+                            "string": 1
+                          },
+                          "type": "UNION",
+                          "hashCode": -2147483648,
+                          "props": {},
+                          "reserved": [
+                            "aliases",
+                            "size",
+                            "values",
+                            "name",
+                            "namespace",
+                            "doc",
+                            "fields",
+                            "type",
+                            "items",
+                            "symbols"
+                          ]
+                        },
+                        "defaultValue": {},
+                        "order": "ASCENDING",
+                        "props": {},
+                        "reserved": [
+                          "default",
+                          "aliases",
+                          "name",
+                          "doc",
+                          "type",
+                          "order"
+                        ]
+                      },
+                      "height": {
+                        "name": "height",
+                        "position": 3,
+                        "schema": {
+                          "types": [
+                            {
+                              "type": "NULL",
+                              "hashCode": -2147483648,
+                              "props": {},
+                              "reserved": [
+                                "aliases",
+                                "size",
+                                "values",
+                                "name",
+                                "namespace",
+                                "doc",
+                                "fields",
+                                "type",
+                                "items",
+                                "symbols"
+                              ]
+                            },
+                            {
+                              "type": "STRING",
+                              "hashCode": -2147483648,
+                              "props": {},
+                              "reserved": [
+                                "aliases",
+                                "size",
+                                "values",
+                                "name",
+                                "namespace",
+                                "doc",
+                                "fields",
+                                "type",
+                                "items",
+                                "symbols"
+                              ]
+                            }
+                          ],
+                          "indexByName": {
+                            "null": 0,
+                            "string": 1
+                          },
+                          "type": "UNION",
+                          "hashCode": -2147483648,
+                          "props": {},
+                          "reserved": [
+                            "aliases",
+                            "size",
+                            "values",
+                            "name",
+                            "namespace",
+                            "doc",
+                            "fields",
+                            "type",
+                            "items",
+                            "symbols"
+                          ]
+                        },
+                        "defaultValue": {},
+                        "order": "ASCENDING",
+                        "props": {},
+                        "reserved": [
+                          "default",
+                          "aliases",
+                          "name",
+                          "doc",
+                          "type",
+                          "order"
+                        ]
+                      }
+                    },
+                    "isError": false,
+                    "name": {
+                      "name": "basic_info",
+                      "space": "demo",
+                      "full": "demo.basic_info"
+                    },
+                    "doc": "CQL type demo.basic_info",
+                    "type": "RECORD",
+                    "hashCode": 774485428,
+                    "props": {},
+                    "reserved": [
+                      "aliases",
+                      "size",
+                      "values",
+                      "name",
+                      "namespace",
+                      "doc",
+                      "fields",
+                      "type",
+                      "items",
+                      "symbols"
+                    ]
+                  }
+                ],
+                "indexByName": {
+                  "null": 0,
+                  "demo.basic_info": 1
+                },
+                "type": "UNION",
+                "hashCode": -2147483648,
+                "props": {},
+                "reserved": [
+                  "aliases",
+                  "size",
+                  "values",
+                  "name",
+                  "namespace",
+                  "doc",
+                  "fields",
+                  "type",
+                  "items",
+                  "symbols"
+                ]
+              },
+              "defaultValue": {},
+              "order": "ASCENDING",
+              "props": {},
+              "reserved": [
+                "default",
+                "aliases",
+                "name",
+                "doc",
+                "type",
+                "order"
+              ]
+            },
+            "lastname": {
+              "name": "lastname",
+              "position": 1,
+              "schema": {
+                "types": [
+                  {
+                    "type": "NULL",
+                    "hashCode": -2147483648,
+                    "props": {},
+                    "reserved": [
+                      "aliases",
+                      "size",
+                      "values",
+                      "name",
+                      "namespace",
+                      "doc",
+                      "fields",
+                      "type",
+                      "items",
+                      "symbols"
+                    ]
+                  },
+                  {
+                    "type": "STRING",
+                    "hashCode": -2147483648,
+                    "props": {},
+                    "reserved": [
+                      "aliases",
+                      "size",
+                      "values",
+                      "name",
+                      "namespace",
+                      "doc",
+                      "fields",
+                      "type",
+                      "items",
+                      "symbols"
+                    ]
+                  }
+                ],
+                "indexByName": {
+                  "null": 0,
+                  "string": 1
+                },
+                "type": "UNION",
+                "hashCode": -2147483648,
+                "props": {},
+                "reserved": [
+                  "aliases",
+                  "size",
+                  "values",
+                  "name",
+                  "namespace",
+                  "doc",
+                  "fields",
+                  "type",
+                  "items",
+                  "symbols"
+                ]
+              },
+              "defaultValue": {},
+              "order": "ASCENDING",
+              "props": {},
+              "reserved": [
+                "default",
+                "aliases",
+                "name",
+                "doc",
+                "type",
+                "order"
+              ]
+            }
+          },
+          "isError": false,
+          "name": {
+            "name": "cyclist_stats",
+            "space": "demo",
+            "full": "demo.cyclist_stats"
+          },
+          "doc": "Table demo.cyclist_stats",
+          "type": "RECORD",
+          "hashCode": -2147483648,
+          "props": {
+            "__AVRO_READ_OFFSET__": {
+              "_value": "0"
+            }
+          },
+          "reserved": [
+            "aliases",
+            "size",
+            "values",
+            "name",
+            "namespace",
+            "doc",
+            "fields",
+            "type",
+            "items",
+            "symbols"
+          ]
+        },
+        "record": {
+          "schema": {
+            "fields": [
+              {
+                "name": "basics",
+                "position": 0,
+                "schema": {
+                  "types": [
+                    {
+                      "type": "NULL",
+                      "hashCode": -2147483648,
+                      "props": {},
+                      "reserved": [
+                        "aliases",
+                        "size",
+                        "values",
+                        "name",
+                        "namespace",
+                        "doc",
+                        "fields",
+                        "type",
+                        "items",
+                        "symbols"
+                      ]
+                    },
+                    {
+                      "fields": [
+                        {
+                          "name": "birthday",
+                          "position": 0,
+                          "schema": {
+                            "types": [
+                              {
+                                "type": "NULL",
+                                "hashCode": -2147483648,
+                                "props": {},
+                                "reserved": [
+                                  "aliases",
+                                  "size",
+                                  "values",
+                                  "name",
+                                  "namespace",
+                                  "doc",
+                                  "fields",
+                                  "type",
+                                  "items",
+                                  "symbols"
+                                ]
+                              },
+                              {
+                                "type": "LONG",
+                                "logicalType": {
+                                  "name": "timestamp-millis"
+                                },
+                                "hashCode": -2147483648,
+                                "props": {
+                                  "logicalType": {
+                                    "_value": "timestamp-millis"
+                                  }
+                                },
+                                "reserved": [
+                                  "aliases",
+                                  "size",
+                                  "values",
+                                  "name",
+                                  "namespace",
+                                  "doc",
+                                  "fields",
+                                  "type",
+                                  "items",
+                                  "symbols"
+                                ]
+                              }
+                            ],
+                            "indexByName": {
+                              "null": 0,
+                              "long": 1
+                            },
+                            "type": "UNION",
+                            "hashCode": -2147483648,
+                            "props": {},
+                            "reserved": [
+                              "aliases",
+                              "size",
+                              "values",
+                              "name",
+                              "namespace",
+                              "doc",
+                              "fields",
+                              "type",
+                              "items",
+                              "symbols"
+                            ]
+                          },
+                          "defaultValue": {},
+                          "order": "ASCENDING",
+                          "props": {},
+                          "reserved": [
+                            "default",
+                            "aliases",
+                            "name",
+                            "doc",
+                            "type",
+                            "order"
+                          ]
+                        },
+                        {
+                          "name": "nationality",
+                          "position": 1,
+                          "schema": {
+                            "types": [
+                              {
+                                "type": "NULL",
+                                "hashCode": -2147483648,
+                                "props": {},
+                                "reserved": [
+                                  "aliases",
+                                  "size",
+                                  "values",
+                                  "name",
+                                  "namespace",
+                                  "doc",
+                                  "fields",
+                                  "type",
+                                  "items",
+                                  "symbols"
+                                ]
+                              },
+                              {
+                                "type": "STRING",
+                                "hashCode": -2147483648,
+                                "props": {},
+                                "reserved": [
+                                  "aliases",
+                                  "size",
+                                  "values",
+                                  "name",
+                                  "namespace",
+                                  "doc",
+                                  "fields",
+                                  "type",
+                                  "items",
+                                  "symbols"
+                                ]
+                              }
+                            ],
+                            "indexByName": {
+                              "null": 0,
+                              "string": 1
+                            },
+                            "type": "UNION",
+                            "hashCode": -2147483648,
+                            "props": {},
+                            "reserved": [
+                              "aliases",
+                              "size",
+                              "values",
+                              "name",
+                              "namespace",
+                              "doc",
+                              "fields",
+                              "type",
+                              "items",
+                              "symbols"
+                            ]
+                          },
+                          "defaultValue": {},
+                          "order": "ASCENDING",
+                          "props": {},
+                          "reserved": [
+                            "default",
+                            "aliases",
+                            "name",
+                            "doc",
+                            "type",
+                            "order"
+                          ]
+                        },
+                        {
+                          "name": "weight",
+                          "position": 2,
+                          "schema": {
+                            "types": [
+                              {
+                                "type": "NULL",
+                                "hashCode": -2147483648,
+                                "props": {},
+                                "reserved": [
+                                  "aliases",
+                                  "size",
+                                  "values",
+                                  "name",
+                                  "namespace",
+                                  "doc",
+                                  "fields",
+                                  "type",
+                                  "items",
+                                  "symbols"
+                                ]
+                              },
+                              {
+                                "type": "STRING",
+                                "hashCode": -2147483648,
+                                "props": {},
+                                "reserved": [
+                                  "aliases",
+                                  "size",
+                                  "values",
+                                  "name",
+                                  "namespace",
+                                  "doc",
+                                  "fields",
+                                  "type",
+                                  "items",
+                                  "symbols"
+                                ]
+                              }
+                            ],
+                            "indexByName": {
+                              "null": 0,
+                              "string": 1
+                            },
+                            "type": "UNION",
+                            "hashCode": -2147483648,
+                            "props": {},
+                            "reserved": [
+                              "aliases",
+                              "size",
+                              "values",
+                              "name",
+                              "namespace",
+                              "doc",
+                              "fields",
+                              "type",
+                              "items",
+                              "symbols"
+                            ]
+                          },
+                          "defaultValue": {},
+                          "order": "ASCENDING",
+                          "props": {},
+                          "reserved": [
+                            "default",
+                            "aliases",
+                            "name",
+                            "doc",
+                            "type",
+                            "order"
+                          ]
+                        },
+                        {
+                          "name": "height",
+                          "position": 3,
+                          "schema": {
+                            "types": [
+                              {
+                                "type": "NULL",
+                                "hashCode": -2147483648,
+                                "props": {},
+                                "reserved": [
+                                  "aliases",
+                                  "size",
+                                  "values",
+                                  "name",
+                                  "namespace",
+                                  "doc",
+                                  "fields",
+                                  "type",
+                                  "items",
+                                  "symbols"
+                                ]
+                              },
+                              {
+                                "type": "STRING",
+                                "hashCode": -2147483648,
+                                "props": {},
+                                "reserved": [
+                                  "aliases",
+                                  "size",
+                                  "values",
+                                  "name",
+                                  "namespace",
+                                  "doc",
+                                  "fields",
+                                  "type",
+                                  "items",
+                                  "symbols"
+                                ]
+                              }
+                            ],
+                            "indexByName": {
+                              "null": 0,
+                              "string": 1
+                            },
+                            "type": "UNION",
+                            "hashCode": -2147483648,
+                            "props": {},
+                            "reserved": [
+                              "aliases",
+                              "size",
+                              "values",
+                              "name",
+                              "namespace",
+                              "doc",
+                              "fields",
+                              "type",
+                              "items",
+                              "symbols"
+                            ]
+                          },
+                          "defaultValue": {},
+                          "order": "ASCENDING",
+                          "props": {},
+                          "reserved": [
+                            "default",
+                            "aliases",
+                            "name",
+                            "doc",
+                            "type",
+                            "order"
+                          ]
+                        }
+                      ],
+                      "fieldMap": {
+                        "birthday": {
+                          "name": "birthday",
+                          "position": 0,
+                          "schema": {
+                            "types": [
+                              {
+                                "type": "NULL",
+                                "hashCode": -2147483648,
+                                "props": {},
+                                "reserved": [
+                                  "aliases",
+                                  "size",
+                                  "values",
+                                  "name",
+                                  "namespace",
+                                  "doc",
+                                  "fields",
+                                  "type",
+                                  "items",
+                                  "symbols"
+                                ]
+                              },
+                              {
+                                "type": "LONG",
+                                "logicalType": {
+                                  "name": "timestamp-millis"
+                                },
+                                "hashCode": -2147483648,
+                                "props": {
+                                  "logicalType": {
+                                    "_value": "timestamp-millis"
+                                  }
+                                },
+                                "reserved": [
+                                  "aliases",
+                                  "size",
+                                  "values",
+                                  "name",
+                                  "namespace",
+                                  "doc",
+                                  "fields",
+                                  "type",
+                                  "items",
+                                  "symbols"
+                                ]
+                              }
+                            ],
+                            "indexByName": {
+                              "null": 0,
+                              "long": 1
+                            },
+                            "type": "UNION",
+                            "hashCode": -2147483648,
+                            "props": {},
+                            "reserved": [
+                              "aliases",
+                              "size",
+                              "values",
+                              "name",
+                              "namespace",
+                              "doc",
+                              "fields",
+                              "type",
+                              "items",
+                              "symbols"
+                            ]
+                          },
+                          "defaultValue": {},
+                          "order": "ASCENDING",
+                          "props": {},
+                          "reserved": [
+                            "default",
+                            "aliases",
+                            "name",
+                            "doc",
+                            "type",
+                            "order"
+                          ]
+                        },
+                        "weight": {
+                          "name": "weight",
+                          "position": 2,
+                          "schema": {
+                            "types": [
+                              {
+                                "type": "NULL",
+                                "hashCode": -2147483648,
+                                "props": {},
+                                "reserved": [
+                                  "aliases",
+                                  "size",
+                                  "values",
+                                  "name",
+                                  "namespace",
+                                  "doc",
+                                  "fields",
+                                  "type",
+                                  "items",
+                                  "symbols"
+                                ]
+                              },
+                              {
+                                "type": "STRING",
+                                "hashCode": -2147483648,
+                                "props": {},
+                                "reserved": [
+                                  "aliases",
+                                  "size",
+                                  "values",
+                                  "name",
+                                  "namespace",
+                                  "doc",
+                                  "fields",
+                                  "type",
+                                  "items",
+                                  "symbols"
+                                ]
+                              }
+                            ],
+                            "indexByName": {
+                              "null": 0,
+                              "string": 1
+                            },
+                            "type": "UNION",
+                            "hashCode": -2147483648,
+                            "props": {},
+                            "reserved": [
+                              "aliases",
+                              "size",
+                              "values",
+                              "name",
+                              "namespace",
+                              "doc",
+                              "fields",
+                              "type",
+                              "items",
+                              "symbols"
+                            ]
+                          },
+                          "defaultValue": {},
+                          "order": "ASCENDING",
+                          "props": {},
+                          "reserved": [
+                            "default",
+                            "aliases",
+                            "name",
+                            "doc",
+                            "type",
+                            "order"
+                          ]
+                        },
+                        "nationality": {
+                          "name": "nationality",
+                          "position": 1,
+                          "schema": {
+                            "types": [
+                              {
+                                "type": "NULL",
+                                "hashCode": -2147483648,
+                                "props": {},
+                                "reserved": [
+                                  "aliases",
+                                  "size",
+                                  "values",
+                                  "name",
+                                  "namespace",
+                                  "doc",
+                                  "fields",
+                                  "type",
+                                  "items",
+                                  "symbols"
+                                ]
+                              },
+                              {
+                                "type": "STRING",
+                                "hashCode": -2147483648,
+                                "props": {},
+                                "reserved": [
+                                  "aliases",
+                                  "size",
+                                  "values",
+                                  "name",
+                                  "namespace",
+                                  "doc",
+                                  "fields",
+                                  "type",
+                                  "items",
+                                  "symbols"
+                                ]
+                              }
+                            ],
+                            "indexByName": {
+                              "null": 0,
+                              "string": 1
+                            },
+                            "type": "UNION",
+                            "hashCode": -2147483648,
+                            "props": {},
+                            "reserved": [
+                              "aliases",
+                              "size",
+                              "values",
+                              "name",
+                              "namespace",
+                              "doc",
+                              "fields",
+                              "type",
+                              "items",
+                              "symbols"
+                            ]
+                          },
+                          "defaultValue": {},
+                          "order": "ASCENDING",
+                          "props": {},
+                          "reserved": [
+                            "default",
+                            "aliases",
+                            "name",
+                            "doc",
+                            "type",
+                            "order"
+                          ]
+                        },
+                        "height": {
+                          "name": "height",
+                          "position": 3,
+                          "schema": {
+                            "types": [
+                              {
+                                "type": "NULL",
+                                "hashCode": -2147483648,
+                                "props": {},
+                                "reserved": [
+                                  "aliases",
+                                  "size",
+                                  "values",
+                                  "name",
+                                  "namespace",
+                                  "doc",
+                                  "fields",
+                                  "type",
+                                  "items",
+                                  "symbols"
+                                ]
+                              },
+                              {
+                                "type": "STRING",
+                                "hashCode": -2147483648,
+                                "props": {},
+                                "reserved": [
+                                  "aliases",
+                                  "size",
+                                  "values",
+                                  "name",
+                                  "namespace",
+                                  "doc",
+                                  "fields",
+                                  "type",
+                                  "items",
+                                  "symbols"
+                                ]
+                              }
+                            ],
+                            "indexByName": {
+                              "null": 0,
+                              "string": 1
+                            },
+                            "type": "UNION",
+                            "hashCode": -2147483648,
+                            "props": {},
+                            "reserved": [
+                              "aliases",
+                              "size",
+                              "values",
+                              "name",
+                              "namespace",
+                              "doc",
+                              "fields",
+                              "type",
+                              "items",
+                              "symbols"
+                            ]
+                          },
+                          "defaultValue": {},
+                          "order": "ASCENDING",
+                          "props": {},
+                          "reserved": [
+                            "default",
+                            "aliases",
+                            "name",
+                            "doc",
+                            "type",
+                            "order"
+                          ]
+                        }
+                      },
+                      "isError": false,
+                      "name": {
+                        "name": "basic_info",
+                        "space": "demo",
+                        "full": "demo.basic_info"
+                      },
+                      "doc": "CQL type demo.basic_info",
+                      "type": "RECORD",
+                      "hashCode": 774485428,
+                      "props": {},
+                      "reserved": [
+                        "aliases",
+                        "size",
+                        "values",
+                        "name",
+                        "namespace",
+                        "doc",
+                        "fields",
+                        "type",
+                        "items",
+                        "symbols"
+                      ]
+                    }
+                  ],
+                  "indexByName": {
+                    "null": 0,
+                    "demo.basic_info": 1
+                  },
+                  "type": "UNION",
+                  "hashCode": -2147483648,
+                  "props": {},
+                  "reserved": [
+                    "aliases",
+                    "size",
+                    "values",
+                    "name",
+                    "namespace",
+                    "doc",
+                    "fields",
+                    "type",
+                    "items",
+                    "symbols"
+                  ]
+                },
+                "defaultValue": {},
+                "order": "ASCENDING",
+                "props": {},
+                "reserved": [
+                  "default",
+                  "aliases",
+                  "name",
+                  "doc",
+                  "type",
+                  "order"
+                ]
+              },
+              {
+                "name": "lastname",
+                "position": 1,
+                "schema": {
+                  "types": [
+                    {
+                      "type": "NULL",
+                      "hashCode": -2147483648,
+                      "props": {},
+                      "reserved": [
+                        "aliases",
+                        "size",
+                        "values",
+                        "name",
+                        "namespace",
+                        "doc",
+                        "fields",
+                        "type",
+                        "items",
+                        "symbols"
+                      ]
+                    },
+                    {
+                      "type": "STRING",
+                      "hashCode": -2147483648,
+                      "props": {},
+                      "reserved": [
+                        "aliases",
+                        "size",
+                        "values",
+                        "name",
+                        "namespace",
+                        "doc",
+                        "fields",
+                        "type",
+                        "items",
+                        "symbols"
+                      ]
+                    }
+                  ],
+                  "indexByName": {
+                    "null": 0,
+                    "string": 1
+                  },
+                  "type": "UNION",
+                  "hashCode": -2147483648,
+                  "props": {},
+                  "reserved": [
+                    "aliases",
+                    "size",
+                    "values",
+                    "name",
+                    "namespace",
+                    "doc",
+                    "fields",
+                    "type",
+                    "items",
+                    "symbols"
+                  ]
+                },
+                "defaultValue": {},
+                "order": "ASCENDING",
+                "props": {},
+                "reserved": [
+                  "default",
+                  "aliases",
+                  "name",
+                  "doc",
+                  "type",
+                  "order"
+                ]
+              }
+            ],
+            "fieldMap": {
+              "basics": {
+                "name": "basics",
+                "position": 0,
+                "schema": {
+                  "types": [
+                    {
+                      "type": "NULL",
+                      "hashCode": -2147483648,
+                      "props": {},
+                      "reserved": [
+                        "aliases",
+                        "size",
+                        "values",
+                        "name",
+                        "namespace",
+                        "doc",
+                        "fields",
+                        "type",
+                        "items",
+                        "symbols"
+                      ]
+                    },
+                    {
+                      "fields": [
+                        {
+                          "name": "birthday",
+                          "position": 0,
+                          "schema": {
+                            "types": [
+                              {
+                                "type": "NULL",
+                                "hashCode": -2147483648,
+                                "props": {},
+                                "reserved": [
+                                  "aliases",
+                                  "size",
+                                  "values",
+                                  "name",
+                                  "namespace",
+                                  "doc",
+                                  "fields",
+                                  "type",
+                                  "items",
+                                  "symbols"
+                                ]
+                              },
+                              {
+                                "type": "LONG",
+                                "logicalType": {
+                                  "name": "timestamp-millis"
+                                },
+                                "hashCode": -2147483648,
+                                "props": {
+                                  "logicalType": {
+                                    "_value": "timestamp-millis"
+                                  }
+                                },
+                                "reserved": [
+                                  "aliases",
+                                  "size",
+                                  "values",
+                                  "name",
+                                  "namespace",
+                                  "doc",
+                                  "fields",
+                                  "type",
+                                  "items",
+                                  "symbols"
+                                ]
+                              }
+                            ],
+                            "indexByName": {
+                              "null": 0,
+                              "long": 1
+                            },
+                            "type": "UNION",
+                            "hashCode": -2147483648,
+                            "props": {},
+                            "reserved": [
+                              "aliases",
+                              "size",
+                              "values",
+                              "name",
+                              "namespace",
+                              "doc",
+                              "fields",
+                              "type",
+                              "items",
+                              "symbols"
+                            ]
+                          },
+                          "defaultValue": {},
+                          "order": "ASCENDING",
+                          "props": {},
+                          "reserved": [
+                            "default",
+                            "aliases",
+                            "name",
+                            "doc",
+                            "type",
+                            "order"
+                          ]
+                        },
+                        {
+                          "name": "nationality",
+                          "position": 1,
+                          "schema": {
+                            "types": [
+                              {
+                                "type": "NULL",
+                                "hashCode": -2147483648,
+                                "props": {},
+                                "reserved": [
+                                  "aliases",
+                                  "size",
+                                  "values",
+                                  "name",
+                                  "namespace",
+                                  "doc",
+                                  "fields",
+                                  "type",
+                                  "items",
+                                  "symbols"
+                                ]
+                              },
+                              {
+                                "type": "STRING",
+                                "hashCode": -2147483648,
+                                "props": {},
+                                "reserved": [
+                                  "aliases",
+                                  "size",
+                                  "values",
+                                  "name",
+                                  "namespace",
+                                  "doc",
+                                  "fields",
+                                  "type",
+                                  "items",
+                                  "symbols"
+                                ]
+                              }
+                            ],
+                            "indexByName": {
+                              "null": 0,
+                              "string": 1
+                            },
+                            "type": "UNION",
+                            "hashCode": -2147483648,
+                            "props": {},
+                            "reserved": [
+                              "aliases",
+                              "size",
+                              "values",
+                              "name",
+                              "namespace",
+                              "doc",
+                              "fields",
+                              "type",
+                              "items",
+                              "symbols"
+                            ]
+                          },
+                          "defaultValue": {},
+                          "order": "ASCENDING",
+                          "props": {},
+                          "reserved": [
+                            "default",
+                            "aliases",
+                            "name",
+                            "doc",
+                            "type",
+                            "order"
+                          ]
+                        },
+                        {
+                          "name": "weight",
+                          "position": 2,
+                          "schema": {
+                            "types": [
+                              {
+                                "type": "NULL",
+                                "hashCode": -2147483648,
+                                "props": {},
+                                "reserved": [
+                                  "aliases",
+                                  "size",
+                                  "values",
+                                  "name",
+                                  "namespace",
+                                  "doc",
+                                  "fields",
+                                  "type",
+                                  "items",
+                                  "symbols"
+                                ]
+                              },
+                              {
+                                "type": "STRING",
+                                "hashCode": -2147483648,
+                                "props": {},
+                                "reserved": [
+                                  "aliases",
+                                  "size",
+                                  "values",
+                                  "name",
+                                  "namespace",
+                                  "doc",
+                                  "fields",
+                                  "type",
+                                  "items",
+                                  "symbols"
+                                ]
+                              }
+                            ],
+                            "indexByName": {
+                              "null": 0,
+                              "string": 1
+                            },
+                            "type": "UNION",
+                            "hashCode": -2147483648,
+                            "props": {},
+                            "reserved": [
+                              "aliases",
+                              "size",
+                              "values",
+                              "name",
+                              "namespace",
+                              "doc",
+                              "fields",
+                              "type",
+                              "items",
+                              "symbols"
+                            ]
+                          },
+                          "defaultValue": {},
+                          "order": "ASCENDING",
+                          "props": {},
+                          "reserved": [
+                            "default",
+                            "aliases",
+                            "name",
+                            "doc",
+                            "type",
+                            "order"
+                          ]
+                        },
+                        {
+                          "name": "height",
+                          "position": 3,
+                          "schema": {
+                            "types": [
+                              {
+                                "type": "NULL",
+                                "hashCode": -2147483648,
+                                "props": {},
+                                "reserved": [
+                                  "aliases",
+                                  "size",
+                                  "values",
+                                  "name",
+                                  "namespace",
+                                  "doc",
+                                  "fields",
+                                  "type",
+                                  "items",
+                                  "symbols"
+                                ]
+                              },
+                              {
+                                "type": "STRING",
+                                "hashCode": -2147483648,
+                                "props": {},
+                                "reserved": [
+                                  "aliases",
+                                  "size",
+                                  "values",
+                                  "name",
+                                  "namespace",
+                                  "doc",
+                                  "fields",
+                                  "type",
+                                  "items",
+                                  "symbols"
+                                ]
+                              }
+                            ],
+                            "indexByName": {
+                              "null": 0,
+                              "string": 1
+                            },
+                            "type": "UNION",
+                            "hashCode": -2147483648,
+                            "props": {},
+                            "reserved": [
+                              "aliases",
+                              "size",
+                              "values",
+                              "name",
+                              "namespace",
+                              "doc",
+                              "fields",
+                              "type",
+                              "items",
+                              "symbols"
+                            ]
+                          },
+                          "defaultValue": {},
+                          "order": "ASCENDING",
+                          "props": {},
+                          "reserved": [
+                            "default",
+                            "aliases",
+                            "name",
+                            "doc",
+                            "type",
+                            "order"
+                          ]
+                        }
+                      ],
+                      "fieldMap": {
+                        "birthday": {
+                          "name": "birthday",
+                          "position": 0,
+                          "schema": {
+                            "types": [
+                              {
+                                "type": "NULL",
+                                "hashCode": -2147483648,
+                                "props": {},
+                                "reserved": [
+                                  "aliases",
+                                  "size",
+                                  "values",
+                                  "name",
+                                  "namespace",
+                                  "doc",
+                                  "fields",
+                                  "type",
+                                  "items",
+                                  "symbols"
+                                ]
+                              },
+                              {
+                                "type": "LONG",
+                                "logicalType": {
+                                  "name": "timestamp-millis"
+                                },
+                                "hashCode": -2147483648,
+                                "props": {
+                                  "logicalType": {
+                                    "_value": "timestamp-millis"
+                                  }
+                                },
+                                "reserved": [
+                                  "aliases",
+                                  "size",
+                                  "values",
+                                  "name",
+                                  "namespace",
+                                  "doc",
+                                  "fields",
+                                  "type",
+                                  "items",
+                                  "symbols"
+                                ]
+                              }
+                            ],
+                            "indexByName": {
+                              "null": 0,
+                              "long": 1
+                            },
+                            "type": "UNION",
+                            "hashCode": -2147483648,
+                            "props": {},
+                            "reserved": [
+                              "aliases",
+                              "size",
+                              "values",
+                              "name",
+                              "namespace",
+                              "doc",
+                              "fields",
+                              "type",
+                              "items",
+                              "symbols"
+                            ]
+                          },
+                          "defaultValue": {},
+                          "order": "ASCENDING",
+                          "props": {},
+                          "reserved": [
+                            "default",
+                            "aliases",
+                            "name",
+                            "doc",
+                            "type",
+                            "order"
+                          ]
+                        },
+                        "weight": {
+                          "name": "weight",
+                          "position": 2,
+                          "schema": {
+                            "types": [
+                              {
+                                "type": "NULL",
+                                "hashCode": -2147483648,
+                                "props": {},
+                                "reserved": [
+                                  "aliases",
+                                  "size",
+                                  "values",
+                                  "name",
+                                  "namespace",
+                                  "doc",
+                                  "fields",
+                                  "type",
+                                  "items",
+                                  "symbols"
+                                ]
+                              },
+                              {
+                                "type": "STRING",
+                                "hashCode": -2147483648,
+                                "props": {},
+                                "reserved": [
+                                  "aliases",
+                                  "size",
+                                  "values",
+                                  "name",
+                                  "namespace",
+                                  "doc",
+                                  "fields",
+                                  "type",
+                                  "items",
+                                  "symbols"
+                                ]
+                              }
+                            ],
+                            "indexByName": {
+                              "null": 0,
+                              "string": 1
+                            },
+                            "type": "UNION",
+                            "hashCode": -2147483648,
+                            "props": {},
+                            "reserved": [
+                              "aliases",
+                              "size",
+                              "values",
+                              "name",
+                              "namespace",
+                              "doc",
+                              "fields",
+                              "type",
+                              "items",
+                              "symbols"
+                            ]
+                          },
+                          "defaultValue": {},
+                          "order": "ASCENDING",
+                          "props": {},
+                          "reserved": [
+                            "default",
+                            "aliases",
+                            "name",
+                            "doc",
+                            "type",
+                            "order"
+                          ]
+                        },
+                        "nationality": {
+                          "name": "nationality",
+                          "position": 1,
+                          "schema": {
+                            "types": [
+                              {
+                                "type": "NULL",
+                                "hashCode": -2147483648,
+                                "props": {},
+                                "reserved": [
+                                  "aliases",
+                                  "size",
+                                  "values",
+                                  "name",
+                                  "namespace",
+                                  "doc",
+                                  "fields",
+                                  "type",
+                                  "items",
+                                  "symbols"
+                                ]
+                              },
+                              {
+                                "type": "STRING",
+                                "hashCode": -2147483648,
+                                "props": {},
+                                "reserved": [
+                                  "aliases",
+                                  "size",
+                                  "values",
+                                  "name",
+                                  "namespace",
+                                  "doc",
+                                  "fields",
+                                  "type",
+                                  "items",
+                                  "symbols"
+                                ]
+                              }
+                            ],
+                            "indexByName": {
+                              "null": 0,
+                              "string": 1
+                            },
+                            "type": "UNION",
+                            "hashCode": -2147483648,
+                            "props": {},
+                            "reserved": [
+                              "aliases",
+                              "size",
+                              "values",
+                              "name",
+                              "namespace",
+                              "doc",
+                              "fields",
+                              "type",
+                              "items",
+                              "symbols"
+                            ]
+                          },
+                          "defaultValue": {},
+                          "order": "ASCENDING",
+                          "props": {},
+                          "reserved": [
+                            "default",
+                            "aliases",
+                            "name",
+                            "doc",
+                            "type",
+                            "order"
+                          ]
+                        },
+                        "height": {
+                          "name": "height",
+                          "position": 3,
+                          "schema": {
+                            "types": [
+                              {
+                                "type": "NULL",
+                                "hashCode": -2147483648,
+                                "props": {},
+                                "reserved": [
+                                  "aliases",
+                                  "size",
+                                  "values",
+                                  "name",
+                                  "namespace",
+                                  "doc",
+                                  "fields",
+                                  "type",
+                                  "items",
+                                  "symbols"
+                                ]
+                              },
+                              {
+                                "type": "STRING",
+                                "hashCode": -2147483648,
+                                "props": {},
+                                "reserved": [
+                                  "aliases",
+                                  "size",
+                                  "values",
+                                  "name",
+                                  "namespace",
+                                  "doc",
+                                  "fields",
+                                  "type",
+                                  "items",
+                                  "symbols"
+                                ]
+                              }
+                            ],
+                            "indexByName": {
+                              "null": 0,
+                              "string": 1
+                            },
+                            "type": "UNION",
+                            "hashCode": -2147483648,
+                            "props": {},
+                            "reserved": [
+                              "aliases",
+                              "size",
+                              "values",
+                              "name",
+                              "namespace",
+                              "doc",
+                              "fields",
+                              "type",
+                              "items",
+                              "symbols"
+                            ]
+                          },
+                          "defaultValue": {},
+                          "order": "ASCENDING",
+                          "props": {},
+                          "reserved": [
+                            "default",
+                            "aliases",
+                            "name",
+                            "doc",
+                            "type",
+                            "order"
+                          ]
+                        }
+                      },
+                      "isError": false,
+                      "name": {
+                        "name": "basic_info",
+                        "space": "demo",
+                        "full": "demo.basic_info"
+                      },
+                      "doc": "CQL type demo.basic_info",
+                      "type": "RECORD",
+                      "hashCode": 774485428,
+                      "props": {},
+                      "reserved": [
+                        "aliases",
+                        "size",
+                        "values",
+                        "name",
+                        "namespace",
+                        "doc",
+                        "fields",
+                        "type",
+                        "items",
+                        "symbols"
+                      ]
+                    }
+                  ],
+                  "indexByName": {
+                    "null": 0,
+                    "demo.basic_info": 1
+                  },
+                  "type": "UNION",
+                  "hashCode": -2147483648,
+                  "props": {},
+                  "reserved": [
+                    "aliases",
+                    "size",
+                    "values",
+                    "name",
+                    "namespace",
+                    "doc",
+                    "fields",
+                    "type",
+                    "items",
+                    "symbols"
+                  ]
+                },
+                "defaultValue": {},
+                "order": "ASCENDING",
+                "props": {},
+                "reserved": [
+                  "default",
+                  "aliases",
+                  "name",
+                  "doc",
+                  "type",
+                  "order"
+                ]
+              },
+              "lastname": {
+                "name": "lastname",
+                "position": 1,
+                "schema": {
+                  "types": [
+                    {
+                      "type": "NULL",
+                      "hashCode": -2147483648,
+                      "props": {},
+                      "reserved": [
+                        "aliases",
+                        "size",
+                        "values",
+                        "name",
+                        "namespace",
+                        "doc",
+                        "fields",
+                        "type",
+                        "items",
+                        "symbols"
+                      ]
+                    },
+                    {
+                      "type": "STRING",
+                      "hashCode": -2147483648,
+                      "props": {},
+                      "reserved": [
+                        "aliases",
+                        "size",
+                        "values",
+                        "name",
+                        "namespace",
+                        "doc",
+                        "fields",
+                        "type",
+                        "items",
+                        "symbols"
+                      ]
+                    }
+                  ],
+                  "indexByName": {
+                    "null": 0,
+                    "string": 1
+                  },
+                  "type": "UNION",
+                  "hashCode": -2147483648,
+                  "props": {},
+                  "reserved": [
+                    "aliases",
+                    "size",
+                    "values",
+                    "name",
+                    "namespace",
+                    "doc",
+                    "fields",
+                    "type",
+                    "items",
+                    "symbols"
+                  ]
+                },
+                "defaultValue": {},
+                "order": "ASCENDING",
+                "props": {},
+                "reserved": [
+                  "default",
+                  "aliases",
+                  "name",
+                  "doc",
+                  "type",
+                  "order"
+                ]
+              }
+            },
+            "isError": false,
+            "name": {
+              "name": "cyclist_stats",
+              "space": "demo",
+              "full": "demo.cyclist_stats"
+            },
+            "doc": "Table demo.cyclist_stats",
+            "type": "RECORD",
+            "hashCode": -2147483648,
+            "props": {
+              "__AVRO_READ_OFFSET__": {
+                "_value": "0"
+              }
+            },
+            "reserved": [
+              "aliases",
+              "size",
+              "values",
+              "name",
+              "namespace",
+              "doc",
+              "fields",
+              "type",
+              "items",
+              "symbols"
+            ]
+          },
+          "values": [
+            {
+              "schema": {
+                "fields": [
+                  {
+                    "name": "birthday",
+                    "position": 0,
+                    "schema": {
+                      "types": [
+                        {
+                          "type": "NULL",
+                          "hashCode": -2147483648,
+                          "props": {},
+                          "reserved": [
+                            "aliases",
+                            "size",
+                            "values",
+                            "name",
+                            "namespace",
+                            "doc",
+                            "fields",
+                            "type",
+                            "items",
+                            "symbols"
+                          ]
+                        },
+                        {
+                          "type": "LONG",
+                          "logicalType": {
+                            "name": "timestamp-millis"
+                          },
+                          "hashCode": -2147483648,
+                          "props": {
+                            "logicalType": {
+                              "_value": "timestamp-millis"
+                            }
+                          },
+                          "reserved": [
+                            "aliases",
+                            "size",
+                            "values",
+                            "name",
+                            "namespace",
+                            "doc",
+                            "fields",
+                            "type",
+                            "items",
+                            "symbols"
+                          ]
+                        }
+                      ],
+                      "indexByName": {
+                        "null": 0,
+                        "long": 1
+                      },
+                      "type": "UNION",
+                      "hashCode": -2147483648,
+                      "props": {},
+                      "reserved": [
+                        "aliases",
+                        "size",
+                        "values",
+                        "name",
+                        "namespace",
+                        "doc",
+                        "fields",
+                        "type",
+                        "items",
+                        "symbols"
+                      ]
+                    },
+                    "defaultValue": {},
+                    "order": "ASCENDING",
+                    "props": {},
+                    "reserved": [
+                      "default",
+                      "aliases",
+                      "name",
+                      "doc",
+                      "type",
+                      "order"
+                    ]
+                  },
+                  {
+                    "name": "nationality",
+                    "position": 1,
+                    "schema": {
+                      "types": [
+                        {
+                          "type": "NULL",
+                          "hashCode": -2147483648,
+                          "props": {},
+                          "reserved": [
+                            "aliases",
+                            "size",
+                            "values",
+                            "name",
+                            "namespace",
+                            "doc",
+                            "fields",
+                            "type",
+                            "items",
+                            "symbols"
+                          ]
+                        },
+                        {
+                          "type": "STRING",
+                          "hashCode": -2147483648,
+                          "props": {},
+                          "reserved": [
+                            "aliases",
+                            "size",
+                            "values",
+                            "name",
+                            "namespace",
+                            "doc",
+                            "fields",
+                            "type",
+                            "items",
+                            "symbols"
+                          ]
+                        }
+                      ],
+                      "indexByName": {
+                        "null": 0,
+                        "string": 1
+                      },
+                      "type": "UNION",
+                      "hashCode": -2147483648,
+                      "props": {},
+                      "reserved": [
+                        "aliases",
+                        "size",
+                        "values",
+                        "name",
+                        "namespace",
+                        "doc",
+                        "fields",
+                        "type",
+                        "items",
+                        "symbols"
+                      ]
+                    },
+                    "defaultValue": {},
+                    "order": "ASCENDING",
+                    "props": {},
+                    "reserved": [
+                      "default",
+                      "aliases",
+                      "name",
+                      "doc",
+                      "type",
+                      "order"
+                    ]
+                  },
+                  {
+                    "name": "weight",
+                    "position": 2,
+                    "schema": {
+                      "types": [
+                        {
+                          "type": "NULL",
+                          "hashCode": -2147483648,
+                          "props": {},
+                          "reserved": [
+                            "aliases",
+                            "size",
+                            "values",
+                            "name",
+                            "namespace",
+                            "doc",
+                            "fields",
+                            "type",
+                            "items",
+                            "symbols"
+                          ]
+                        },
+                        {
+                          "type": "STRING",
+                          "hashCode": -2147483648,
+                          "props": {},
+                          "reserved": [
+                            "aliases",
+                            "size",
+                            "values",
+                            "name",
+                            "namespace",
+                            "doc",
+                            "fields",
+                            "type",
+                            "items",
+                            "symbols"
+                          ]
+                        }
+                      ],
+                      "indexByName": {
+                        "null": 0,
+                        "string": 1
+                      },
+                      "type": "UNION",
+                      "hashCode": -2147483648,
+                      "props": {},
+                      "reserved": [
+                        "aliases",
+                        "size",
+                        "values",
+                        "name",
+                        "namespace",
+                        "doc",
+                        "fields",
+                        "type",
+                        "items",
+                        "symbols"
+                      ]
+                    },
+                    "defaultValue": {},
+                    "order": "ASCENDING",
+                    "props": {},
+                    "reserved": [
+                      "default",
+                      "aliases",
+                      "name",
+                      "doc",
+                      "type",
+                      "order"
+                    ]
+                  },
+                  {
+                    "name": "height",
+                    "position": 3,
+                    "schema": {
+                      "types": [
+                        {
+                          "type": "NULL",
+                          "hashCode": -2147483648,
+                          "props": {},
+                          "reserved": [
+                            "aliases",
+                            "size",
+                            "values",
+                            "name",
+                            "namespace",
+                            "doc",
+                            "fields",
+                            "type",
+                            "items",
+                            "symbols"
+                          ]
+                        },
+                        {
+                          "type": "STRING",
+                          "hashCode": -2147483648,
+                          "props": {},
+                          "reserved": [
+                            "aliases",
+                            "size",
+                            "values",
+                            "name",
+                            "namespace",
+                            "doc",
+                            "fields",
+                            "type",
+                            "items",
+                            "symbols"
+                          ]
+                        }
+                      ],
+                      "indexByName": {
+                        "null": 0,
+                        "string": 1
+                      },
+                      "type": "UNION",
+                      "hashCode": -2147483648,
+                      "props": {},
+                      "reserved": [
+                        "aliases",
+                        "size",
+                        "values",
+                        "name",
+                        "namespace",
+                        "doc",
+                        "fields",
+                        "type",
+                        "items",
+                        "symbols"
+                      ]
+                    },
+                    "defaultValue": {},
+                    "order": "ASCENDING",
+                    "props": {},
+                    "reserved": [
+                      "default",
+                      "aliases",
+                      "name",
+                      "doc",
+                      "type",
+                      "order"
+                    ]
+                  }
+                ],
+                "fieldMap": {
+                  "birthday": {
+                    "name": "birthday",
+                    "position": 0,
+                    "schema": {
+                      "types": [
+                        {
+                          "type": "NULL",
+                          "hashCode": -2147483648,
+                          "props": {},
+                          "reserved": [
+                            "aliases",
+                            "size",
+                            "values",
+                            "name",
+                            "namespace",
+                            "doc",
+                            "fields",
+                            "type",
+                            "items",
+                            "symbols"
+                          ]
+                        },
+                        {
+                          "type": "LONG",
+                          "logicalType": {
+                            "name": "timestamp-millis"
+                          },
+                          "hashCode": -2147483648,
+                          "props": {
+                            "logicalType": {
+                              "_value": "timestamp-millis"
+                            }
+                          },
+                          "reserved": [
+                            "aliases",
+                            "size",
+                            "values",
+                            "name",
+                            "namespace",
+                            "doc",
+                            "fields",
+                            "type",
+                            "items",
+                            "symbols"
+                          ]
+                        }
+                      ],
+                      "indexByName": {
+                        "null": 0,
+                        "long": 1
+                      },
+                      "type": "UNION",
+                      "hashCode": -2147483648,
+                      "props": {},
+                      "reserved": [
+                        "aliases",
+                        "size",
+                        "values",
+                        "name",
+                        "namespace",
+                        "doc",
+                        "fields",
+                        "type",
+                        "items",
+                        "symbols"
+                      ]
+                    },
+                    "defaultValue": {},
+                    "order": "ASCENDING",
+                    "props": {},
+                    "reserved": [
+                      "default",
+                      "aliases",
+                      "name",
+                      "doc",
+                      "type",
+                      "order"
+                    ]
+                  },
+                  "weight": {
+                    "name": "weight",
+                    "position": 2,
+                    "schema": {
+                      "types": [
+                        {
+                          "type": "NULL",
+                          "hashCode": -2147483648,
+                          "props": {},
+                          "reserved": [
+                            "aliases",
+                            "size",
+                            "values",
+                            "name",
+                            "namespace",
+                            "doc",
+                            "fields",
+                            "type",
+                            "items",
+                            "symbols"
+                          ]
+                        },
+                        {
+                          "type": "STRING",
+                          "hashCode": -2147483648,
+                          "props": {},
+                          "reserved": [
+                            "aliases",
+                            "size",
+                            "values",
+                            "name",
+                            "namespace",
+                            "doc",
+                            "fields",
+                            "type",
+                            "items",
+                            "symbols"
+                          ]
+                        }
+                      ],
+                      "indexByName": {
+                        "null": 0,
+                        "string": 1
+                      },
+                      "type": "UNION",
+                      "hashCode": -2147483648,
+                      "props": {},
+                      "reserved": [
+                        "aliases",
+                        "size",
+                        "values",
+                        "name",
+                        "namespace",
+                        "doc",
+                        "fields",
+                        "type",
+                        "items",
+                        "symbols"
+                      ]
+                    },
+                    "defaultValue": {},
+                    "order": "ASCENDING",
+                    "props": {},
+                    "reserved": [
+                      "default",
+                      "aliases",
+                      "name",
+                      "doc",
+                      "type",
+                      "order"
+                    ]
+                  },
+                  "nationality": {
+                    "name": "nationality",
+                    "position": 1,
+                    "schema": {
+                      "types": [
+                        {
+                          "type": "NULL",
+                          "hashCode": -2147483648,
+                          "props": {},
+                          "reserved": [
+                            "aliases",
+                            "size",
+                            "values",
+                            "name",
+                            "namespace",
+                            "doc",
+                            "fields",
+                            "type",
+                            "items",
+                            "symbols"
+                          ]
+                        },
+                        {
+                          "type": "STRING",
+                          "hashCode": -2147483648,
+                          "props": {},
+                          "reserved": [
+                            "aliases",
+                            "size",
+                            "values",
+                            "name",
+                            "namespace",
+                            "doc",
+                            "fields",
+                            "type",
+                            "items",
+                            "symbols"
+                          ]
+                        }
+                      ],
+                      "indexByName": {
+                        "null": 0,
+                        "string": 1
+                      },
+                      "type": "UNION",
+                      "hashCode": -2147483648,
+                      "props": {},
+                      "reserved": [
+                        "aliases",
+                        "size",
+                        "values",
+                        "name",
+                        "namespace",
+                        "doc",
+                        "fields",
+                        "type",
+                        "items",
+                        "symbols"
+                      ]
+                    },
+                    "defaultValue": {},
+                    "order": "ASCENDING",
+                    "props": {},
+                    "reserved": [
+                      "default",
+                      "aliases",
+                      "name",
+                      "doc",
+                      "type",
+                      "order"
+                    ]
+                  },
+                  "height": {
+                    "name": "height",
+                    "position": 3,
+                    "schema": {
+                      "types": [
+                        {
+                          "type": "NULL",
+                          "hashCode": -2147483648,
+                          "props": {},
+                          "reserved": [
+                            "aliases",
+                            "size",
+                            "values",
+                            "name",
+                            "namespace",
+                            "doc",
+                            "fields",
+                            "type",
+                            "items",
+                            "symbols"
+                          ]
+                        },
+                        {
+                          "type": "STRING",
+                          "hashCode": -2147483648,
+                          "props": {},
+                          "reserved": [
+                            "aliases",
+                            "size",
+                            "values",
+                            "name",
+                            "namespace",
+                            "doc",
+                            "fields",
+                            "type",
+                            "items",
+                            "symbols"
+                          ]
+                        }
+                      ],
+                      "indexByName": {
+                        "null": 0,
+                        "string": 1
+                      },
+                      "type": "UNION",
+                      "hashCode": -2147483648,
+                      "props": {},
+                      "reserved": [
+                        "aliases",
+                        "size",
+                        "values",
+                        "name",
+                        "namespace",
+                        "doc",
+                        "fields",
+                        "type",
+                        "items",
+                        "symbols"
+                      ]
+                    },
+                    "defaultValue": {},
+                    "order": "ASCENDING",
+                    "props": {},
+                    "reserved": [
+                      "default",
+                      "aliases",
+                      "name",
+                      "doc",
+                      "type",
+                      "order"
+                    ]
+                  }
+                },
+                "isError": false,
+                "name": {
+                  "name": "basic_info",
+                  "space": "demo",
+                  "full": "demo.basic_info"
+                },
+                "doc": "CQL type demo.basic_info",
+                "type": "RECORD",
+                "hashCode": 774485428,
+                "props": {},
+                "reserved": [
+                  "aliases",
+                  "size",
+                  "values",
+                  "name",
+                  "namespace",
+                  "doc",
+                  "fields",
+                  "type",
+                  "items",
+                  "symbols"
+                ]
+              },
+              "values": [
+                740361600000,
+                {
+                  "bytes": [
+                    78,
+                    101,
+                    119,
+                    32,
+                    90,
+                    101,
+                    97,
+                    108,
+                    97,
+                    110,
+                    100
+                  ],
+                  "hash": 0,
+                  "length": 11
+                },
+                null,
+                null
+              ]
+            },
+            {
+              "bytes": [
+                70,
+                82,
+                65,
+                77,
+                69
+              ],
+              "hash": 0,
+              "length": 5
+            }
+          ]
+        },
+        "schemaVersion": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "fields": [
+          {
+            "name": "basics",
+            "index": 0
+          },
+          {
+            "name": "lastname",
+            "index": 1
+          }
+        ]
+      }
+    },
+    "schemaType": "KEY_VALUE",
+    "schemaVersion": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

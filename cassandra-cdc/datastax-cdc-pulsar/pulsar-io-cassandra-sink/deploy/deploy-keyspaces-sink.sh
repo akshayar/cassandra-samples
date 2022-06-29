@@ -9,21 +9,17 @@ CASSANDRA_SINK_NAR_PATH=`pwd`/${NAR_FILE_NAME}
 
 
 echo "Delecting connector ${SINK_CONNECTOR_NAME}"
-cd ${PULSAR_HOME}
-pwd
-bin/pulsar-admin sink delete --name ${SINK_CONNECTOR_NAME}
-sleep 10
+${PULSAR_HOME}/bin/pulsar-admin sink delete --name ${SINK_CONNECTOR_NAME}
 
+sleep 10
 echo "Creating connector ${SINK_CONNECTOR_NAME}"
-cd ${PULSAR_HOME}
-pwd
-bin/pulsar-admin sink create \
+${PULSAR_HOME}/bin/pulsar-admin sink create \
 --sink-config-file "${SINK_CONFIG_FILE_PATH}"
 
 sleep 10
 echo "Checking Status ${SINK_CONNECTOR_NAME}"
-bin/pulsar-admin sink status --name ${SINK_CONNECTOR_NAME}
+${PULSAR_HOME}/bin/pulsar-admin sink status --name ${SINK_CONNECTOR_NAME}
+
 sleep 10
 echo "Checkikng logs ${SINK_CONNECTOR_NAME}"
-cd logs/functions/public/default/${SINK_CONNECTOR_NAME}/
-tail -f  ${SINK_CONNECTOR_NAME}-0.log
+tail -f  ${PULSAR_HOME}/logs/functions/public/default/${SINK_CONNECTOR_NAME}/${SINK_CONNECTOR_NAME}-0.log

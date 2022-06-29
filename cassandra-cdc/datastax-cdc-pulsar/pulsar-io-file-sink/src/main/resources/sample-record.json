@@ -1,0 +1,28 @@
+[
+
+  {
+    "id": 12341
+  },
+  {
+    "basics": {
+      "birthday": 740361600000,
+      "nationality": "New Zealand",
+      "weight": "70kg",
+      "height": "5.6ft"
+    },
+    "lastname": "FRAME"
+  }
+,
+  {
+    "id": 12341
+  },
+  {
+    "basics": {
+      "birthday": 740361600000,
+      "nationality": "New Zealand",
+      "weight": "70kg",
+      "height": "5.5ft"
+    },
+    "lastname": null
+  }
+]

@@ -178,7 +178,7 @@ export KEYSPACE=pocdb1
 bin/pulsar-admin source delete --name cassandra-customers-pocdb1  
 bin/pulsar-admin source create \
 --name cassandra-customers-pocdb1 \
---archive $HOME//cassandra-source-connectors/cassandra-source-connectors-1.0.1/pulsar-cassandra-source-1.0.1.nar \
+--archive $HOME/cassandra-source-connector/cassandra-source-connectors-1.0.1/pulsar-cassandra-source-1.0.1.nar \
 --tenant public \
 --namespace default \
 --destination-topic-name public/default/data-pocdb1.customers \
