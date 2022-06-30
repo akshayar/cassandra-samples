@@ -10,7 +10,7 @@ Thhis page describes, how you can capture changes done to Cassandra database and
 3. Apache Pulsar source connector for Cassandra on Pulsar cluster. The source connector will listen to messages on events-keyspce.table and push CDC event with data to data-keyspace.table topic. Now this data can be consumed by downstream Pulsar consumes like Pulsar sink connectors. 
 4. Down stream Pulsar data consumers. These could be Apache Pulsar Sink Connector  or Apache Spark Process with Hudi etc. In this instance we are using Apache Pulsar Sink Connector for ElasticSearch to replicate data to ElasticSearch. 
 
-Refer to the diagram below -
+
 ![Cassandra CDC Architecture](Cassandra-DataStaxCDC-ElasticSearch.drawio.png)
 # Pre-requisite
 1. Apache Cassandra cluster is deployed and CDC is enabled on each node. Refer [Enabling Cassandra CDC](https://debezium.io/documentation/reference/stable/connectors/cassandra.html#setting-up-cassandra)
