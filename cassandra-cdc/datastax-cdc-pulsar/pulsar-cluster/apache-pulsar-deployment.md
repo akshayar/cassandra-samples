@@ -20,12 +20,7 @@ ssh-keygen -t rsa
 
 ls ~/.ssh
 ```
-6. Clone GitHub repository.  
-```shell
-git clone https://github.com/akshayar/cassandra-samples.git
-cd pulsar-cluster/terraform-ansible/aws
-```
-7. Get subnet and VPC details of Cloud9 instance.
+6. Get subnet and VPC details of Cloud9 instance.
 ```shell
 INSTANCE_ID=`wget -q -O - http://169.254.169.254/latest/meta-data/instance-id`
 echo ${INSTANCE_ID}
@@ -36,6 +31,16 @@ aws ec2 describe-vpcs  --vpc-ids ${VPC_ID} --query Vpcs[0].CidrBlock --output te
 aws ec2 describe-subnets --filters "Name=vpc-id,Values=${VPC_ID}" --query Subnets[].[AvailabilityZone,CidrBlock,SubnetId,AvailableIpAddressCount] --output text
 
 ```
+7. Clone GitHub repository.  
+```shell
+git clone https://github.com/akshayar/cassandra-samples.git
+## For multi node pulsar cluster go to pulsar-cluster/terraform-ansible-mnode/aws 
+cd pulsar-cluster/terraform-ansible-mnode/aws
+## For single node/standalone pulsar go to pulsar-cluster/terraform-ansible-standalone/aws
+## cd pulsar-cluster/terraform-ansible-standalone/aws
+export AWS_DEPLOYMENT_HOME=`pwd`
+```
+
 8. Edit terraform.tfvars file and update region, availability_zone , subnet_id and base_cidr_block.
 8. Execute deployment steps. The deployment steps will promopt-"Do you want to perform these actions?". Enter yes.
 ```shell

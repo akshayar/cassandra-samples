@@ -1,0 +1,71 @@
+#
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+#
+- name: Cassandra setup
+  hosts: cassandra
+  connection: ssh
+  tasks:
+    - name: Create necessary directories
+      file:
+        path: "{{ item }}"
+        state: directory
+      with_items: ["/home/ubuntu/cdc-apache-cassandra"]
+    - name: Download binary package
+      unarchive:
+        src: https://downloads.datastax.com/cdc-apache-cassandra/cassandra-source-agents-1.0.1.tar
+        remote_src: yes
+        dest: /home/ubuntu/cdc-apache-cassandra
+    - set_fact:
+        agent_config: "-javaagent:/home/ubuntu/cdc-apache-cassandra/cassandra-source-agents-1.0.1/agent-c4-pulsar-1.0.1-all.jar=pulsarServiceUrl={{ pulsar_service_url }}"
+    - debug:
+        msg: "Agent Config {{ agent_config }} "
+    - name: Add Cassandra Service file
+      template:
+        src: "../cassandra-templates/cassandra.service.pulsaragent"
+        dest: "/home/ubuntu/cassandra.service"
+    - name: Add Cassandra Service file 2
+      template:
+        src: "../cassandra-templates/cassandra.service.pulsaragent"
+        dest: "/etc/systemd/system/cassandra.service"
+        
+- name: Restart Cassandra
+  hosts: cassandra
+  connection: ssh
+  become: true
+  tasks:
+    - name: Start Service
+      shell: |
+        mkdir -p /usr/share/oss/bin/../data/cdc
+        chown cassandra /usr/share/oss/bin/../data/cdc
+        systemctl daemon-reload
+        
+        service cassandra stop
+        service cassandra start
+      register: ps
+    - debug: var=ps.stdout_lines
+  
+- name: Check Cassandra Status
+  hosts: cassandra
+  connection: ssh
+  become: true
+  tasks:
+    - name: Check Status
+      shell: |
+        systemctl status cassandra
+      register: ps
+    - debug: var=ps.stdout_lines

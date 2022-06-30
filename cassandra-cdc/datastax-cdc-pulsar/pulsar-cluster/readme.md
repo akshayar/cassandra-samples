@@ -22,11 +22,11 @@ Use these steps to deploy Apache Pulsar cluster on EC2 nodes. The instructions b
 
 ## Deploy Datastax change agent to Apache Cassandra cluster
 Use these steps to deploy and start Datastax change agent to Apache Cassandra cluster. 
-* [Deploy Datastax change agent](update-cassandra-add-datastax-agent.md)
+* [Deploy Datastax change agent](cassandra4-add-datastax-agent.md)
 
 ## Deploy Datastax Source connector for Apache Pulsar 
 Use these steps to deploy Datastax source connectoer for Apache Pulsar which pushes Cassandra changes to Apache Pulsar cluster. 
-* [Deploy Datastax Source connector](deploy-cassandra-source-connector.md)
+* [Deploy Datastax Source connector](cassandra-source-connector-deployment.md)
 ## Migrate Apache Cassandra to Amazon Keyspaces
 Use these steps to do one time migration of Cassandra to Amazon Keyspaces while the live replication to Apache Pulsar is in progress. During the course of this migration changes are being replicated to Apache Pulsar, there is strong probability of those changes to migrate to Amazon Keysapces databse using the one time migration approach as well. You need to ensure that Pulsar sink connector for Amazon Keyspaces database idempotent. 
 
@@ -34,6 +34,6 @@ Use these steps to do one time migration of Cassandra to Amazon Keyspaces while 
 
 ## Deploy Pulsar sink connector for Amazon Keyspaces database
 Once the one time migration is complete use these steps to deploy and start Pulsar sink connector for Amazon Keyspaces database which will push the changes buffered in Apache Pulsar cluster to Amazon Keyspaces databse. The sink connector should be idempotent as there is strong probability that some of these changes are already migrated to Amazon Keyspaces through one time migration. 
-* [Deploy and start Pulsar sink connector for Amazon Keyspaces database](deploy-keyspace-sink-connector.md)
+* [Deploy and start Pulsar sink connector for Amazon Keyspaces database](keyspace-sink-connector-deployment.md)
 
 ## Validate correctness of data in Amazon Keyspaces database
