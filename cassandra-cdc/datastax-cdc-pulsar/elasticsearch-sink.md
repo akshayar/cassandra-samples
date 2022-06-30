@@ -1,6 +1,6 @@
 ## 1. Deploy Elastic Search Cluster
-1. Single node cluster using docker.
-2. SSH to the Amazon Linux 2 EC2 node where you want to deploy and install docker
+1. The steps below deploy a single node cluster using docker.
+2. Create an Amazon Linux 2 EC2 instance and SSH to it. Use the steps below to deploy and install Docker.
 ```shell
 sudo yum update -y
 sudo amazon-linux-extras install docker
