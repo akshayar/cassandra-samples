@@ -73,12 +73,12 @@ resource "aws_iam_instance_profile" "instance-profile" {
   role = aws_iam_role.role.name
 }
 
-resource "aws_iam_role_policy_attachment" "test-attach" {
+resource "aws_iam_role_policy_attachment" "managed-instance" {
   role       = aws_iam_role.role.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
 }
 
-resource "aws_iam_role_policy_attachment" "test-attach" {
+resource "aws_iam_role_policy_attachment" "secrets-manager-access" {
   role       = aws_iam_role.role.name
   policy_arn = "arn:aws:iam::aws:policy/SecretsManagerReadWrite"
 }

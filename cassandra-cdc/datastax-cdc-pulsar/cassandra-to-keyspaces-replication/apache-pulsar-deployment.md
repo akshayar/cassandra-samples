@@ -28,13 +28,14 @@ SECURITY_GROUP_ID=`aws ec2 describe-instance-attribute --instance-id $INSTANCE_I
 VPC_ID=`aws ec2 describe-instances   --instance-ids ${INSTANCE_ID} --query Reservations[0].Instances[0].VpcId --output text`
 aws ec2 describe-instances   --instance-ids ${INSTANCE_ID} --query Reservations[0].Instances[0].[PublicDnsName,PublicIpAddress,PrivateDnsName,PrivateIpAddress,SubnetId,VpcId] --output text
 aws ec2 describe-vpcs  --vpc-ids ${VPC_ID} --query Vpcs[0].CidrBlock --output text
-aws ec2 describe-subnets --filters "Name=vpc-id,Values=${VPC_ID}" --query Subnets[].[AvailabilityZone,CidrBlock,SubnetId,AvailableIpAddressCount] --output text
+aws ec2 describe-subnets --filters "Name=vpc-id,Values=${VPC_ID}" --query Subnets[].[VpcId,AvailabilityZone,CidrBlock,SubnetId,AvailableIpAddressCount] --output text
 
 ```
 
-7. Edit terraform.tfvars file and update region, availability_zone , subnet_id and base_cidr_block.
+7. Edit terraform.tfvars file and update region,VpcID, availability_zone , subnet_id and base_cidr_block.
 8. Execute deployment steps. The deployment steps will promopt-"Do you want to perform these actions?". Enter yes.
 ```shell
+cd ${AWS_DEPLOYMENT_HOME}
 terraform init
 terraform apply
 PULSAR_SERVICE_VALUE=`cat terraform.tfstate | jq -r .outputs.pulsar_service_url.value` 
@@ -78,6 +79,6 @@ echo ${INSTANCE_ID}
 SECURITY_GROUP_ID=`aws ec2 describe-instance-attribute --instance-id $INSTANCE_ID --attribute groupSet --query Groups[0].GroupId --output text`
 VPC_ID=`aws ec2 describe-instances   --instance-ids ${INSTANCE_ID} --query Reservations[0].Instances[0].VpcId --output text`
 aws ec2 describe-vpcs  --vpc-ids ${VPC_ID} --query Vpcs[0].CidrBlock --output text
-aws ec2 describe-subnets --filters "Name=vpc-id,Values=${VPC_ID}" --query Subnets[].[AvailabilityZone,CidrBlock,SubnetId,AvailableIpAddressCount] --output text
+aws ec2 describe-subnets --filters "Name=vpc-id,Values=${VPC_ID}" --query Subnets[].[VpcId,AvailabilityZone,CidrBlock,SubnetId,AvailableIpAddressCount] --output text
 ```
 
