@@ -51,11 +51,11 @@
         cluster_name: "local"
     - name: Add pulsar_env.sh configuration file
       template:
-        src: "../templates/pulsar_env.sh"
+        src: "templates/pulsar_env.sh"
         dest: "/opt/pulsar/conf/pulsar_env.sh"
     - name: Add log configuration
       template:
-        src: "../templates/log4j2.yaml"
+        src: "templates/log4j2.yaml"
         dest: "/opt/pulsar/conf/log4j2.yaml"
     - name: Install Java 8
       shell: |
@@ -79,19 +79,19 @@
         - data/zookeeper
     - name: Add pulsar_env.sh configuration file
       template:
-        src: "../templates/pulsar_env.sh"
+        src: "templates/pulsar_env.sh"
         dest: "/opt/pulsar/conf/pulsar_env.sh"
     - name: Add zookeeper.conf file
       template:
-        src: "../templates/zoo.cfg"
+        src: "templates/zoo.cfg"
         dest: "/opt/pulsar/conf/zookeeper.conf"
     - name: Add myid file for ZooKeeper
       template:
-        src: "../templates/myid"
+        src: "templates/myid"
         dest: "/opt/pulsar/data/zookeeper/myid"
     - name: Add zookeeper.service systemd file
       template:
-        src: "../templates/zookeeper.service"
+        src: "templates/zookeeper.service"
         dest: "/etc/systemd/system/zookeeper.service"
     - name: systemd ZooKeeper start
       systemd:
@@ -116,10 +116,10 @@
   become: true
   tasks:
     - template:
-        src: "../templates/bookkeeper.conf"
+        src: "templates/bookkeeper.conf"
         dest: "/opt/pulsar/conf/bookkeeper.conf"
     - template:
-        src: "../templates/bookkeeper.service"
+        src: "templates/bookkeeper.service"
         dest: "/etc/systemd/system/bookkeeper.service"
     - systemd:
         state: restarted
@@ -182,14 +182,14 @@
         dest: /opt/pulsar/cassandra-source-connector
     - name: Set up broker
       template:
-        src: "../templates/broker.conf"
+        src: "templates/broker.conf"
         dest: "/opt/pulsar/conf/broker.conf"
     - name: Set up function worker
       template:
-        src: "../templates/functions_worker.yml"
+        src: "templates/functions_worker.yml"
         dest: "/opt/pulsar/conf/functions_worker.yml"
     - template:
-        src: "../templates/pulsar.broker.service"
+        src: "templates/pulsar.broker.service"
         dest: "/etc/systemd/system/pulsar.broker.service"
     - systemd:
         state: restarted
@@ -203,10 +203,10 @@
   tasks:
     - name: Set up proxy
       template:
-        src: "../templates/proxy.conf"
+        src: "templates/proxy.conf"
         dest: "/opt/pulsar/conf/proxy.conf"
     - template:
-        src: "../templates/pulsar.proxy.service"
+        src: "templates/pulsar.proxy.service"
         dest: "/etc/systemd/system/pulsar.proxy.service"
     - systemd:
         state: restarted
@@ -217,6 +217,19 @@
   hosts: localhost
   become: false
   tasks:
+    - name: Create necessary directories
+      file:
+        path: "{{ item }}"
+        state: directory
+      with_items: [ "$HOME/environment/pulsar-client" ]
+    - set_fact:
+        pulsar_version: "2.9.1"
+    - name: Download Pulsar binary package
+      unarchive:
+        src: https://archive.apache.org/dist/pulsar/pulsar-{{ pulsar_version }}/apache-pulsar-{{ pulsar_version }}-bin.tar.gz
+        remote_src: yes
+        dest: $HOME/environment/pulsar-client
+        extra_opts: [ "--strip-components=1" ]
     - debug:
         msg: "Zookeeper Server {{ item }}"
       with_items: "{{ groups['zookeeper'] }}"

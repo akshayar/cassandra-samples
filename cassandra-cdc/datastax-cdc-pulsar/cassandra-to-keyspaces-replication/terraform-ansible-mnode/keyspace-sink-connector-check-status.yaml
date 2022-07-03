@@ -24,15 +24,15 @@
     - set_fact:
         server: "{{ cassandra_server }}"
         port: "{{ cassandra_port }}"
-        keyspace: "{{ keyspace }}"
-        table_name: "{{ table_name }}"
+        keyspace: "{{ target_keyspace }}"
+        table_name: "{{ target_table_name }}"
         user: "{{ cassandra_user }}"
         password: "{{ cassandra_password }}"
     - name: Deploy truststore
       shell: |
-        chmod +x /opt/pulsar/keyspaces-sink-check-status.sh
+        chmod +x /opt/pulsar/pulsar-io-cassandra-sink-connector/keyspaces-sink-check-status.sh
         echo "Checking the status of connector"
-        /opt/pulsar/keyspaces-sink-check-status.sh {{ keyspace }} {{ table_name }}
+        /opt/pulsar/pulsar-io-cassandra-sink-connector/keyspaces-sink-check-status.sh {{ keyspace }} {{ table_name }}
         echo "List of topics"
         /opt/pulsar/bin/pulsar-admin topics list public/default
       register: ps
