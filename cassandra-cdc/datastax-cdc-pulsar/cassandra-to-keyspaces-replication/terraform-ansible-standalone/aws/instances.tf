@@ -23,6 +23,7 @@ resource "aws_instance" "broker" {
   key_name               = aws_key_pair.default.id
   subnet_id              = var.subnet_id
   vpc_security_group_ids = [aws_security_group.cluster.id]
+  iam_instance_profile = [aws_iam_instance_profile.instance-profile.name]
   count                  = 1
 
   tags = {

@@ -40,11 +40,11 @@
   tasks:
     - name: Set up proxy
       template:
-        src: "../templates/cdc-connector/cassandra-source-connector-start.sh"
+        src: "templates/cdc-connector/cassandra-source-connector-start.sh"
         dest: "/opt/pulsar/cassandra-source-connector-start.sh"
     - name: Set up proxy
       template:
-        src: "../templates/cdc-connector/cassandra-source-connector-check-status.sh"
+        src: "templates/cdc-connector/cassandra-source-connector-check-status.sh"
         dest: "/opt/pulsar/cassandra-source-connector-check-status.sh"
 
 

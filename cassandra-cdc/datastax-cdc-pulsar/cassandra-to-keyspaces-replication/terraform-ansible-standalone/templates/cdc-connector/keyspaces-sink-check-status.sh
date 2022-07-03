@@ -6,4 +6,4 @@ export KEYSPACES_TABLE_NAME=${2}
 export SINK_CONNECTOR_NAME=pulsar-keyspaces-sink-${KEYSPACE_NAME}-${KEYSPACES_TABLE_NAME}
 
 echo Checking status of  ${SINK_CONNECTOR_NAME} ${KEYSPACES_URL} ${CONNECTOR_HOME}
-bin/pulsar-admin sink status --name ${SINK_CONNECTOR_NAME}
+${PULSAR_HOME}/bin/pulsar-admin sink status --name ${SINK_CONNECTOR_NAME}

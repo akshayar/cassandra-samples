@@ -31,23 +31,16 @@ aws ec2 describe-vpcs  --vpc-ids ${VPC_ID} --query Vpcs[0].CidrBlock --output te
 aws ec2 describe-subnets --filters "Name=vpc-id,Values=${VPC_ID}" --query Subnets[].[AvailabilityZone,CidrBlock,SubnetId,AvailableIpAddressCount] --output text
 
 ```
-7. Clone GitHub repository.  
-```shell
-git clone https://github.com/akshayar/cassandra-samples.git
-## For multi node pulsar cluster go to pulsar-cluster/terraform-ansible-mnode/aws 
-cd pulsar-cluster/terraform-ansible-mnode/aws
-## For single node/standalone pulsar go to pulsar-cluster/terraform-ansible-standalone/aws
-## cd pulsar-cluster/terraform-ansible-standalone/aws
-export AWS_DEPLOYMENT_HOME=`pwd`
-```
 
-8. Edit terraform.tfvars file and update region, availability_zone , subnet_id and base_cidr_block.
+7. Edit terraform.tfvars file and update region, availability_zone , subnet_id and base_cidr_block.
 8. Execute deployment steps. The deployment steps will promopt-"Do you want to perform these actions?". Enter yes.
 ```shell
 terraform init
 terraform apply
 PULSAR_SERVICE_VALUE=`cat terraform.tfstate | jq -r .outputs.pulsar_service_url.value` 
 echo $PULSAR_SERVICE_VALUE 
+PULSAR_ADMIN_URL=`cat terraform.tfstate | jq -r .outputs.pulsar_web_url.value` 
+echo $PULSAR_ADMIN_URL
 ```
 
 9. Run the ansible playbook to deploy pulsar on EC2 instances created above.
@@ -57,21 +50,28 @@ TF_STATE=./ TF_KEY_NAME=private_ip ansible-playbook   --user='ec2-user'   --inve
 11. Validate Apache Pulsar cluster  installation. 
 ```shell
 mkdir ~/environment/pulsar-client
-cd ~/environment/pulsar-client
 pip install pulsar-client
+cd ~/environment/pulsar-client
+bin/pulsar-client --url $PULSAR_SERVICE_VALUE  consume test-topic -s "first-subscription" &
 
-cat << EOF > pulsar-client.py
-import pulsar
-client = pulsar.Client('${PULSAR_SERVICE_VALUE}')
-# Make sure to use your connection URL
-producer = client.create_producer('persistent://public/default/test-topic')
-producer.send(bytes('Hello world','utf-8'))
-client.close()
-EOF
-python pulsar-client.py
+bin/pulsar-client --url $PULSAR_SERVICE_VALUE  produce test-topic --messages "hello-pulsar" > test-produce.log
+
 ```
 ### Appendix
-1. Getting instance id and its security group
+1. Check status of Pulsar deployment. 
+   
+```
+TF_STATE=./ TF_KEY_NAME=private_ip ansible-playbook   --user='ec2-user'   --inventory=~/environment/terraform-inventory  ../pulsar-cluster-check-services.yaml
+
+```
+2. Restart pulsar services.
+
+```
+TF_STATE=./ TF_KEY_NAME=private_ip ansible-playbook   --user='ec2-user'   --inventory=~/environment/terraform-inventory  ../pulsar-cluster-restart-services.yaml
+
+```
+
+3. Getting instance id and its security group
 ```shell
 INSTANCE_ID=`wget -q -O - http://169.254.169.254/latest/meta-data/instance-id`
 echo ${INSTANCE_ID} 

@@ -1,7 +1,7 @@
 ## Overview
 Change Data Capture (CDC) determines and tracks changes on source Cassandra tables and pushes those changes to a message buffer in chronological order. In this document we use [DataStax CDC for Apache Cassandra](https://github.com/datastax/cdc-apache-cassandra) to track changes in Cassandra database and push those changes to an Apache Pulsar cluster. We then use a Apache Pulsar sink connector to replicate those changes to Amazon Keyspaces database. The approach can be used to do a live migration on Apache Cassandra database to Amazon Keyspaces database. 
 In this document we narrate end to end process to do live migration of Cassandra to Keyspaces. Use following steps for end to end live migration of Apache Cassandra to Amazon Keyspaces databse –
-* Deploy Apache Cassandra 4 if you don’t have Cassandra deployment and are looking to do a POC on this solution.
+* Deploy Apache Cassandra 4 if you don’t have Cassandra deployment and are looking to do a POC on this solution. Enable CDC on each node of the cluster. Refer [Enabling Cassandra CDC](https://debezium.io/documentation/reference/stable/connectors/cassandra.html#setting-up-cassandra) to enable CDC. 
 * Deploy Apache Pulsar cluster on EC2 nodes.
 * Deploy DataStax change agent to Apache Cassandra cluster and enable capture of CDC. This process will start pushing changes from Cassandra to events-<keyspace-name>.<table-name> topic on Apache Pulsar.
 * Deploy Datastax Source connector for Apache Pulsar which consumes events-<keyspace-name>.<table-name> topic and pushes changed data to data-<keyspace-name>.<table-name> topic.
@@ -11,8 +11,23 @@ In this document we narrate end to end process to do live migration of Cassandra
 * Validate correctness of data in Keyspace and ensure that changes in Cassandra are being replicated.
 * Deploy new version of application to start reading/writing from/to Keyspaces database.  
 
+## Deployment pre-requisite
+1. Clone GitHub repository and set environment varriables
+```shell
+git clone https://github.com/akshayar/cassandra-samples.git
+cd  cassandra-samples 
+export SOURCE_CODE_ROOT=`pwd`
+## For multi node pulsar cluster go to pulsar-cluster/terraform-ansible-mnode/aws 
+cd cassandra-cdc/datastax-cdc-pulsar/cassandra-to-keyspaces-replication/terraform-ansible-mnode/aws
+## For single node/standalone pulsar go to 
+## cassandra-cdc/datastax-cdc-pulsar/cassandra-to-keyspaces-replication/terraform-ansible-standalone/aws
+## cd pulsar-cluster/terraform-ansible-standalone/aws
+export AWS_DEPLOYMENT_HOME=`pwd`
+export REGION="us-east-1"
+```
+
 ## Deploy Apache Cassandra 
-If you don't have Cassandra deployment and want to do POC on this approach , use the instructions below to deploy Apache Cassandra. 
+If you don't have Cassandra deployment and want to do POC on this approach , use the instructions below to deploy Apache Cassandra 4 and enable CDC. 
 * [Deploy Apache Cassandra](cassandra4-deployment.md)
 
 ## Deploy Apache Pulsar cluster

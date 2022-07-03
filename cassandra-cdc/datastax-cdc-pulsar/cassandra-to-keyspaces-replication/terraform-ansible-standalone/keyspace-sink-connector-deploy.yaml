@@ -17,7 +17,7 @@
 # under the License.
 #
 - name: Deplloy Keyspaces Sink Connector
-  hosts: broker
+  hosts:  broker
   connection: ssh
   become: true
   tasks:
@@ -34,27 +34,27 @@
       with_items: ["{{ pulsar_home }}/pulsar-io-cassandra-sink-connector"]    
     - name: Copy scripts
       template:
-        src: "../templates/cdc-connector/keyspaces-sink-deploy-config.sh"
+        src: "templates/cdc-connector/keyspaces-sink-deploy-config.sh"
         dest: "{{ pulsar_home }}/pulsar-io-cassandra-sink-connector/keyspaces-sink-deploy-config.sh"
     - name: Copy scripts
       template:
-        src: "../templates/cdc-connector/keyspaces-sink-check-status.sh"
+        src: "templates/cdc-connector/keyspaces-sink-check-status.sh"
         dest: "{{ pulsar_home }}/pulsar-io-cassandra-sink-connector/keyspaces-sink-check-status.sh"
     - name: Copy scripts
       template:
-        src: "../templates/cdc-connector//keyspaces-sink-secret-manager-conf.conf"
+        src: "templates/cdc-connector//keyspaces-sink-secret-manager-conf.conf"
         dest: "{{ pulsar_home }}/pulsar-io-cassandra-sink-connector/keyspaces-sink-secret-manager-conf.conf"
     - name: Copy scripts
       template:
-        src: "../templates/cdc-connector/keyspaces-sink-create.sh"
+        src: "templates/cdc-connector/keyspaces-sink-create.sh"
         dest: "{{ pulsar_home }}/pulsar-io-cassandra-sink-connector/keyspaces-sink-create.sh"
     - name: Copy scripts
       template:
-        src: "../templates/cdc-connector/keyspaces-sink-config.yaml"
+        src: "templates/cdc-connector/keyspaces-sink-config.yaml"
         dest: "{{ pulsar_home }}/pulsar-io-cassandra-sink-connector/keyspaces-sink-config.yaml"
     - name: Copy scripts
       template:
-        src: "../templates/cdc-connector/keyspaces-sink-setup-truststore.sh"
+        src: "templates/cdc-connector/keyspaces-sink-setup-truststore.sh"
         dest: "{{ pulsar_home }}/pulsar-io-cassandra-sink-connector/keyspaces-sink-setup-truststore.sh"
     - name: Copy Binaries
       copy:

@@ -1,4 +1,4 @@
-CREATE KEYSPACE target
+CREATE KEYSPACE pocdb1
 WITH replication = {'class': 'SimpleStrategy', 'replication_factor' : 3}
 AND durable_writes = true;
 
@@ -60,3 +60,5 @@ INSERT INTO customers(id,first_name,last_name,email)
   VALUES (3,'Edward','Walker','ed@walker.com');
 INSERT INTO customers(id,first_name,last_name,email)
   VALUES (4,'Anne','Kretchmar','annek@noanswer.org');
+INSERT INTO customers(id,first_name,last_name,email)
+  VALUES (6,'Anne6','Kretchmar6','annek6@noanswer.org');

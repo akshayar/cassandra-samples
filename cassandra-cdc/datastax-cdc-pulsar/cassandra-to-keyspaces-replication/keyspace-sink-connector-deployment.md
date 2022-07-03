@@ -9,6 +9,8 @@
     ```shell
     USER_NAME=<user-name>
     aws iam create-user --user-name ${USER_NAME}
+    
+    aws iam attach-user-policy --policy-arn arn:aws:iam::aws:policy/AmazonKeyspacesFullAccess --user-name ${USER_NAME}
    
     SECRET_STRING=`aws iam create-service-specific-credential \
     --user-name ${USER_NAME} \
@@ -19,13 +21,21 @@
    3. Create secret in AWS Secret Manager. 
     ```shell
      aws secretsmanager create-secret \
-        --name keyspace-secret \
+        --name keyspace-secret --region ${REGION} \
         --description "Keyspace Secret for Keyspace Sink Connector." \
         --secret-string "{\"ServiceUserName\":\"$SERVICE_USER_NAME\",\"ServicePassword\":\"${SERVICE_USER_PASSWORD}\"}"
     ```
-   4. Update IAM permissions of the use created above to write to Amazon Keyspaces table. 
+   4. Update IAM permissions of the use created above to write to Amazon Keyspaces table. You can add arn:aws:iam::aws:policy/AmazonKeyspacesFullAccess policy for the POC or a customized on for narrower permission. 
+3. Build ţhe package and copy nar file to ${AWS_DEPLOYMENT_HOME}/binaries.
+   
+```shell
+cd ${SOURCE_CODE_ROOT}/cassandra-cdc/datastax-cdc-pulsar/pulsar-io-cassandra-sink
+./build.sh 
+mkdir -p ${AWS_DEPLOYMENT_HOME}/binaries
+cp target/pulsar-io-cassandra-sink-*.nar ${AWS_DEPLOYMENT_HOME}/binaries
+```
 
-2. Deploy Keyspace Sink Connector. 
+4. Deploy Keyspace Sink Connector. 
    1. Create truststore. 
    ```shell
     cd ${AWS_DEPLOYMENT_HOME}
