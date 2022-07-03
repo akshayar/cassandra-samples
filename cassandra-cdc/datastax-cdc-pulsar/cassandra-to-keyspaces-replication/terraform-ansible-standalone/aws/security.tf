@@ -68,17 +68,17 @@ resource "aws_iam_role" "role" {
 EOF
 }
 
-resource "aws_iam_instance_profile" "instance-profile" {
+resource "aws_iam_instance_profile" "instance_profile" {
   name = "pulsar-instance-profile"
   role = aws_iam_role.role.name
 }
 
-resource "aws_iam_role_policy_attachment" "managed-instance" {
+resource "aws_iam_role_policy_attachment" "managed_instance" {
   role       = aws_iam_role.role.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
 }
 
-resource "aws_iam_role_policy_attachment" "secrets-manager-access" {
+resource "aws_iam_role_policy_attachment" "secrets_manager_access" {
   role       = aws_iam_role.role.name
   policy_arn = "arn:aws:iam::aws:policy/SecretsManagerReadWrite"
 }
