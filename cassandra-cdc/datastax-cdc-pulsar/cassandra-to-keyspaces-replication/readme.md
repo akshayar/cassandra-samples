@@ -27,6 +27,7 @@ export REGION="us-east-1"
 export SOURCE_KEYSPACE="pocdb1"
 export SOURCE_TABLE_NAME="customers"
 export CASSANDRA_SERVERS=<cassandra_servers>
+envsubst < ../parameters/cassandra-config.json > ../parameters/cassandra-config.json
 
 ```
 
