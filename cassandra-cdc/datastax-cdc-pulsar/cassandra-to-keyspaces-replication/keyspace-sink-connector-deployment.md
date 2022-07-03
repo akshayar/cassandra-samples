@@ -7,7 +7,7 @@
     ```
     2. Generate service specific credentials. Refer https://docs.aws.amazon.com/keyspaces/latest/devguide/programmatic.credentials.ssc.html . 
     ```shell
-    USER_NAME=<user-name>
+    USER_NAME=keyspace-user
     aws iam create-user --user-name ${USER_NAME}
     
     aws iam attach-user-policy --policy-arn arn:aws:iam::aws:policy/AmazonKeyspacesFullAccess --user-name ${USER_NAME}
@@ -21,7 +21,7 @@
    3. Create secret in AWS Secret Manager. 
     ```shell
      aws secretsmanager create-secret \
-        --name keyspace-secret --region ${REGION} \
+        --name keyspace-secret1 --region ${REGION} \
         --description "Keyspace Secret for Keyspace Sink Connector." \
         --secret-string "{\"ServiceUserName\":\"$SERVICE_USER_NAME\",\"ServicePassword\":\"${SERVICE_USER_PASSWORD}\"}"
     ```
@@ -31,8 +31,8 @@
 ```shell
 cd ${SOURCE_CODE_ROOT}/cassandra-cdc/datastax-cdc-pulsar/pulsar-io-cassandra-sink
 ./build.sh 
-mkdir -p ${AWS_DEPLOYMENT_HOME}/binaries
-cp target/pulsar-io-cassandra-sink-*.nar ${AWS_DEPLOYMENT_HOME}/binaries
+mkdir -p ${AWS_DEPLOYMENT_HOME}/../binaries
+cp target/pulsar-io-cassandra-sink-*.nar ${AWS_DEPLOYMENT_HOME}/../binaries
 ```
 
 4. Deploy Keyspace Sink Connector. 
@@ -61,4 +61,4 @@ cp target/pulsar-io-cassandra-sink-*.nar ${AWS_DEPLOYMENT_HOME}/binaries
     TF_STATE=./ TF_KEY_NAME=private_ip  ansible-playbook   --user='ec2-user' --inventory=~/environment/terraform-inventory --extra-vars="@../parameters/cassandra-config.json"  ../keyspace-sink-connector-check-status.yaml
    ```
    
-
+5. Check 

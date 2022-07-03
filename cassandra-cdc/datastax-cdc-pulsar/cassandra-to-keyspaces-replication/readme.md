@@ -24,6 +24,10 @@ cd cassandra-cdc/datastax-cdc-pulsar/cassandra-to-keyspaces-replication/terrafor
 
 export AWS_DEPLOYMENT_HOME=`pwd`
 export REGION="us-east-1"
+export SOURCE_KEYSPACE="pocdb1"
+export SOURCE_TABLE_NAME="customers"
+export CASSANDRA_SERVERS=<cassandra_servers>
+
 ```
 
 ## Deploy Apache Cassandra 

@@ -62,12 +62,14 @@ bin/pulsar-client --url $PULSAR_SERVICE_VALUE  produce test-topic --messages "he
 1. Check status of Pulsar deployment. 
    
 ```
+cd ${AWS_DEPLOYMENT_HOME}
 TF_STATE=./ TF_KEY_NAME=private_ip ansible-playbook   --user='ec2-user'   --inventory=~/environment/terraform-inventory  ../pulsar-cluster-check-services.yaml
 
 ```
 2. Restart pulsar services.
 
 ```
+cd ${AWS_DEPLOYMENT_HOME}
 TF_STATE=./ TF_KEY_NAME=private_ip ansible-playbook   --user='ec2-user'   --inventory=~/environment/terraform-inventory  ../pulsar-cluster-restart-services.yaml
 
 ```

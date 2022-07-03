@@ -61,4 +61,4 @@ INSERT INTO customers(id,first_name,last_name,email)
 INSERT INTO customers(id,first_name,last_name,email)
   VALUES (4,'Anne','Kretchmar','annek@noanswer.org');
 INSERT INTO customers(id,first_name,last_name,email)
-  VALUES (6,'Anne6','Kretchmar6','annek6@noanswer.org');
+  VALUES (8,'Anne7','Kretchmar7','annek8@noanswer.org');

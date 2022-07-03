@@ -21,4 +21,9 @@ TF_STATE=./ TF_KEY_NAME=private_ip  ansible-playbook   --user='ec2-user' --inven
 cd ~/environment/pulsar-client
 bin/pulsar-admin --admin-url $PULSAR_ADMIN_URL  topics list public/default
 
+bin/pulsar-client --url $PULSAR_SERVICE_VALUE  consume events-${SOURCE_KEYSPACE}.${SOURCE_TABLE_NAME} -s "first-subscription" 
+
+bin/pulsar-client --url $PULSAR_SERVICE_VALUE  consume data-${SOURCE_KEYSPACE}.${SOURCE_TABLE_NAME} -s "first-subscription" 
+
+
 ```
