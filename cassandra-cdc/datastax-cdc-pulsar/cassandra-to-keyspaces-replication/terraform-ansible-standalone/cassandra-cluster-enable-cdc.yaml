@@ -29,20 +29,20 @@
         line: 'cdc_enabled: true'
         backup: yes
     - name: Update 1
-        ansible.builtin.lineinfile:
-          path: /usr/share/oss/conf/cassandra.yaml
-          regexp: '^\s*cdc_total_space_in_mb:'
-          line: 'cdc_total_space_in_mb: 4096'
+      ansible.builtin.lineinfile:
+        path: /usr/share/oss/conf/cassandra.yaml
+        regexp: '^\s*cdc_total_space_in_mb:'
+        line: 'cdc_total_space_in_mb: 4096'
     - name: Update 1
-        ansible.builtin.lineinfile:
-          path: /usr/share/oss/conf/cassandra.yaml
-          regexp: '^\s*cdc_free_space_check_interval_ms:'
-          line: 'cdc_free_space_check_interval_ms: 250'
+      ansible.builtin.lineinfile:
+        path: /usr/share/oss/conf/cassandra.yaml
+        regexp: '^\s*cdc_free_space_check_interval_ms:'
+        line: 'cdc_free_space_check_interval_ms: 250'
     - name: Update 1
-        ansible.builtin.lineinfile:
-          path: /usr/share/oss/conf/cassandra.yaml
-          regexp: '^\s*cdc_raw_directory:'
-          line: 'cdc_raw_directory: /var/lib/cassandra/cdc_raw'
+      ansible.builtin.lineinfile:
+        path: /usr/share/oss/conf/cassandra.yaml
+        regexp: '^\s*cdc_raw_directory:'
+        line: 'cdc_raw_directory: /var/lib/cassandra/cdc_raw'
 - name: Restart Cassandra
   hosts: cassandra
   connection: ssh

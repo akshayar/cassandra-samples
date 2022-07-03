@@ -20,8 +20,8 @@ export SOURCE_CODE_ROOT=`pwd`
 ## For multi node pulsar cluster go to pulsar-cluster/terraform-ansible-mnode/aws 
 cd cassandra-cdc/datastax-cdc-pulsar/cassandra-to-keyspaces-replication/terraform-ansible-mnode/aws
 ## For single node/standalone pulsar go to 
-## cassandra-cdc/datastax-cdc-pulsar/cassandra-to-keyspaces-replication/terraform-ansible-standalone/aws
-## cd pulsar-cluster/terraform-ansible-standalone/aws
+## cd cassandra-cdc/datastax-cdc-pulsar/cassandra-to-keyspaces-replication/terraform-ansible-standalone/aws
+
 export AWS_DEPLOYMENT_HOME=`pwd`
 export REGION="us-east-1"
 ```

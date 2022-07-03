@@ -15,7 +15,13 @@ cdc_raw_directory: /var/lib/cassandra/cdc_raw
 6. Run following ansible commands to enable CDC
 ```shell
 cd ${AWS_DEPLOYMENT_HOME}
-export CASSANDRA_INI_FILE=<path to init file>
+export CASSANDRA_INI_FILE=cassandra.ini
+cat << EOF > ${CASSANDRA_INI_FILE}
+[cassandra]
+<cassandra-1>
+<cassandra-2>
+<cassandra-3>
+EOF
 export CASSANDRA_KEY_FILE=<path-key-file>
 chmod 400 ${CASSANDRA_KEY_FILE}
 ansible-playbook   --user='ubuntu'   --inventory=${CASSANDRA_INI_FILE} --extra-vars='{"ansible_ssh_private_key_file":"'${CASSANDRA_KEY_FILE}'"}'  ../cassandra-cluster-enable-cdc.yaml
