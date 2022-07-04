@@ -16,6 +16,12 @@ In this document we narrate end to end process to do live migration of Cassandra
     * [Deploy Apache Cassandra](cassandra4-deployment.md)
 2. Create a Cloud9 instance in the public subnet of the VPC which hosts Cassandra cluster. Upload SSH keys to Cloud9 and change permission to 400.
 3. Validate the deployment by connecting to a node of the cluster through a bastion node ( jump box) and executing `nodetool status`
+   
+```
+   export CASSANDRA_KEY_FILE=<path-key-file>
+   ssh -i ${CASSANDRA_KEY_FILE} ubuntu@10.0.17.13 "nodetool status" 
+```
+
 4. Clone GitHub repository and set environment variables.
 ```shell
 git clone https://github.com/akshayar/cassandra-samples.git
@@ -27,6 +33,10 @@ cd cassandra-cdc/datastax-cdc-pulsar/cassandra-to-keyspaces-replication/terrafor
 ## cd cassandra-cdc/datastax-cdc-pulsar/cassandra-to-keyspaces-replication/terraform-ansible-standalone/aws
 
 export AWS_DEPLOYMENT_HOME=`pwd`
+```
+6. Install ansible on Cloud9. 
+```
+pip install ansible
 ```
 5. Enable CDC by modifying <CASSANDRA_ROOT>/conf/cassandra.yaml (/usr/share/oss/conf/cassandra.yaml for deployment in Step 1) and adding/updating following properties.
 ```shell
@@ -50,7 +60,10 @@ chmod 400 ${CASSANDRA_KEY_FILE}
 export CASSANDRA_CONFIG_FILE_PATH="/usr/share/oss/conf/cassandra.yaml"
 ansible-playbook   --user='ubuntu'   --inventory=${CASSANDRA_INI_FILE} --extra-vars='{"ansible_ssh_private_key_file":"'${CASSANDRA_KEY_FILE}'", "cassandra_config_file_path":"'${CASSANDRA_CONFIG_FILE_PATH}'"}'  ../cassandra-cluster-enable-cdc.yaml
 ```
-
+7. Execute following command to create required schema from [schema.sql](../schema.sql). Refer [install cassandra](https://cassandra.apache.org/_/download.html) to install cassandra client. 
+```
+ssh -i ${CASSANDRA_KEY_FILE} ubuntu@<seed-address> "cqlsh -f schema.sql" 
+```
 ## Deploy Apache Pulsar cluster
 Use these steps to deploy Apache Pulsar cluster on EC2 nodes. The instructions below refer code and instructions from [Deploying a Pulsar cluster on AWS using Terraform and Ansible]
 (https://pulsar.apache.org/docs/deploy-aws/). We customize the code and instructions for the scope of this document. 
