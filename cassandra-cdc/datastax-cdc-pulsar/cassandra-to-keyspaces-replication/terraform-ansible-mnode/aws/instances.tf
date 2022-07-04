@@ -23,6 +23,7 @@ resource "aws_instance" "zookeeper" {
   key_name               = aws_key_pair.default.id
   subnet_id              = var.subnet_id
   vpc_security_group_ids = [aws_security_group.cluster.id]
+  iam_instance_profile = "${aws_iam_instance_profile.instance_profile.name}"
   count                  = var.num_zookeeper_nodes
 
   tags = {
@@ -36,6 +37,8 @@ resource "aws_instance" "bookie" {
   key_name               = aws_key_pair.default.id
   subnet_id              = var.subnet_id
   vpc_security_group_ids = [aws_security_group.cluster.id]
+  iam_instance_profile = "${aws_iam_instance_profile.instance_profile.name}"
+
   count                  = var.num_bookie_nodes
 
   tags = {
@@ -49,6 +52,8 @@ resource "aws_instance" "broker" {
   key_name               = aws_key_pair.default.id
   subnet_id              = var.subnet_id
   vpc_security_group_ids = [aws_security_group.cluster.id]
+  iam_instance_profile = "${aws_iam_instance_profile.instance_profile.name}"
+
   count                  = var.num_broker_nodes
 
   tags = {
@@ -62,6 +67,8 @@ resource "aws_instance" "proxy" {
   key_name               = aws_key_pair.default.id
   subnet_id              = var.subnet_id
   vpc_security_group_ids = [aws_security_group.cluster.id]
+  iam_instance_profile = "${aws_iam_instance_profile.instance_profile.name}"
+
   count                  = var.num_proxy_nodes
 
   tags = {
