@@ -1,8 +1,8 @@
 {
-  "cassandra_server": "10.0.168.88",
+  "cassandra_server": "${CASSANDRA_SERVERS}",
   "cassandra_port": "9042",
-  "source_keyspace": "pocdb1",
-  "source_table_name": "customers1",
+  "source_keyspace": "${SOURCE_KEYSPACE}",
+  "source_table_name": "${SOURCE_TABLE_NAME}",
   "target_keyspace": "tutorialkeyspace",
   "target_table_name": "customers",
   "cassandra_user": "cassandra",
