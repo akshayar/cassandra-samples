@@ -38,10 +38,18 @@ aws ec2 describe-subnets --filters "Name=vpc-id,Values=${VPC_ID}" --query Subnet
 cd ${AWS_DEPLOYMENT_HOME}
 terraform init
 terraform apply
+```
+
+```
 PULSAR_SERVICE_VALUE=`cat terraform.tfstate | jq -r .outputs.pulsar_service_url.value` 
 echo $PULSAR_SERVICE_VALUE 
 PULSAR_ADMIN_URL=`cat terraform.tfstate | jq -r .outputs.pulsar_web_url.value` 
 echo $PULSAR_ADMIN_URL
+export REGION="us-east-1"
+export SOURCE_KEYSPACE="pocdb1"
+export SOURCE_TABLE_NAME="customers"
+export CASSANDRA_SERVERS=<cassandra_servers>
+envsubst < ../parameters/cassandra-config-template.json > ../parameters/cassandra-config.json
 ```
 
 9. Run the ansible playbook to deploy pulsar on EC2 instances created above.

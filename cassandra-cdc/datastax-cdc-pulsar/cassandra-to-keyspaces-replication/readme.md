@@ -12,7 +12,11 @@ In this document we narrate end to end process to do live migration of Cassandra
 * Deploy new version of application to start reading/writing from/to Keyspaces database.  
 
 ## Deployment pre-requisite
-1. Clone GitHub repository and set environment varriables
+1. **Cassandra Deployment** - If you don't have Cassandra deployment and want to do POC on this approach , use the instructions below to deploy Apache Cassandra 4 and enable CDC.
+    * [Deploy Apache Cassandra](cassandra4-deployment.md)
+2. Create a Cloud9 instance in the public subnet of the VPC which hosts Cassandra cluster. Upload SSH keys to Cloud9 and change permission to 400.
+3. Validate the deployment by connecting to a node of the cluster through a bastion node ( jump box) and executing `nodetool status`
+4. Clone GitHub repository and set environment variables.
 ```shell
 git clone https://github.com/akshayar/cassandra-samples.git
 cd  cassandra-samples 
@@ -23,17 +27,29 @@ cd cassandra-cdc/datastax-cdc-pulsar/cassandra-to-keyspaces-replication/terrafor
 ## cd cassandra-cdc/datastax-cdc-pulsar/cassandra-to-keyspaces-replication/terraform-ansible-standalone/aws
 
 export AWS_DEPLOYMENT_HOME=`pwd`
-export REGION="us-east-1"
-export SOURCE_KEYSPACE="pocdb1"
-export SOURCE_TABLE_NAME="customers"
-export CASSANDRA_SERVERS=<cassandra_servers>
-envsubst < ../parameters/cassandra-config-template.json > ../parameters/cassandra-config.json
-
 ```
-
-## Deploy Apache Cassandra 
-If you don't have Cassandra deployment and want to do POC on this approach , use the instructions below to deploy Apache Cassandra 4 and enable CDC. 
-* [Deploy Apache Cassandra](cassandra4-deployment.md)
+5. Enable CDC by modifying <CASSANDRA_ROOT>/conf/cassandra.yaml (/usr/share/oss/conf/cassandra.yaml for deployment in Step 1) and adding/updating following properties.
+```shell
+cdc_enabled: false
+cdc_total_space_in_mb: 4096
+cdc_free_space_check_interval_ms: 250
+cdc_raw_directory: /var/lib/cassandra/cdc_raw
+```
+6. Run following ansible commands to enable CDC.
+```shell
+cd ${AWS_DEPLOYMENT_HOME}
+export CASSANDRA_INI_FILE=cassandra.ini
+cat << EOF > ${CASSANDRA_INI_FILE}
+[cassandra]
+<cassandra-private-ip1>
+<cassandra-private-ip2>
+<cassandra-private-ip3>
+EOF
+export CASSANDRA_KEY_FILE=<path-key-file>
+chmod 400 ${CASSANDRA_KEY_FILE}
+export CASSANDRA_CONFIG_FILE_PATH="/usr/share/oss/conf/cassandra.yaml"
+ansible-playbook   --user='ubuntu'   --inventory=${CASSANDRA_INI_FILE} --extra-vars='{"ansible_ssh_private_key_file":"'${CASSANDRA_KEY_FILE}'", "cassandra_config_file_path":"'${CASSANDRA_CONFIG_FILE_PATH}'"}'  ../cassandra-cluster-enable-cdc.yaml
+```
 
 ## Deploy Apache Pulsar cluster
 Use these steps to deploy Apache Pulsar cluster on EC2 nodes. The instructions below refer code and instructions from [Deploying a Pulsar cluster on AWS using Terraform and Ansible]
