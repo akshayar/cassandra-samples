@@ -45,7 +45,7 @@ cdc_total_space_in_mb: 4096
 cdc_free_space_check_interval_ms: 250
 cdc_raw_directory: /var/lib/cassandra/cdc_raw
 ```
-6. Run following ansible commands to enable CDC.
+6. Run following ansible commands to enable CDC and copy [schema.sql](../schema.sql).
 ```shell
 cd ${AWS_DEPLOYMENT_HOME}
 export CASSANDRA_INI_FILE=cassandra.ini
@@ -60,9 +60,11 @@ chmod 400 ${CASSANDRA_KEY_FILE}
 export CASSANDRA_CONFIG_FILE_PATH="/usr/share/oss/conf/cassandra.yaml"
 ansible-playbook   --user='ubuntu'   --inventory=${CASSANDRA_INI_FILE} --extra-vars='{"ansible_ssh_private_key_file":"'${CASSANDRA_KEY_FILE}'", "cassandra_config_file_path":"'${CASSANDRA_CONFIG_FILE_PATH}'"}'  ../cassandra-cluster-enable-cdc.yaml
 ```
-7. Execute following command to create required schema from [schema.sql](../schema.sql). Refer [install cassandra](https://cassandra.apache.org/_/download.html) to install cassandra client. 
+7. Execute following command to create required schema from [schema.sql](../schema.sql). 
 ```
-ssh -i ${CASSANDRA_KEY_FILE} ubuntu@<seed-address> "cqlsh -f schema.sql" 
+ssh -i ${CASSANDRA_KEY_FILE} ubuntu@<seed-address> 
+## Execute following command to create schema
+cqlsh -f schema.sql
 ```
 ## Deploy Apache Pulsar cluster
 Use these steps to deploy Apache Pulsar cluster on EC2 nodes. The instructions below refer code and instructions from [Deploying a Pulsar cluster on AWS using Terraform and Ansible]
