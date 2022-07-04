@@ -21,9 +21,13 @@ TF_STATE=./ TF_KEY_NAME=private_ip  ansible-playbook   --user='ec2-user' --inven
 cd ~/environment/pulsar-client
 bin/pulsar-admin --admin-url $PULSAR_ADMIN_URL  topics list public/default
 
+```
+5. If the data topic is not created , update customers table with an insert query.
+   
+6. Consume data and event topics to ensure that CDC is being pushed. 
+```
 bin/pulsar-client --url $PULSAR_SERVICE_VALUE  consume events-${SOURCE_KEYSPACE}.${SOURCE_TABLE_NAME} -s "first-subscription" 
 
 bin/pulsar-client --url $PULSAR_SERVICE_VALUE  consume data-${SOURCE_KEYSPACE}.${SOURCE_TABLE_NAME} -s "first-subscription" 
-
 
 ```

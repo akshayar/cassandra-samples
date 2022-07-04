@@ -14,7 +14,7 @@ In this document we narrate end to end process to do live migration of Cassandra
 ## Deployment pre-requisite
 1. **Cassandra Deployment** - If you don't have Cassandra deployment and want to do POC on this approach , use the instructions below to deploy Apache Cassandra 4 and enable CDC.
     * [Deploy Apache Cassandra](cassandra4-deployment.md)
-2. Create a Cloud9 instance in the public subnet of the VPC which hosts Cassandra cluster. Upload SSH keys to Cloud9 and change permission to 400.
+2. Create a Cloud9 instance in the public subnet of the VPC which hosts Cassandra cluster. Upload SSH keys to Cloud9 and change permission to 400. 
 3. Validate the deployment by connecting to a node of the cluster through a bastion node ( jump box) and executing `nodetool status`
    
 ```
