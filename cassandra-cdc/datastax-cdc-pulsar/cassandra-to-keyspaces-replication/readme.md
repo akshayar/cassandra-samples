@@ -36,7 +36,16 @@ export AWS_DEPLOYMENT_HOME=`pwd`
 ```
 6. Install ansible on Cloud9. 
 ```
-pip install ansible
+sudo yum install jq ; pip install ansible
+sudo yum -y update
+sudo yum -y install java-1.8.0-openjdk-devel
+sudo update-alternatives --config java
+sudo update-alternatives --config javac
+sudo wget http://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
+sudo sed -i s/\$releasever/6/g /etc/yum.repos.d/epel-apache-maven.repo
+sudo yum install -y apache-maven
+terraform version
+aws configure
 ```
 5. Enable CDC by modifying <CASSANDRA_ROOT>/conf/cassandra.yaml (/usr/share/oss/conf/cassandra.yaml for deployment in Step 1) and adding/updating following properties.
 ```shell

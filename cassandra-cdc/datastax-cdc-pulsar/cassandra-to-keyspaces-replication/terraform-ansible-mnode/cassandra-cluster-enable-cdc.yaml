@@ -46,13 +46,8 @@
     - name: Update 1
       ansible.builtin.lineinfile:
         path: /usr/share/oss/conf/cassandra.yaml
-        regexp: '^\s*broadcast_rpc_address:'
-        line: 'broadcast_rpc_address: {{ hostvars[inventory_hostname].private_ip }}'
-    - name: Update 1
-      ansible.builtin.lineinfile:
-        path: /usr/share/oss/conf/cassandra.yaml
         regexp: '^\s*rpc_address:'
-        line: 'rpc_address: 0.0.0.0"'
+        line: 'rpc_address: {{ inventory_hostname }}'
 - name: Cassandra Copy schema.sql
   hosts: cassandra
   connection: ssh
