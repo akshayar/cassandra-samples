@@ -22,28 +22,28 @@
   become: true
   become_user: cassandra
   tasks:
-    - name: Update 1
+    - name: Update cdc_enabled
       ansible.builtin.lineinfile:
-        path: /usr/share/oss/conf/cassandra.yaml
+        path: {{ cassandra_config_file_path }}
         regexp: '^\s*cdc_enabled:'
         line: 'cdc_enabled: true'
         backup: yes
-    - name: Update 1
+    - name: Update cdc_total_space_in_mb
       ansible.builtin.lineinfile:
-        path: /usr/share/oss/conf/cassandra.yaml
+        path: {{ cassandra_config_file_path }}
         regexp: '^\s*cdc_total_space_in_mb:'
         line: 'cdc_total_space_in_mb: 4096'
-    - name: Update 1
+    - name: Update cdc_free_space_check_interval_ms
       ansible.builtin.lineinfile:
-        path: /usr/share/oss/conf/cassandra.yaml
+        path: {{ cassandra_config_file_path }}
         regexp: '^\s*cdc_free_space_check_interval_ms:'
         line: 'cdc_free_space_check_interval_ms: 250'
-    - name: Update 1
+    - name: Update cdc_raw_directory
       ansible.builtin.lineinfile:
-        path: /usr/share/oss/conf/cassandra.yaml
+        path: {{ cassandra_config_file_path }}
         regexp: '^\s*cdc_raw_directory:'
         line: 'cdc_raw_directory: /var/lib/cassandra/cdc_raw'
-    - name: Update 1
+    - name: Update rpc_address
       ansible.builtin.lineinfile:
         path: /usr/share/oss/conf/cassandra.yaml
         regexp: '^\s*rpc_address:'
@@ -64,10 +64,6 @@
   tasks:
     - name: Start Service
       shell: |
-        mkdir -p /usr/share/oss/bin/../data/cdc
-        chown cassandra /usr/share/oss/bin/../data/cdc
-        systemctl daemon-reload
-
         service cassandra stop
         service cassandra start
       register: ps

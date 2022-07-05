@@ -22,12 +22,15 @@ cd ~/environment/pulsar-client
 bin/pulsar-admin --admin-url $PULSAR_ADMIN_URL  topics list public/default
 
 ```
-5. If the data topic is not created , update customers table with an insert query.
+5. If the data topic is not created , update pocdb1.customers table with an insert query.
    
-6. Consume data and event topics to ensure that CDC is being pushed. 
+6. Consume event topic for customer table to ensure that Cassandra us pushing CDC events to events topic.  
 ```
 bin/pulsar-client --url $PULSAR_SERVICE_VALUE  consume events-${SOURCE_KEYSPACE}.${SOURCE_TABLE_NAME} -s "first-subscription" 
 
+```
+7. Consume data topic for customer table to ensure that DataStax CDC source connector is pushing CDC data to data topic.
+```
 bin/pulsar-client --url $PULSAR_SERVICE_VALUE  consume data-${SOURCE_KEYSPACE}.${SOURCE_TABLE_NAME} -s "first-subscription" 
 
 ```
