@@ -1,6 +1,6 @@
-package com.aksh.cassandra.samples;
+package com.cassandra.samples;
 
-import com.datastax.driver.core.Session;
+import com.datastax.oss.driver.api.core.CqlSession;
 
 import java.util.Random;
 import java.util.stream.IntStream;
@@ -8,24 +8,24 @@ import java.util.stream.IntStream;
 public class FakeProductInserterTest {
     @org.junit.Test
     public void insertFakeProduct() throws Exception{
-        FakeProductInserter inserter=new FakeProductInserter();
-        CassandraConnector client = new CassandraConnector();
-        client.connect("44.203.122.78", 9042);
-        Session session = client.getSession();
+        FakeProductInserter inserter=new FakeProductInserter("pocdb1");
+        CassandraConnector client = new CassandraConnector("0.0.0.0", 9042);
+
+        CqlSession session = client.getSession();
         Random random=new Random();
 
         IntStream.range(1,1000).parallel().forEach(i->{
             try{
                 if(random.nextBoolean()){
                     System.out.println("inserting "+i);
-                   // inserter.insertProduct(session);
+                    inserter.insertProduct(session);
 
-                    inserter.insertCustomer(session,"pocdb1");
+                    inserter.insertCustomer(session);
                 }else{
                     System.out.println("updating " +i);
-                    inserter.updateProduct(session,"pocdb1");
+                    inserter.updateProduct(session);
 
-                    inserter.updateCustomer(session,"pocdb1");
+                    inserter.updateCustomer(session);
                 }
 
             }catch (Exception e){
